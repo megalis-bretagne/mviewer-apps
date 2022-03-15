@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <application id="filter" title="Mégalis Bretagne opendata"
+        stats="false"
+    statsurl="https://geobretagne.fr/mviewer/stats"
+    mouseposition="false" logo="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/img/logombzh.svg" 
+    showhelp="false" help="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/home/index.html" 
+    iconhelp="home" measuretools="true" exportpng="true" 
+    style="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/css/megalisbzh.css" 
+    favicon="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/img/favicon_mbzh.ico" 
+    togglealllayersfromtheme="true" home="https://megalis.bretagne.bzh/jcms/j_6/accueil"/>
+    <mapoptions maxzoom="19" projection="EPSG:3857" center="-220750.13768758904,6144925.57790189" zoom="8" 
+    projextent="-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244" />
+
+    <baselayers style="gallery"><!-- style="default"||gallery" -->
+        <baselayer type="WMTS" id="ortho1"
+        label="Photo aérienne actuelle" title="GéoBretagne"
+        thumbgallery="img/basemap/ortho.jpg"
+        url="https://tile.geobretagne.fr/gwc02/service/wmts"
+        layers="satellite" format="image/png" visible="false"
+        attribution="&lt;a href='http://applications.region-bretagne.fr/geonetwork/?uuid=3a0ac2e3-7af1-4dec-9f36-dae6b5a8c731' target='_blank' &gt;partenaires GéoBretagne - IGN RGE BD ORTHO - PlanetObserver&lt;/a&gt;"
+        style="_null" matrixset="EPSG:3857" fromcapacity="false" />
+        <baselayer  type="OSM" id="positron" label="Positron" title="CartoDb" thumbgallery="img/basemap/positron.png"
+            url="http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" maxzoom="20"
+            visible="true" attribution="Map tiles by  &lt;a href='http://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" />
+        <baselayer  type="OSM" id="osm1" label="OpenStreetMap" title="OpenStreetMap" thumbgallery="img/basemap/osm.png"
+            url="http://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="© MapQuest. Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap &lt;/a>,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a>" visible="false"/>
+    </baselayers>
+    <extensions>        
+    </extensions>
+    <styles>
+        <selectionstyle>
+            <point radius="7" fillcolor="22,26,48" opacity="0.5" strokecolor="22,26,48" strokewidth="2" />
+            <polygon fillcolor="22,26,48" opacity="0" strokecolor="22,26,48" strokewidth="2" />
+        </selectionstyle>
+        <subselectionstyle>
+            <point radius="7" fillcolor="22,26,48" opacity="0.5" strokecolor="22,26,48" strokewidth="4" />
+            <polygon fillcolor="22,26,48" opacity="0.5" strokecolor="22,26,48" strokewidth="5" />
+        </subselectionstyle>
+    </styles>
+    <!-- <proxy url='../proxy/?url='/> -->
+    <olscompletion url="http://api-adresse.data.gouv.fr/search/" type="ban"/>
+    <searchparameters bbox="false" localities="true" features="false" />
+
+    <themes>
+        <theme name="Opendata"  collapsed="false" id="theme1" icon="fas fa-angle-right">            
+            <layer id="epci"
+                name="Intercommunalités"
+                visible="false"
+                legendurl="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/img/lgd_epci.png"
+                vectorlegend="true"
+                url="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/customlayers/epci.js"
+                tooltip="true" fields="organisme" tooltipenabled="true"
+                queryable="false"
+                type="customlayer"
+                opacity="1"
+                expanded="false"
+                attribution="Mégalis Bretagne"
+                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url=""></template>
+            </layer>
+		</theme>
+    </themes>
+</config>
