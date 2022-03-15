@@ -1,0 +1,45 @@
+{
+  "js": ["js/filter.js", "js/jquery.easyDrag.min.js"],
+  "css": "css/filter.css",
+  "html": "filter.html",
+  "target": "page-content-wrapper",
+  "options": {
+    "mviewer":{
+      "filter":{
+        "tooltipPosition": "bottom-left",
+        "title": "Filtrer les entités",
+        "open": true,
+        "zoomOnFeatures": true,
+        "legendTitle": "Sélectionner une donnée :",
+        "style": {
+          "border": "",
+          "background": "",
+          "text": "",
+          "colorButton": ""
+        },
+        "layers": [{
+          "layerId": "synthese_user",
+          "filter": [{
+              "attribut": "level",
+              "type": "button",
+              "label": "Type de collectivités"
+            },
+            {
+              "attribut": "organisme",
+              "type": "textbox",
+              "label": "Rechercher une collectivité",
+              "updateOnChange": true
+            },
+            {
+              "attribut": "adherent",
+              "type": "button",
+              "label": "Utilisatrice des services",
+              "updateOnChange": true,
+              "dataSeparator":","
+            }
+          ]
+        }]
+      }
+    }
+  }
+}

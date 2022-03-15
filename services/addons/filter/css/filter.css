@@ -1,0 +1,130 @@
+/* Boîte */
+.advancedFilter {
+  background-color: #FFFFFF;
+  display: none;
+  text-align: left;
+  position: fixed;
+  left: 270px;
+  top: 60%;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: -1px -1px 15px -1px rgb(0 0 0 / 15%);
+  -webkit-box-shadow: -1px -1px 15px -1px rgb(0 0 0 / 15%);
+  -moz-box-shadow: -1px -1px 15px -1px rgb(0 0 0 / 15%);
+  max-width: 230px;
+  z-index: 1000 !important;
+  font-family: var(--myfont);
+  color: var(--mycolor);
+}
+
+/* Titre de la boîte */
+.titlefilter {
+  margin: 0px 0px 15px;
+}
+
+#filterTitle {
+  color: var(--mycolor)!important;
+    font-family: var(--myfont);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.advancedFilter .glyphicon-refresh {
+  position: absolute;
+  cursor: pointer;
+  right: 20px;
+  top: 0px;
+  color: var(--mycolor)!important;
+}
+
+.advancedFilter .glyphicon-remove {
+  position: absolute;
+  cursor: pointer;
+  right: 0px;
+  top: 0px;
+  color: var(--mycolor)!important;
+}
+
+.warningfilter {
+  opacity:0.6;
+  font-style:italic;
+  font-size:10px;
+  line-height:1.2;
+}
+
+/* Label */
+.advancedFilter label {
+  padding: 5px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    margin: 2px 2px;
+    background-color: var(--mycolor);
+}
+
+.advancedFilter legend {
+  font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border: none;
+    color: #555!important;
+}
+
+.advancedFilter .form-check-label {
+  display: inline-block;
+}
+
+.advancedFilter .form-check-label:hover {
+  opacity:0.8;
+}
+
+.advancedFilter .form-check-label-checked{
+  background-color: #5fc0c3;
+}
+
+.form-check {
+  margin-bottom: 5px;
+}
+
+.label-info {
+  background-color: #5fc0c3;
+  /* display: block; */
+  padding: 4px 8px;
+  border-radius: 10px;
+  white-space: normal;
+}
+
+/* Barre de recherche */
+.bootstrap-tagsinput {
+  border: 1px solid var(--mycolor);
+  border-radius: 10px;
+  width:100%
+}
+
+/* needed to add x button on filter */
+.filter-legend {
+  position: relative;
+}
+
+.filter-legend .glyphicon-trash {
+  position: absolute;
+    cursor: pointer;
+    right: 2px;
+    top: 4px;
+    color: var(--mycolor)!important;
+    font-size: 11px;
+}
+
+.bootstrap-tagsinput {
+  border: 1px solid #949494;
+  border-radius: 10px;
+  width:100%
+}
+
+.bootstrap-tagsinput input {
+  font-size: 12px;
+}
+
+.bootstrap-tagsinput ul {
+  font-size: 12px;
+}

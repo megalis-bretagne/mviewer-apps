@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Accueil Mégalis - Usages des services numériques</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        /* Imports des fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+        /* Définition des variables */
+
+        :root {
+            --mycolor:#161a30;
+            --myfont:'Inter', sans-serif;
+        }
+
+        /* Panel size */
+        #help .modal-dialog {
+            width: 80%!important;
+        }
+
+        #help .modal-header {
+            display: none;
+        }
+
+        #help .modal-body {
+            padding: 0;
+        }
+        #help .modal-content {
+            border-radius: 50px!important;
+            border: none;
+        }
+        #home {
+            padding: 100px 80px;
+            border-radius: 50px;
+        }
+
+
+        /**/
+
+        #home {
+            background-image: linear-gradient(to right, #126cb1, #0080ba, #0093bb, #00a4b6, #28b4ae);
+            color: white;
+            font-family: var(--myfont);
+        }
+
+        .container-home {
+            display: flex;
+            padding: 20px 0px;
+        }
+        
+        h4.title-home {
+            font-size: 25px;
+            font-family: var(--myfont)!important;
+            font-weight: 700;
+        }
+
+        p.texte-home {
+            font-size: 14px;
+            font-family: var(--myfont)!important;
+            font-weight: 300;
+            color: white;
+        }
+
+       .illustration {
+            text-align: center;
+        }
+
+        .block-text-home ul {
+            font-size: 14px;
+            font-family: var(--myfont)!important;
+            font-weight: 300;
+            color: white;
+        }
+
+        
+
+        /* Fermer */
+        #help .close {
+            color: white;
+            opacity: 1;
+            font-weight: 200;
+            font-size: 40px;
+        }
+
+        #help .close:hover {
+            opacity: 0.8;
+        }
+
+        .close-home {
+            font-size: 28px;
+            font-family: var(--myfont);
+            position: absolute;
+            right:60px;
+            top:60px;
+            font-weight: 300;
+            z-index: 5000;
+        }
+
+        #btn-open {
+            margin-top: 30px;
+        }
+
+        a.close-home-btn {
+            font-size: 13px;
+            color: white;
+            font-weight: 500;
+            background-color: var(--mycolor);
+            padding: 10px 15px;
+            border-radius: 13px;
+            box-shadow: 0px 1px 17px -2px rgb(0 0 0 / 41%);
+            -webkit-box-shadow: 0px 1px 17px -2px rgb(0 0 0 / 41%);
+            -moz-box-shadow: 0px 1px 17px -2px rgba(0,0,0,0.41);
+        }
+
+
+        a.close-home-btn:hover {
+            background-color: #252525d9;
+        }
+
+        /* Panel infos supplémentaires */
+        .block-text {
+            padding: 100px 50px;
+        }
+
+        .block-text h6 {
+            font-family: var(--myfont);
+            font-weight:600;
+            font-size:20px;
+            margin:0
+        }
+
+        /* Btn Mail */
+        .mail{
+            bottom: 105px;
+            right: 9%;
+        }
+        .info{
+            bottom: 105px;
+            right: 5%;
+        }
+        .btn-block {
+            background-color: var(--mycolor);
+            width: 50px;
+            height: 50px;
+            padding: 8px;
+            border-radius: 50px;
+            position: fixed;
+            z-index: 100;
+            box-shadow: 0px 1px 17px -2px rgb(0 0 0 / 41%);
+            -webkit-box-shadow: 0px 1px 17px -2px rgb(0 0 0 / 41%);
+            -moz-box-shadow: 0px 1px 17px -2px rgba(0,0,0,0.41);
+        }
+        .btn-block:hover {
+            opacity: 0.9;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="home" class="">
+        <div id="btn-contact">
+            <div class="btn-block mail">
+                <A HREF="mailto:accompagnement@megalis.bretagne.bzh"><img  src="https://geobretagne.fr/apps/megalis-services/home/mail.svg" style="width: 25px;margin: 5px;"></A>
+            </div>
+        </div>
+        <div id="btn-infos">
+            <div class="btn-block info">
+                <A HREF="https://megalis.bretagne.bzh/jcms/j_6/accueil" target="_blank"><img  src="https://geobretagne.fr/apps/megalis-services/home/info.svg" style="width: 25px;margin: 5px;"></A>
+            </div>
+        </div>
+        
+        <div class="close-home"><button type="button" class="close" data-dismiss="modal">×</button></div>
+        <div class="logo-home">
+            <A HREF="https://megalis.bretagne.bzh/jcms/j_6/accueil" target="_blank"><img  src="https://geobretagne.fr/apps/megalis-services/home/logo_megalis.svg" style="width: 100px;"></A>
+        </div>
+     
+        <div class="container-home row">
+                
+                
+                <div class="col-sm-6 block-text-home">
+                    <img  src="https://geobretagne.fr/apps/megalis-services/home/titlehome.svg" style="width: 400px;margin: 20px 0px;">
+                    <p class="texte-home">Préparer l'administration de demain en proposant  aux entités publiques bretonnes des services numériques mutualisés au niveau régional, telle est l'ambition portée par Mégalis depuis plusieurs années déjà.</p>
+                    <p class="texte-home">
+                        Dans le cadre de son plan de programme 2020-2024, Mégalis contribue à faire du "100% démat" une réalité au quotidien et propose un bouquet de services numériques qui permet ainsi à ses adhérents d'avoir accès :
+                        
+                    </p>
+                    <ul>
+                            <li>à la salle régionale de marchés publics,</li>
+                            <li>à la télétransmission des flux Actes et PES (financiers),</li>
+                            <li>à un parapheur électronique, au service régional d'archivage électronique,</li>
+                            <li>à une solution d'échanges sécurisés de fichiers,</li>
+                            <li>à la convocation électronique des élus, à une gestion électronique de documents (GED),</li>
+                            <li>à un portail de publication et de valorisation des données publiques (en cours de développement).</li>
+                        </ul>
+                    <p class="texte-home">Cet outil cartographique vous permet d'accéder aux statistiques d'usages des adhérents aux services proposés par Mégalis.</p>
+                    <p class="texte-home">
+                        Pour en savoir +, n'hésitez pas à consulter les tutoriels vidéos :
+                        
+                    </p>
+                    <ul>
+                            <li><a href="https://youtu.be/2PbOU7scs6U" target="_blank" style="color: #000000">accéder à une information globale sur un service Mégalis</a></li>
+                            <li><a href="https://youtu.be/8In6CX8NTds" target="_blank" style="color: #000000">accéder à la vision synthétique des services utilisés sur un territoire</a></li>
+                            <li><a href="https://youtu.be/Qp7TYubvGb8" target="_blank" style="color: #000000">réutiliser un visualiseur simplifié dans son site internet en local</a></li>
+                            
+                        </ul>
+                      <div id="btn-open">
+                        <a class="close-home-btn" data-dismiss="modal">Découvrir</a>
+                    </div>
+                </div>
+                
+                <div class="col-sm-6 illustration">
+                    <img  src="https://geobretagne.fr/apps/megalis-services/home/dataviz_home.svg" style="width:90%;">
+                </div>
+                
+                
+        </div>
+            
+    </div>
+
+
+</body>
+
+<script type="text/javascript">
+
+</script>
+</html>

@@ -1,0 +1,148 @@
+{{#features}}
+	<li class="item" id ="templateRight" style="">
+		<h3 class="title-feature">SALLE DE {{nom_de_la_salle}}</h3>
+		<p class="text-feature"><span class="fas fa-map-marker-alt"></span> {{collectivite}}</p>
+
+
+		<div id="info-salle-block">
+			<div class="row">
+				<div class="col-sm-4 block-grey center" style="margin-right:10px;">
+					<div class="icon-block">
+							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/capacity_room.svg">
+					</div>
+					<p class="number-feature">{{capacite_salle}}</p>
+					<p class="text-feature">Capacité de la salle</p>
+				</div>
+				<div class="col-sm-7 block-grey" style="padding: 25px;">
+					<p class="subtitle-feature">Caractéristiques de la salle</p>
+					<p class="text-feature">Accessibilité PMR : {{accessibilite_pmr}}</p>
+					<p class="text-feature">Salle ouverte au public : {{salle_ouverte_public}}</p>
+				</div>
+			</div>
+			<div class="row" id="infos_pratiques">
+				<p class="subtitle-feature">Adresse & contact</p>
+				<p class="text-feature">{{adresse_1}} <br> {{code_postal}} - {{ville}}  <br> {{telephone_contact}} </p>
+				<p class="subtitle-feature">Horaires d'ouverture</p>
+				<p class="text-feature">{{jour_et_horaire}}</p>
+			</div>
+
+			<div class="row center link_{{url_reservation}}" id="link">
+					<div class="btn-link-user">
+						<a href="{{url_reservation}}" target="_blank">Réserver</a>
+					</div>
+			</div>
+
+			
+
+		    			
+		</div>
+		
+	</li>
+{{/features}}
+
+<style>
+
+	/* Définition des propriétés de style pour le service */
+	:root {
+		--mycolor:#161A30;
+		--mycolortheme8:#A1425B;
+		--myfont:'Inter', sans-serif;
+	}
+	/* */
+	
+	#templateRight {
+		padding: 10px;
+	}
+
+	.center{
+		text-align:center;
+	}
+
+	#info-salle-block .row {
+    	margin: 0;
+	}
+
+	#info-salle-block {
+		padding: 15px 0px;
+	}
+
+	.title-feature {
+		color: var(--mycolor);
+	    font-family: var(--myfont);
+	    font-size: 19px;
+	    line-height: 1.2;
+		font-weight: 700;
+	}
+
+	.subtitle-feature {
+		color: var(--mycolor);
+		font-family: var(--myfont);
+		font-weight: 500;
+		font-size: 16px;
+		margin-top: 15px;
+		margin-bottom: 5px;
+		line-height: 1;
+	}
+
+	.text-feature, p {
+		font-family:var(--myfont);
+		color:#555;
+		font-size:13px;
+		margin: 0;
+	}
+
+
+	.icon-block {
+		width: 50px;
+		padding: 10px;
+		margin: 0 auto;
+	}
+
+	.number-feature {
+		font-size: 16px;
+		font-weight: 600;
+		color: var(--mycolortheme8);
+		margin-top: 10px;
+	}
+
+
+	.btn-link-user {
+		margin:40px 0px;
+	}
+
+	.btn-link-user a{
+		font-family: var(--myfont);
+		border: solid 1px #161A30;
+		color: #161A30;
+		padding: 8px 12px;
+		border-radius: 8px;
+		margin: 40px 0px;
+	}
+
+	.btn-link-user a:hover {
+		background-color: #161A30;
+		color: white!important;
+		-webkit-transition: background-color 0.5s ease-out;
+		-moz-transition: background-color 0.5s ease-out;
+		-o-transition: background-color 0.5s ease-out;
+		transition: background-color 0.5s ease-out;
+	}
+	
+	#infos_pratiques {
+		padding: 15px 0px;
+	}
+
+	.block-grey {
+		padding: 20px 10px;
+		border-radius: 15px;
+		background-color: #e2e2e28f;
+		height: 140px;
+	}
+
+	/** Gestion des conditions d'affichages du bouton "Reserver" **/
+
+	.link_NON {
+		display:none;
+	}
+
+</style>
