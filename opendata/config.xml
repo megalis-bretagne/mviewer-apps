@@ -3,11 +3,11 @@
     <application id="filter" title="Mégalis Bretagne opendata"
         stats="false"
     statsurl="https://geobretagne.fr/mviewer/stats"
-    mouseposition="false" logo="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/custom/img/logombzh.svg" 
-    showhelp="false" help="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/home/index.html" 
+    mouseposition="false" logo="https://data-mviewer-preprod.megalis.bretagne.bzh/apps/services-megalis/img/logombzh.svg" 
+    showhelp="false" help="https://data-mviewer-preprod.megalis.bretagne.bzh/apps/services-megalis/home/index.html" 
     iconhelp="home" measuretools="true" exportpng="true" 
-    style="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/custom/css/megalisbzh.css" 
-    favicon="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/custom/img/favicon_mbzh.ico" 
+    style="https://data-mviewer-preprod.megalis.bretagne.bzh/apps/services-megalis/css/megalisbzh.css" 
+    favicon="https://data-mviewer-preprod.megalis.bretagne.bzh/apps/services-megalis/img/favicon_mbzh.ico" 
     togglealllayersfromtheme="true" home="https://megalis.bretagne.bzh/jcms/j_6/accueil"/>
     <mapoptions maxzoom="19" projection="EPSG:3857" center="-220750.13768758904,6144925.57790189" zoom="8" 
     projextent="-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244" />
@@ -21,10 +21,10 @@
         attribution="&lt;a href='http://applications.region-bretagne.fr/geonetwork/?uuid=3a0ac2e3-7af1-4dec-9f36-dae6b5a8c731' target='_blank' &gt;partenaires GéoBretagne - IGN RGE BD ORTHO - PlanetObserver&lt;/a&gt;"
         style="_null" matrixset="EPSG:3857" fromcapacity="false" />
         <baselayer  type="OSM" id="positron" label="Positron" title="CartoDb" thumbgallery="img/basemap/positron.png"
-            url="http://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" maxzoom="20"
+            url="https://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" maxzoom="20"
             visible="true" attribution="Map tiles by  &lt;a href='http://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='http://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" />
         <baselayer  type="OSM" id="osm1" label="OpenStreetMap" title="OpenStreetMap" thumbgallery="img/basemap/osm.png"
-            url="http://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            url="https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="© MapQuest. Données : les contributeurs d'&lt;a href='http://www.openstreetmap.org/' target='_blank'>OpenStreetMap &lt;/a>,  &lt;a href='http://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a>" visible="false"/>
     </baselayers>
     <extensions>        
@@ -40,7 +40,7 @@
         </subselectionstyle>
     </styles>
     <!-- <proxy url='../proxy/?url='/> -->
-    <olscompletion url="http://api-adresse.data.gouv.fr/search/" type="ban"/>
+    <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban"/>
     <searchparameters bbox="false" localities="true" features="false" />
 
     <themes>
@@ -48,9 +48,9 @@
             <layer id="epci"
                 name="Intercommunalités"
                 visible="false"
-                legendurl="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/custom/img/lgd_epci.png"
+                legendurl="https://data-mviewer-preprod.megalis.bretagne.bzh/apps/services-megalis/img/lgd_epci.png"
                 vectorlegend="true"
-                url="https://data-mviewer-preprod.megalis.bretagne.bzh/opendata/custom/customlayers/epci.js"
+                url="https://data-mviewer-preprod.megalis.bretagne.bzh/apps/services-megalis/customlayers/epci.js"
                 tooltip="true" fields="organisme" tooltipenabled="true"
                 queryable="false"
                 type="customlayer"
