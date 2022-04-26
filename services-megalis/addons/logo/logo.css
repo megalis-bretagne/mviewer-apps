@@ -1,0 +1,9 @@
+#logo-container {
+    bottom: 5px;
+    position: fixed;
+    left: 50%;
+}
+
+#logo-container img {
+    max-height: 65px;
+}
