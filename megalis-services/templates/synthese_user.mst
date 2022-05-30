@@ -88,6 +88,16 @@
 									<span class="s-service-title">Service d'échanges sécurisés des fichiers (SESF)</span>
 								</div>
 							</div>
+							<div class="s-block-grey s-service-block" id="opendata-{{opendata_publie}}">
+								<div class="s-icon-block">
+										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+								</div>
+								<div class="s-service-block-info">
+									<span class="s-service-title">Publication opendata</span>
+									<span class="s-service-subtitle s-sub-{{opendata_publie}}">data.gouv.fr</span>
+								</div>
+							</div>
+
 							<div class="s-block-grey s-service-block" id="visio-{{service_visio}}">
 								<div class="s-icon-block">
 										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/visio.svg">
@@ -213,6 +223,7 @@
 		--mycolorparapheur:#F7C750;
 		--mycolorpydio:#F28E67;
 		--mycolorsged:#add255;
+		--mycoloropendata:#e67f7b;
 		--mycolorvisio:#A1425B;
 		--myfont:'Inter', sans-serif;
 	}
@@ -345,6 +356,13 @@
 	}
 
 	/* Couleurs des services selon les services utilisés */
+	/* OPENDATA */
+	#opendata-OUI .s-service-title {
+		color: var(--mycoloropendata);
+	}
+	#opendata-OUI .s-icon-block {
+		background-color: var(--mycoloropendata);
+	}
 	/* SDM */
 	#sdm-OUI .s-service-title {
 		color: var(--mycolorsdm);
