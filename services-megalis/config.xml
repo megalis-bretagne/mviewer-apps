@@ -235,6 +235,25 @@
                 infopanel="right-panel">
                 <template url="https://geobretagne.fr/apps/megalis-services/templates/salles_visio.mst"></template>
             </layer>
+            <layer id="services_organisme" name="Opendata" type="wms"
+                url="https://geobretagne.fr/geoserver/megalis/wms"
+                featurecount="1"
+                styletitle="Publication opendata"
+                tiled="false"
+                visible="false"
+                expanded="false"
+                infoformat="application/vnd.ogc.gml"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/opendata_budget.sld,https://geobretagne.fr/apps/megalis-services/sld/opendata_nb_deliberations.sld"
+                style="" opacity=""
+                stylesalias="Budgets,Délibérations"
+                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2020,2021,2022"
+                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true"
+                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url="/apps/services-megalis/templates/opendata.mst"></template>
+            </layer>
             <layer id="epci"
                 name="Intercommunalités"
                 visible="false"

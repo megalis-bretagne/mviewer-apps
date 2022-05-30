@@ -1,0 +1,377 @@
+{{#features}}
+	<li class="item" id ="templateRight" style="">
+		<h3 class="title-feature">{{organisme}}</h3>
+		<div id="select-features-list">
+			<span class="select-features">{{level}}</span>
+			<span class="select-features">{{annee}}</span>
+			<span class="select-features">SIREN : {{siren}}</span>
+			<!-- Alerte: Chiffres de l'année en cours -->
+			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
+		</div>
+
+		<div id="user-budget-{{budget_publie}}">
+		    <!-- L'entité utilise le service -->
+			<div class="user-service-oui">
+				<div class="service-block-actes">
+					<div class="col1">
+						<div class="icon-block">
+							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+						</div>
+					</div>
+					<div class="service-block-info">
+						<p class="service-title">Publication opendata des budgets</p>
+						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Service utilisé par la collectivité</p>
+					</div>
+				</div>
+			</div>
+
+			<!--
+			<div class="user-service-non">
+				<div class="icon-block-actes">
+					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+				</div>
+				<h2 class="user-title-feature-actes">Oops !</h2>
+				<p class="text-feature">Il semble que cette collectivité n'a pas encore publié de budget en opendata cette année.</p>
+				<div class="btn-link-user">
+					<a href="https://www.megalis.bretagne.bzh/jcms/mw_27576/le-nouveau-module-de-publication-opendata-est-en-ligne?hlText=opendata" target="_blank">En savoir plus</a>
+				</div>
+			</div>
+		</div>
+		-->
+
+
+		<div id="user-nbdelib-{{nb_delib_publie}}" class="user-nbdelib">
+
+		<!-- L'entité utilise le service -->
+			<div class="user-service-oui">
+				<div class="service-block-actes">
+					<div class="col1">
+						<div class="icon-block">
+							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+						</div>
+					</div>
+					<div class="service-block-info">
+						<p class="service-title">Publication opendata desdélibérations</p>
+						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  {{ nb_delib_publie }} délibération(s) publiée(s)</p>
+					</div>
+				</div>
+			</div>
+
+		<!--
+			<div class="user-service-non">
+				<div class="icon-block-actes">
+					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+				</div>
+				<h2 class="user-title-feature-actes">Oops !</h2>
+				<p class="text-feature">Il semble que cette collectivité n'a pas encore publié de délibération en opendata cette année.</p>
+				<div class="btn-link-user">
+					<a href="https://www.megalis.bretagne.bzh/jcms/mw_27576/le-nouveau-module-de-publication-opendata-est-en-ligne?hlText=opendata" target="_blank">En savoir plus</a>
+				</div>
+			</div>
+		-->
+		</div>
+		<code id="mqb-container">
+			<!--<input type="checkbox"  />-->
+			<div class="card">
+				<div class="front-marqueblanche">
+					<iframe style="border:2px solid var(--mycolortheme3);border-radius:25px;" src="{{url_opendata}}" title="Marque blanche open data"
+						width="100%" height="600">
+					</iframe>
+				</div>
+				<div class="back-marqueblanche">
+					gfgflgfgfg
+					gfdgfg
+				</div>
+			</div>
+
+		</code>
+
+	</li>
+
+<style>
+
+	/* Définition des propriétés de style pour le service */
+	:root {
+		--mycolor:#161A30;
+		--mycolortheme3:#e67f7b;
+		--myfont:'Inter', sans-serif;
+	}
+	/* */
+
+
+
+*/
+label {
+    -webkit-perspective: 1000px;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    display: block;
+    width: 500px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.card {
+    /*position: relative;*/
+    height: 100%;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 600ms;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+    .card div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: #FFF;
+        text-align: center;
+        line-height: 200px;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+
+    .card .back-marqueblanche {
+        background: #222;
+        color: #FFF;
+        -webkit-transform: rotateX(180deg);
+        transform: rotateX(180deg);
+    }
+
+
+input {
+    display: none;
+}
+
+:checked + .card {
+    transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+}*/
+
+
+
+
+	#templateRight {
+		padding: 10px;
+	}
+
+	.title-feature {
+		color: var(--mycolor);
+	    font-family: var(--myfont);
+	    font-size: 19px;
+	    line-height: 1.2;
+		font-weight: 700;
+	}
+
+	.subtitle-feature {
+		color: var(--mycolor);
+		font-family:var(--myfont);
+		font-size:18px;
+		margin-top:7%;
+		line-height:1;
+	}
+
+	.text-feature, p {
+		font-family:var(--myfont);
+		color:#555;
+		font-size:13px;
+	}
+
+	.center{
+		text-align:center;
+	}
+
+	.block-grey {
+    	border-radius: 20px;
+    	background-color: #e2e2e28f;
+    	height: 250px;
+	}
+
+	.block-number{
+		padding: 50px 10px;
+	}
+
+	.block-graph{
+		padding: 25px 15px;
+	}
+
+	/* Critères de selection des entités */
+
+	span.select-features {
+		background-color: var(--mycolor);
+		padding: 5px 10px;
+		color: white;
+		font-size: 11px;
+		font-family: var(--myfont);
+		border-radius: 12px;
+	}
+
+	/* Message d'alerte sur la validité des informations */
+
+	p.warning {
+		font-size: 11px!important;
+		font-style: italic!important;
+		font-weight: 500!important;
+		margin: 10px 0px;
+	}
+
+	.warning-info2019, .warning-info2020 {
+		display:none;
+	}
+
+	.warning-info2021{
+		display:block;
+	}
+
+	/* Affichage du contenu selon usagers O/N */
+	#user-budget-OUI .user-service-non {
+		display:none;
+	}
+
+	#user-budget-NON .user-service-oui {
+		display:none;
+	}
+
+	.user-nbdelib .user-service-non {
+		display:none;
+	}
+
+	.user-nbdelib .user-service-oui {
+		display:block;
+	}
+
+	#user-nbdelib-0 .user-service-oui {
+		display:none;
+	}
+
+	/* --- Mise en fome USER-OUI --- */
+
+	.user-service-oui {
+		padding: 20px 0px;
+	}
+
+	.service-block-actes {
+		background-color: var(--mycolortheme3);
+		padding: 5%;;
+    	border-radius: 20px;
+	}
+
+	.service-block-info {
+		padding: 0px 0px 0px 90px;
+		/* color: white!important; */
+	}
+
+	.user-service-oui .icon-block {
+		width: 60px;
+		padding: 12px;
+		background-color: #ffffff33;
+		border-radius: 15px;
+		position: absolute;
+	}
+
+	.service-block-info p {
+		color: white;
+	}
+
+	p.service-title {
+		font-size: 14px;
+		font-weight: 600;
+		padding: 10px 0px 0px;
+		margin: 0;
+	}
+
+	/* Numbers */
+
+	.service-block-number {
+		margin-top: 20px;
+	}
+
+	.number-feature-actes {
+		font-size: 24px;
+		font-weight: 600;
+		color: var(--mycolortheme3);
+		margin: 10px 0px 0px;
+	}
+
+	.title-number-feature-actes {
+		font-weight: 600;
+		color: var(--mycolortheme3);
+		margin:0;
+	}
+
+	.subtitle-number-feature {
+		font-size: 10px;
+		font-style: italic;
+	}
+
+	/* Chart */
+
+	p.title-chart-feature {
+		font-size: 12px;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	/* Bouton en savoir plus */
+
+	.acces-service-actes {
+		text-align: center;
+   		margin: 0 auto;
+	}
+
+	/* --- Mise en fome USER-NON --- */
+
+	.user-service-non {
+		text-align:center;
+		padding: 50px;
+	}
+
+	.user-service-non .icon-block-actes {
+		background-color: var(--mycolortheme3);
+		opacity: 0.8;
+		width: 60px;
+		border-radius: 15px;
+		padding: 12px;
+		margin: 0 auto;
+	}
+
+	h2.user-title-feature-actes {
+		font-weight: 600!important;
+		color: var(--mycolortheme3);
+	}
+
+	.btn-link-user {
+		margin:40px 0px;
+	}
+
+	.btn-link-user a{
+		font-family: var(--myfont);
+		border: solid 1px #161A30;
+		color: #161A30;
+		padding: 8px 12px;
+		border-radius: 8px;
+		margin: 40px 0px;
+	}
+
+	.btn-link-user a:hover {
+		background-color: #161A30;
+		color: white!important;
+		-webkit-transition: background-color 0.5s ease-out;
+		-moz-transition: background-color 0.5s ease-out;
+		-o-transition: background-color 0.5s ease-out;
+		transition: background-color 0.5s ease-out;
+	}
+
+</style>
+
+
+{{/features}}
