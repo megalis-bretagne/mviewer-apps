@@ -9,6 +9,7 @@
 		<div id="select-features-list">
 			<span class="select-features">{{level}}</span>
 			<span class="select-features">{{annee}}</span>
+			<span class="select-features">SIREN : {{siren}}</span>
 			<!-- Alerte: Chiffres de l'année en cours -->
 			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
 		</div>
@@ -37,7 +38,7 @@
                         <!-- MODIFIER : src >> lien vers la page éditoriale du service numérique de Mégalis Bretagne -->
 						<a href="https://www.megalis.bretagne.bzh/jcms/mw_25693/gestion-electronique-de-documents-ged" target="_blank">En savoir plus</a>
 					</div>
-				</div>				
+				</div>
 			</div>
 
 			<!-- L'entité n'utilise pas le service -->
@@ -55,10 +56,10 @@
                     <!-- MODIFIER : src >> lien vers la page éditoriale du service numérique de Mégalis Bretagne -->
 					<a href="https://www.megalis.bretagne.bzh/jcms/mw_25693/gestion-electronique-de-documents-ged" target="_blank">En savoir plus</a>
 				</div>
-				
+
 			</div>
 		</div>
-		
+
 	</li>
 {{/features}}
 
@@ -72,7 +73,7 @@
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
-	
+
 	#templateRight {
 		padding: 10px;
 	}
@@ -110,7 +111,7 @@
 		border-radius: 12px;
 	}
 
-	/* Message d'alerte sur la validité des informations */ 
+	/* Message d'alerte sur la validité des informations */
 
 	p.warning {
 		font-size: 11px!important;
@@ -224,5 +225,5 @@
 		-o-transition: background-color 0.5s ease-out;
 		transition: background-color 0.5s ease-out;
 	}
-	
+
 </style>

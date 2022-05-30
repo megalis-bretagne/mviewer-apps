@@ -4,6 +4,7 @@
 		<div id="select-features-list">
 			<span class="select-features">{{level}}</span>
 			<span class="select-features">{{annee}}</span>
+			<span class="select-features">SIREN : {{siren}}</span>
 			<!-- Alerte: Chiffres de l'année en cours -->
 			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
 		</div>
@@ -31,34 +32,34 @@
 							<p class="number-feature-actes">{{nb_actes}}</p>
 							<p class="title-number-feature-actes">actes transmis</p>
 							<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
-						</div>	
+						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="block-grey block-graph center">
 							<div id="idChart">
-								<canvas class="chart" id="ChartActes_{{siren}}" style="height:170px;width: content-box;"></canvas>								
+								<canvas class="chart" id="ChartActes_{{siren}}" style="height:170px;width: content-box;"></canvas>
 							</div>
 							<p class="title-chart-feature">Évolution du nombre d'actes transmis</p>
 								<p class="subtitle-number-feature">pour l'entité sélectionnée</p>
-						</div>						
+						</div>
 					</div>
 				</div>
 				<div class="row" style="margin-top: 20px;">
 					<div class="col-sm-12">
 						<div class="block-grey block-graph center">
 							<div id="idChart">
-								<canvas class="chart" id="ChartActesN_{{siren}}" data-codegeo="{{siren}}" data-a1="{{nb_acte_reg}}" data-a2="{{nb_acte_budg_fin}}" data-a3="{{nb_acte_deliberation}}" data-a4="{{nb_acte_autre}}" data-a5="{{nb_acte_contrat_conv}}" data-a6="{{nb_acte_indiv}}" style="height:170px;width: content-box;"></canvas>								
+								<canvas class="chart" id="ChartActesN_{{siren}}" data-codegeo="{{siren}}" data-a1="{{nb_acte_reg}}" data-a2="{{nb_acte_budg_fin}}" data-a3="{{nb_acte_deliberation}}" data-a4="{{nb_acte_autre}}" data-a5="{{nb_acte_contrat_conv}}" data-a6="{{nb_acte_indiv}}" style="height:170px;width: content-box;"></canvas>
 							</div>
 							<p class="title-chart-feature">Répartition des actes selon la nature</p>
 								<p class="subtitle-number-feature">pour l'entité sélectionnée</p>
-						</div>						
+						</div>
 					</div>
-				</div>	
+				</div>
 				<div class="acces-service-actes" style="">
 					<div class="btn-link-user">
 						<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5541/teletransmission-actes" target="_blank">En savoir plus</a>
 					</div>
-				</div>				
+				</div>
 			</div>
 
 			<!-- L'entité n'utilise pas le service -->
@@ -71,11 +72,11 @@
 				<div class="btn-link-user">
 					<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5541/teletransmission-actes" target="_blank">En savoir plus</a>
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
+
 	</li>
 
 <style>
@@ -87,7 +88,7 @@
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
-	
+
 	#templateRight {
 		padding: 10px;
 	}
@@ -143,7 +144,7 @@
 		border-radius: 12px;
 	}
 
-	/* Message d'alerte sur la validité des informations */ 
+	/* Message d'alerte sur la validité des informations */
 
 	p.warning {
 		font-size: 11px!important;
@@ -286,16 +287,16 @@
 		-o-transition: background-color 0.5s ease-out;
 		transition: background-color 0.5s ease-out;
 	}
-	
+
 </style>
 
-<script language="javascript"> 
+<script language="javascript">
 
-  // Récupération du code_geo de l'entité selectionnée 
+  // Récupération du code_geo de l'entité selectionnée
   var c_geo = [];
             c_geo.push('{{siren}}');
 
-  
+
   // Définition d'une fonction get_wfsdata
   function get_wfsdata(url, args, callback) {
         var qs = {
@@ -316,7 +317,7 @@
             "propertyName" : "annee,nb_actes",
             "CQL_FILTER" : "siren="+ c_geo +""
         },
-        function (data) {   
+        function (data) {
 
           /* Fonction pour ranger les données dans l'ordre croissant selon les années */
           function sortByKey(array, key) {
@@ -324,23 +325,23 @@
                 var x = a[key]; var y = b[key];
                 return ((x < y) ? -1 : ((x > y) ? 1 : 0));
             });
-            } 
+            }
 
           /* Transformation de la donnée JSON */
-          
+
           var dataActes = data;
-                
+
 
           var features = [];
           features = dataActes.features;
 
-          var jproperties = dataActes.features.map(function (el) { 
-            return el.properties; 
+          var jproperties = dataActes.features.map(function (el) {
+            return el.properties;
           });
 
           // Tri croissant des données selon l'année
           var dataOrderbyYear = [];
-          dataOrderbyYear = sortByKey(jproperties,'annee'); 
+          dataOrderbyYear = sortByKey(jproperties,'annee');
           console.log(dataOrderbyYear);
 
           // Définition des variables pour le graphique
@@ -349,8 +350,8 @@
           });
           var dataNactes = jproperties.map(function(obj) {
             return obj.nb_actes;
-          });;    
-          
+          });;
+
           // CRéation du graphique
           var graph_evo_actes = {};
 
@@ -358,15 +359,15 @@
             var data = {chart_actes: {labels:labels, data: {datasets:[dataNactes]}}};
             console.log(data);
             graph_evo_actes.drawChart(data);
-          };    
-          
+          };
+
           graph_evo_actes.drawChart = function (data) {
           var ctx = document.getElementById("ChartActes_{{siren}}");
           var ChartActes_{{siren}} = new Chart(ctx, {
                   type: 'bar',
                   data: {
                       labels: data.chart_actes.labels,
-                      datasets: [{                  
+                      datasets: [{
                           label: "Nombre d'actes",
                           backgroundColor: "rgba(77,121,184,0.9)",
                           borderColor: "rgba(77,121,184,0.9)",
@@ -380,12 +381,12 @@
                           data: data.chart_actes.data.datasets[0]
                       }]
                   },
-                  options: {  
+                  options: {
                     maintainAspectRatio: false,
     				responsive:true,
 					scales: {
 						x: {
-							ticks: {							
+							ticks: {
 								font: {
 									family: 'Inter',
 									size: 12,
@@ -397,7 +398,7 @@
 							}
 						},
 						y: {
-							ticks: {							
+							ticks: {
 								font: {
 									family: 'Inter',
 									size: 12
@@ -406,7 +407,7 @@
 						}
 					},
 					plugins: {
-						legend: {							
+						legend: {
 							labels: {
 								font: {
 									family: 'Inter',
@@ -422,21 +423,21 @@
 									family: 'Inter',
 									size: 11
 							},
-							callbacks: {								
-							}							
+							callbacks: {
+							}
 						}
 					}
                   }
               });
-            };  
+            };
             if  (typeof Chart === 'function') {
               graph_evo_actes.getData();
           } else {
               $.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js', function() {
                 graph_evo_actes.getData();
-                
-              }); 
-          }        
+
+              });
+          }
         }
     );
 
@@ -448,16 +449,16 @@
 		var data = {chart_actes: {labels:["Arrêtés réglementaires","Actes budgétaires et financiers","Délibérations","Arrêtés autres","Contrats et conventions","Arrêtés individuels"], data: {datasets:[[parseFloat($("#ChartActesN_{{siren}}").attr("data-a1")),parseFloat($("#ChartActesN_{{siren}}").attr("data-a2")),parseFloat($("#ChartActesN_{{siren}}").attr("data-a3")),parseFloat($("#ChartActesN_{{siren}}").attr("data-a4")),parseFloat($("#ChartActesN_{{siren}}").attr("data-a5")),parseFloat($("#ChartActesN_{{siren}}").attr("data-a6"))]]}}};
 		console.log(data);
 		graph_actes_cat.drawChart(data);
-	};    
-	
-	
+	};
+
+
 	graph_actes_cat.drawChart = function (data) {
 	var ctx = document.getElementById("ChartActesN_{{siren}}");
 	var ChartActes_{{siren}} = new Chart(ctx, {
 			type: 'pie',
 			data: {
 				labels: data.chart_actes.labels,
-				datasets: [{                  
+				datasets: [{
 					label: "actes",
 					data: data.chart_actes.data.datasets[0],
 					backgroundColor: [
@@ -476,10 +477,10 @@
 						"rgba(95,192,195,1)",
 						"rgba(190,190,190,1)"
 					],
-					borderWidth: 0 
+					borderWidth: 0
 				}]
 			},
-			options: { 
+			options: {
 				maintainAspectRatio: false,
 				responsive:true,
 				plugins: {
@@ -500,20 +501,20 @@
 										family: 'Inter',
 										size: 11
 								},
-								callbacks: {								
-								}							
+								callbacks: {
+								}
 							}
 				}
 			}
 		});
-		};    
+		};
 
 		if  (typeof Chart === 'function') {
-		graph_actes_cat.getData(); 
+		graph_actes_cat.getData();
 	} else {
 		$.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js', function() {
-			graph_actes_cat.getData();        
-		}); 
+			graph_actes_cat.getData();
+		});
 	}
 
 

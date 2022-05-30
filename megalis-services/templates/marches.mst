@@ -4,6 +4,7 @@
 		<div id="select-features-list">
 			<span class="select-features">{{level}}</span>
 			<span class="select-features">{{annee}}</span>
+			<span class="select-features">SIREN : {{siren}}</span>
 			<!-- Alerte: Chiffres de l'année en cours -->
 			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
 		</div>
@@ -31,23 +32,23 @@
 							<p class="number-feature-marches">{{nb_procedure}}</p>
 							<p class="title-number-feature-marches">procédure(s)</p>
 							<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
-						</div>	
+						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="block-grey block-graph center">
 							<div id="idChart">
-								<canvas class="chart" id="ChartProc_{{siren}}" data-codegeo="{{siren}}" data-p1="{{nb_tot_pa}}" data-p2="{{nb_tot_pf_ac_sad}}" style="height:170px;width: content-box;"></canvas>								
+								<canvas class="chart" id="ChartProc_{{siren}}" data-codegeo="{{siren}}" data-p1="{{nb_tot_pa}}" data-p2="{{nb_tot_pf_ac_sad}}" style="height:170px;width: content-box;"></canvas>
 							</div>
 							<p class="title-chart-feature">Répartition des procédures selon la nature</p>
 								<p class="subtitle-number-feature">pour l'entité sélectionnée</p>
 						</div>
-						
+
 					</div>
 				</div>
 				<div class="service-block-number row" style="padding: 0px 15px;">
 						<div class="block-grey block-graph center">
 							<div id="idChart">
-								<canvas class="chart" id="ChartMarches_{{siren}}" style="height:170px;width: content-box;"></canvas>								
+								<canvas class="chart" id="ChartMarches_{{siren}}" style="height:170px;width: content-box;"></canvas>
 							</div>
 							<p class="title-chart-feature">Évolution des procédures lançées et réponses reçues</p>
 								<p class="subtitle-number-feature">pour l'entité sélectionnée</p>
@@ -57,7 +58,7 @@
 					<div class="btn-link-user">
 						<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5554/salle-des-marches-publics" target="_blank">En savoir plus</a>
 					</div>
-				</div>				
+				</div>
 			</div>
 
 			<!-- L'entité n'utilise pas le service -->
@@ -70,10 +71,10 @@
 				<div class="btn-link-user">
 					<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5554/salle-des-marches-publics" target="_blank">En savoir plus</a>
 				</div>
-				
+
 			</div>
 		</div>
-		
+
 	</li>
 
 <style>
@@ -85,7 +86,7 @@
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
-	
+
 	#templateRight {
 		padding: 10px;
 	}
@@ -141,7 +142,7 @@
 		border-radius: 12px;
 	}
 
-	/* Message d'alerte sur la validité des informations */ 
+	/* Message d'alerte sur la validité des informations */
 
 	p.warning {
 		font-size: 11px!important;
@@ -284,16 +285,16 @@
 		-o-transition: background-color 0.5s ease-out;
 		transition: background-color 0.5s ease-out;
 	}
-	
+
 </style>
 
-<script language="javascript"> 
+<script language="javascript">
 
-  // Récupération du code_geo de l'entité selectionnée 
+  // Récupération du code_geo de l'entité selectionnée
   var c_geo = [];
             c_geo.push('{{siren}}');
 
-  
+
   // Définition d'une fonction get_wfsdata
   function get_wfsdata(url, args, callback) {
         var qs = {
@@ -314,7 +315,7 @@
             "propertyName" : "annee,nb_procedure,nb_reponse",
             "CQL_FILTER" : "siren="+ c_geo +""
         },
-        function (data) {   
+        function (data) {
 
           /* Fonction pour ranger les données dans l'ordre croissant selon les années */
           function sortByKey(array, key) {
@@ -322,23 +323,23 @@
                 var x = a[key]; var y = b[key];
                 return ((x < y) ? -1 : ((x > y) ? 1 : 0));
             });
-            } 
+            }
 
           /* Transformation de la donnée JSON */
-          
+
           var dataMarches = data;
-                
+
 
           var features = [];
           features = dataMarches.features;
 
-          var jproperties = dataMarches.features.map(function (el) { 
-            return el.properties; 
+          var jproperties = dataMarches.features.map(function (el) {
+            return el.properties;
           });
 
           // Tri croissant des données selon l'année
           var dataOrderbyYear = [];
-          dataOrderbyYear = sortByKey(jproperties,'annee'); 
+          dataOrderbyYear = sortByKey(jproperties,'annee');
           console.log(dataOrderbyYear);
 
           // Définition des variables pour le graphique
@@ -347,11 +348,11 @@
           });
           var dataNproc = jproperties.map(function(obj) {
             return obj.nb_procedure;
-          });;    
+          });;
 		  var dataNrep = jproperties.map(function(obj) {
             return obj.nb_reponse;
-          });; 
-          
+          });;
+
           // CRéation du graphique
           var graph_evo_marches = {};
 
@@ -359,15 +360,15 @@
             var data = {chart_marches: {labels:labels, data: {datasets1:[dataNproc], datasets2:[dataNrep]}}};
             console.log(data);
             graph_evo_marches.drawChart(data);
-          };    
-          
+          };
+
           graph_evo_marches.drawChart = function (data) {
           var ctx = document.getElementById("ChartMarches_{{siren}}");
           var ChartMarches_{{siren}} = new Chart(ctx, {
                   type: 'bar',
                   data: {
                       labels: data.chart_marches.labels,
-                      datasets: [{                  
+                      datasets: [{
                           label: "Procédures",
                           backgroundColor: "rgba(81,67,103,0.9)",
                           borderColor: "rgba(81,67,103,0.9)",
@@ -380,7 +381,7 @@
                           hoverBorderColor: "rgba(81,67,103,1)",
                           data: data.chart_marches.data.datasets1[0]
                       },
-					  {                  
+					  {
                           label: "Réponses",
                           backgroundColor: "rgba(95,192,195,0.9)",
                           borderColor: "rgba(31,32,37,0.9)",
@@ -394,12 +395,12 @@
                           data: data.chart_marches.data.datasets2[0]
                       }]
                   },
-                  options: {  
+                  options: {
                     maintainAspectRatio: false,
     				responsive:true,
 					scales: {
 						x: {
-							ticks: {							
+							ticks: {
 								font: {
 									family: 'Inter',
 									size: 12,
@@ -411,7 +412,7 @@
 							}
 						},
 						y: {
-							ticks: {							
+							ticks: {
 								font: {
 									family: 'Inter',
 									size: 12
@@ -436,21 +437,21 @@
 									family: 'Inter',
 									size: 11
 							},
-							callbacks: {								
-							}							
+							callbacks: {
+							}
 						}
 					}
                   }
               });
-            };  
+            };
             if  (typeof Chart === 'function') {
               graph_evo_marches.getData();
           } else {
               $.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js', function() {
                 graph_evo_marches.getData();
-                
-              }); 
-          }        
+
+              });
+          }
         }
     );
 
@@ -462,16 +463,16 @@
     var data = {chart_proc: {labels:["Procédures adaptées","Procédures formalisées"], data: {datasets:[[parseFloat($("#ChartProc_{{siren}}").attr("data-p1")),parseFloat($("#ChartProc_{{siren}}").attr("data-p2"))]]}}};
     console.log(data);
     graph_proc_cat.drawChart(data);
-  };    
-  
-  
+  };
+
+
   graph_proc_cat.drawChart = function (data) {
   var ctx = document.getElementById("ChartProc_{{siren}}");
   var ChartProc_{{siren}} = new Chart(ctx, {
           type: 'pie',
           data: {
               labels: data.chart_proc.labels,
-              datasets: [{                  
+              datasets: [{
                   label: "procédures",
                   data: data.chart_proc.data.datasets[0],
                   backgroundColor: [
@@ -480,12 +481,12 @@
                   ],
                   hoverBackgroundColor: [
                     "rgba(105,93,127,1)",
-					"rgba(170,170,170,0.9)" 
+					"rgba(170,170,170,0.9)"
                   ],
-                  borderWidth: 0 
+                  borderWidth: 0
               }]
           },
-          options: { 
+          options: {
             maintainAspectRatio: false,
     		responsive:true,
 			plugins: {
@@ -505,20 +506,20 @@
 									family: 'Inter',
 									size: 11
 							},
-							callbacks: {								
-							}							
+							callbacks: {
+							}
 						}
 			}
           }
       });
-    };    
+    };
 
     if  (typeof Chart === 'function') {
-      graph_proc_cat.getData(); 
+      graph_proc_cat.getData();
   } else {
       $.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js', function() {
-        graph_proc_cat.getData();        
-      }); 
+        graph_proc_cat.getData();
+      });
   }
 
 

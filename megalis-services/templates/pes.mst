@@ -6,6 +6,7 @@
 		<div id="select-features-list">
 			<span class="select-features">{{level}}</span>
 			<span class="select-features">{{annee}}</span>
+			<span class="select-features">SIREN : {{siren}}</span>
 			<!-- Alerte: Chiffres de l'année en cours -->
 			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
 		</div>
@@ -33,17 +34,17 @@
 							<p class="number-feature-pes">{{nb_pes}}</p>
 							<p class="title-number-feature-pes">flux PES transmis</p>
 							<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
-						</div>	
+						</div>
 					</div>
 					<div class="col-sm-8">
 						<div class="block-grey block-graph center">
 							<div id="idChart">
-								<canvas class="chart" id="ChartPES_{{siren}}" style="height:170px;width: content-box;"></canvas>								
+								<canvas class="chart" id="ChartPES_{{siren}}" style="height:170px;width: content-box;"></canvas>
 							</div>
 							<p class="title-chart-feature">Évolution du nombre de flux PES transmis</p>
 								<p class="subtitle-number-feature">pour l'entité sélectionnée</p>
 						</div>
-						
+
 					</div>
 				</div>
 				<!-- Btn en savoir plus -->
@@ -51,7 +52,7 @@
 					<div class="btn-link-user">
 						<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5542/teletransmission-flux-comptables-pes" target="_blank">En savoir plus</a>
 					</div>
-				</div>				
+				</div>
 			</div>
 
 			<!-- L'entité n'utilise pas le service -->
@@ -64,11 +65,11 @@
 				<div class="btn-link-user">
 					<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5542/teletransmission-flux-comptables-pes" target="_blank">En savoir plus</a>
 				</div>
-				
+
 			</div>
-			
+
 		</div>
-		
+
 	</li>
 
 
@@ -81,7 +82,7 @@
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
-	
+
 	#templateRight {
 		padding: 10px;
 	}
@@ -137,7 +138,7 @@
 		border-radius: 12px;
 	}
 
-	/* Message d'alerte sur la validité des informations */ 
+	/* Message d'alerte sur la validité des informations */
 
 	p.warning {
 		font-size: 11px!important;
@@ -279,16 +280,16 @@
 		-o-transition: background-color 0.5s ease-out;
 		transition: background-color 0.5s ease-out;
 	}
-	
+
 </style>
 
-<script language="javascript"> 
+<script language="javascript">
 
-  // Récupération du code_geo de l'entité selectionnée 
+  // Récupération du code_geo de l'entité selectionnée
   var c_geo = [];
             c_geo.push('{{siren}}');
 
-  
+
   // Définition d'une fonction get_wfsdata
   function get_wfsdata(url, args, callback) {
         var qs = {
@@ -309,7 +310,7 @@
             "propertyName" : "annee,nb_pes",
             "CQL_FILTER" : "siren="+ c_geo +""
         },
-        function (data) {   
+        function (data) {
 
           /* Fonction pour ranger les données dans l'ordre croissant selon les années */
           function sortByKey(array, key) {
@@ -317,23 +318,23 @@
                 var x = a[key]; var y = b[key];
                 return ((x < y) ? -1 : ((x > y) ? 1 : 0));
             });
-            } 
+            }
 
           /* Transformation de la donnée JSON */
-          
+
           var dataPES = data;
-                
+
 
           var features = [];
           features = dataPES.features;
 
-          var jproperties = dataPES.features.map(function (el) { 
-            return el.properties; 
+          var jproperties = dataPES.features.map(function (el) {
+            return el.properties;
           });
 
           // Tri croissant des données selon l'année
           var dataOrderbyYear = [];
-          dataOrderbyYear = sortByKey(jproperties,'annee'); 
+          dataOrderbyYear = sortByKey(jproperties,'annee');
           console.log(dataOrderbyYear);
 
           // Définition des variables pour le graphique
@@ -342,8 +343,8 @@
           });
           var dataNpes = jproperties.map(function(obj) {
             return obj.nb_pes;
-          });;    
-          
+          });;
+
           // CRéation du graphique
           var graph_evo_pes = {};
 
@@ -351,15 +352,15 @@
             var data = {chart_pes: {labels:labels, data: {datasets:[dataNpes]}}};
             console.log(data);
             graph_evo_pes.drawChart(data);
-          };    
-          
+          };
+
           graph_evo_pes.drawChart = function (data) {
           var ctx = document.getElementById("ChartPES_{{siren}}");
           var ChartPES_{{siren}} = new Chart(ctx, {
                   type: 'bar',
                   data: {
                       labels: data.chart_pes.labels,
-                      datasets: [{                  
+                      datasets: [{
                           label: "Nombre de flux PES",
                           backgroundColor: "rgba(91,177,216,0.9)",
                           borderColor: "rgba(91,177,216,0.9)",
@@ -373,12 +374,12 @@
                           data: data.chart_pes.data.datasets[0]
                       }]
                   },
-                  options: {  
+                  options: {
                     maintainAspectRatio: false,
     				responsive:true,
 					scales: {
 						x: {
-							ticks: {							
+							ticks: {
 								font: {
 									family: 'Inter',
 									size: 12,
@@ -390,7 +391,7 @@
 							}
 						},
 						y: {
-							ticks: {							
+							ticks: {
 								font: {
 									family: 'Inter',
 									size: 12
@@ -415,21 +416,21 @@
 									family: 'Inter',
 									size: 11
 							},
-							callbacks: {								
-							}							
+							callbacks: {
+							}
 						}
 					}
                   }
               });
-            };  
+            };
             if  (typeof Chart === 'function') {
               graph_evo_pes.getData();
           } else {
               $.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js', function() {
                 graph_evo_pes.getData();
-                
-              }); 
-          }        
+
+              });
+          }
         }
     );
 
