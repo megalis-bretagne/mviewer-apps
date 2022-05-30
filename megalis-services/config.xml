@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <extensions>
-       <extension type="component" id="logo" path="/apps/services-megalis/addons" />
+       <extension type="component" id="logo" path="/apps/megalis-services/addons" />
     </extensions>
     <application id="filter" title="Usages des services numériques de Mégalis Bretagne"
         stats="true"
@@ -252,7 +252,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="/apps/services-megalis/templates/opendata.mst"></template>
+                <template url="/apps/megalis-services/templates/opendata.mst"></template>
             </layer>
             <layer id="epci"
                 name="Intercommunalités"
