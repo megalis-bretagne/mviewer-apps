@@ -40,7 +40,7 @@
 		-->
 
 
-		<div id="user-nbdelib-{{nb_delib_publie}}" class="user-nbdelib">
+		<div id="user-delib-{{deliberation_publie}}">
 
 		<!-- L'entité utilise le service -->
 			<div class="user-service-oui">
@@ -51,8 +51,8 @@
 						</div>
 					</div>
 					<div class="service-block-info">
-						<p class="service-title">Publication opendata desdélibérations</p>
-						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  {{ nb_delib_publie }} délibération(s) publiée(s)</p>
+						<p class="service-title">Publication opendata des délibérations</p>
+						<!--<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  {{ nb_delib_publie }} délibération(s) publiée(s)</p>-->
 					</div>
 				</div>
 			</div>
@@ -241,17 +241,14 @@ input {
 		display:none;
 	}
 
-	.user-nbdelib .user-service-non {
+	#user-delib_NON .user-service-non {
 		display:none;
 	}
 
-	.user-nbdelib .user-service-oui {
+	#user-delib_OUI .user-service-oui {
 		display:block;
 	}
 
-	#user-nbdelib-0 .user-service-oui {
-		display:none;
-	}
 
 	/* --- Mise en fome USER-OUI --- */
 
