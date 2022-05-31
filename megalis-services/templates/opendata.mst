@@ -52,7 +52,7 @@
 					</div>
 					<div class="service-block-info">
 						<p class="service-title">Publication opendata des délibérations</p>
-						<!--<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  {{ nb_delib_publie }} délibération(s) publiée(s)</p>-->
+						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  {{ nb_delib_publie }} délibération(s) publiée(s)</p>
 					</div>
 				</div>
 			</div>
@@ -69,22 +69,54 @@
 				</div>
 			</div>
 		-->
+
+
+
 		</div>
-		<code id="mqb-container">
-			<!--<input type="checkbox"  />-->
+
+		<div id="user-decp-{{decp_publie}}">
+
+		<!-- L'entité utilise le service -->
+			<div class="user-service-oui">
+				<div class="service-block-actes">
+					<div class="col1">
+						<div class="icon-block">
+							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+						</div>
+					</div>
+					<div class="service-block-info">
+						<p class="service-title">Publication opendata des DECP</p>
+						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>decp</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+		<div id="mqb-container">
+			<span title="Afficher le code embarquable" onclick="showMarqueBlanche();"><code>&lt;/&gt;</code></span>
+			<span class="service-title center">Marque blanche intégrable dans votre site web</span>
+			<div class="arrow-wrapper">
+				<div class="arrow-down"></div>
+			</div>
+
 			<div class="card">
 				<div class="front-marqueblanche">
-					<iframe style="border:2px solid var(--mycolortheme3);border-radius:25px;" src="{{url_opendata}}" title="Marque blanche open data"
+					<iframe style="border:none;" src="{{url_opendata}}" title="Marque blanche open data"
 						width="100%" height="600">
 					</iframe>
 				</div>
 				<div class="back-marqueblanche">
-					gfgflgfgfg
-					gfdgfg
+					<code>&lt;iframe style="border: 0;" src="{{url_opendata}}" title="Marque blanche open data" width="100%" height="600"&gt;&lt;/iframe&gt;</code>
 				</div>
 			</div>
 
-		</code>
 
 	</li>
 
@@ -96,56 +128,52 @@
 		--mycolortheme3:#e67f7b;
 		--myfont:'Inter', sans-serif;
 	}
-	/* */
 
 
 
-*/
-label {
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    display: block;
-    width: 500px;
-    height: 400px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    cursor: pointer;
+.arrow-down {
+    width: 0;
+    height: 0;
+
+    border-right: 16px solid transparent;
+    border-left: 16px solid transparent;
+
+    border-top: 20px solid var(--mycolortheme3);
+}
+.arrow-wrapper {
+    display: inline-flex;
+    margin: 15px 0 0;
+	padding-bottom: 20px;
 }
 
-.card {
-    /*position: relative;*/
-    height: 100%;
-    width: 100%;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
-    -webkit-transition: all 600ms;
-    transition: all 600ms;
-    z-index: 20;
+span code {
+    font-size: x-large;
+	cursor: pointer;
+	color: var(--mycolortheme3);
 }
 
-    .card div {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background: #FFF;
-        text-align: center;
-        line-height: 200px;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-        border-radius: 2px;
-    }
+#mqb-container, .card {
+	border-top: dotted 2px var(--mycolortheme3);
+}
 
-    .card .back-marqueblanche {
-        background: #222;
-        color: #FFF;
-        -webkit-transform: rotateX(180deg);
-        transform: rotateX(180deg);
-    }
+.back-marqueblanche {
+	display:none;
+}
+.code .front-marqueblanche {
+	display:none;
+}
+.code .back-marqueblanche {
+	display:block;
+}
+
+
+.back-marqueblanche {
+	margin-top: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+
 
 
 input {
@@ -241,6 +269,14 @@ input {
 		display:none;
 	}
 
+	#user-decp-OUI .user-service-non {
+		display:none;
+	}
+
+	#user-decp-NON .user-service-oui {
+		display:none;
+	}
+
 	#user-delib_NON .user-service-non {
 		display:none;
 	}
@@ -284,6 +320,11 @@ input {
 		font-weight: 600;
 		padding: 10px 0px 0px;
 		margin: 0;
+	}
+
+	span.service-title {
+		font-size: 14px;
+		font-weight: 600;
 	}
 
 	/* Numbers */
@@ -372,3 +413,9 @@ input {
 
 
 {{/features}}
+<script>
+var showMarqueBlanche = function() {
+	document.getElementById("mqb-container").classList.toggle("code");
+
+}
+</script>
