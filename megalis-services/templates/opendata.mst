@@ -1,122 +1,107 @@
 {{#features}}
 	<li class="item" id ="templateRight" style="">
-		<h3 class="title-feature">{{organisme}}</h3>
-		<div id="select-features-list">
-			<span class="select-features">{{level}}</span>
-			<span class="select-features">{{annee}}</span>
-			<span class="select-features">SIREN : {{siren}}</span>
-			<!-- Alerte: Chiffres de l'année en cours -->
-			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
-		</div>
+		<div class="flip-card flip-card-{{opendata_publie}}">
+  			<div class="flip-card-inner">
+    			<div class="flip-card-front">
+					<h3 class="title-feature">{{organisme}}</h3>
+					<div id="select-features-list">
+						<span class="select-features">{{level}}</span>
+						<span class="select-features">{{annee}}</span>
+						<span class="select-features">SIREN : {{siren}}</span>
+						<!-- Alerte: Chiffres de l'année en cours -->
+						<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
+					</div>
 
-		<div id="user-budget-{{budget_publie}}">
-		    <!-- L'entité utilise le service -->
-			<div class="user-service-oui">
-				<div class="service-block-actes">
-					<div class="col1">
-						<div class="icon-block">
-							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+					<div id="user-opendata-{{opendata_publie}}">
+						<!-- L'entité utilise le service -->
+						<div class="user-service-oui">
+							<div class="service-block-actes">
+								<div class="col1">
+									<div class="icon-block">
+										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+									</div>
+								</div>
+								<div class="service-block-info">
+									<p class="service-title">Publication opendata</p>
+									<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Service utilisé par la collectivité</p>
+								</div>
+							</div>
+
+							<!-- Chiffres clés + graphique -->
+							<div class="service-block-number row">
+								<div class="col-sm-4">
+									<div class="block-grey block-number center">
+										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/procedure.svg" style="width: 40px;">
+										<p class="number-feature-marches">{{nb_delib_publie}}</p>
+										<p class="title-number-feature-marches">délibération(s)</p>
+										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
+									</div>
+								</div>
+								<div class="col-sm-4">
+									<div class="block-grey block-number center">
+										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/procedure.svg" style="width: 40px;">
+										<p class="number-feature-marches">{{nb_decp_publie}}</p>
+										<p class="title-number-feature-marches">donnée(s) essentielles(s) de la commande publique</p>
+										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
+									</div>
+								</div>
+								<div id="user-budget-{{budget_publie}}" class="col-sm-4">
+									<div class="block-grey block-number center">
+										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/procedure.svg" style="width: 40px;">
+										<p class="title-number-feature-marches">budget</p>
+										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
+									</div>
+								</div>
+
+							</div>
+							<div class="btn-link-user center">
+								<a type="btn" style="cursor: pointer;" onclick="flipCard();">Réutiliser</a>
+							</div>
+						</div>
+
+						<!-- L'entité n'utilise pas le service -->
+						<div class="user-service-non">
+							<div class="icon-block-actes">
+								<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+							</div>
+							<h2 class="user-title-feature-actes">Oops !</h2>
+							<p class="text-feature">Il semble que cette collectivité n'a pas encore publié de données en opendata en {{annee}}.</p>
+							<div class="btn-link-user">
+								<a href="https://www.megalis.bretagne.bzh/jcms/mw_27576/le-nouveau-module-de-publication-opendata-est-en-ligne?hlText=opendata" target="_blank">En savoir plus</a>
+							</div>
 						</div>
 					</div>
-					<div class="service-block-info">
-						<p class="service-title">Publication opendata des budgets</p>
-						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Service utilisé par la collectivité</p>
-					</div>
 				</div>
-			</div>
 
-			<!--
-			<div class="user-service-non">
-				<div class="icon-block-actes">
-					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
-				</div>
-				<h2 class="user-title-feature-actes">Oops !</h2>
-				<p class="text-feature">Il semble que cette collectivité n'a pas encore publié de budget en opendata cette année.</p>
-				<div class="btn-link-user">
-					<a href="https://www.megalis.bretagne.bzh/jcms/mw_27576/le-nouveau-module-de-publication-opendata-est-en-ligne?hlText=opendata" target="_blank">En savoir plus</a>
-				</div>
-			</div>
-		</div>
-		-->
+				<div class="flip-card-back">
+					<span class="title-feature">Comment réutiliser les données opendata ?</span>
+					<span class="btn-link-user"><a type="btn" style="cursor: pointer;" onclick="flipCard();">Retour</a></span>
+					<div id="mqb-container">
+						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+						<span class="service-title center">la marque blanche</span>
+						<span id="code_mqb" onclick="showMarqueBlanche();"><code>&lt;code/&gt;</code></span>
+						<div class="card">
+							<div class="front-marqueblanche">
+								<iframe style="border:none;" src="{{url_opendata}}" title="Marque blanche open data"
+									width="100%" height="600">
+								</iframe>
+							</div>
+							<div class="back-marqueblanche">
+								<p>Pour intégrer la marque blanche dans votre propre site web, copier le code suivant et coller le dans une page de votre site web</p>
+								<div class="code-container">
+									<code>&lt;iframe style="border: 0;" src="{{url_opendata}}" title="Marque blanche open data" width="100%" height="600"&gt;&lt;/iframe&gt;</code>
+								</div>
+								<div class="btn-link-user">
+									<a type="btn" style="cursor: pointer;" onclick="showMarqueBlanche();">Afficher le résultat</a>
+								</div>
+							</div>
 
 
-		<div id="user-delib-{{deliberation_publie}}">
-
-		<!-- L'entité utilise le service -->
-			<div class="user-service-oui">
-				<div class="service-block-actes">
-					<div class="col1">
-						<div class="icon-block">
-							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
 						</div>
 					</div>
-					<div class="service-block-info">
-						<p class="service-title">Publication opendata des délibérations</p>
-						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  {{ nb_delib_publie }} délibération(s) publiée(s)</p>
-					</div>
-				</div>
-			</div>
-
-		<!--
-			<div class="user-service-non">
-				<div class="icon-block-actes">
-					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
-				</div>
-				<h2 class="user-title-feature-actes">Oops !</h2>
-				<p class="text-feature">Il semble que cette collectivité n'a pas encore publié de délibération en opendata cette année.</p>
-				<div class="btn-link-user">
-					<a href="https://www.megalis.bretagne.bzh/jcms/mw_27576/le-nouveau-module-de-publication-opendata-est-en-ligne?hlText=opendata" target="_blank">En savoir plus</a>
-				</div>
-			</div>
-		-->
-
-
-
-		</div>
-
-		<div id="user-decp-{{decp_publie}}">
-
-		<!-- L'entité utilise le service -->
-			<div class="user-service-oui">
-				<div class="service-block-actes">
-					<div class="col1">
-						<div class="icon-block">
-							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
-						</div>
-					</div>
-					<div class="service-block-info">
-						<p class="service-title">Publication opendata des DECP</p>
-						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>decp</p>
-					</div>
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
-
-		<div id="mqb-container">
-			<span title="Afficher le code embarquable" onclick="showMarqueBlanche();"><code>&lt;/&gt;</code></span>
-			<span class="service-title center">Marque blanche intégrable dans votre site web</span>
-			<div class="arrow-wrapper">
-				<div class="arrow-down"></div>
-			</div>
-
-			<div class="card">
-				<div class="front-marqueblanche">
-					<iframe style="border:none;" src="{{url_opendata}}" title="Marque blanche open data"
-						width="100%" height="600">
-					</iframe>
-				</div>
-				<div class="back-marqueblanche">
-					<code>&lt;iframe style="border: 0;" src="{{url_opendata}}" title="Marque blanche open data" width="100%" height="600"&gt;&lt;/iframe&gt;</code>
-				</div>
-			</div>
-
 
 	</li>
 
@@ -129,7 +114,60 @@
 		--myfont:'Inter', sans-serif;
 	}
 
+	.flip-card {
+  background-color: transparent;
+  width: 480px;
+  height: 100%;
+  perspective: 1000px;
+}
 
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+}
+
+.flip-card.flip-card-OUI.hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-OUI.hover .user-service-oui {
+	display: none;
+}
+
+#mqb-container.code span code {
+	display: none;
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  padding-top: 15px;
+}
+
+.code-container {
+	border: solid 1px grey;
+}
+
+#code-mqb {
+	position: absolute;
+	right:0px;
+}
 
 .arrow-down {
     width: 0;
@@ -147,13 +185,14 @@
 }
 
 span code {
-    font-size: x-large;
+    font-size: large;
 	cursor: pointer;
 	color: var(--mycolortheme3);
+	position: relative;
 }
 
 #mqb-container, .card {
-	border-top: dotted 2px var(--mycolortheme3);
+	padding-top: 15px;
 }
 
 .back-marqueblanche {
@@ -164,6 +203,10 @@ span code {
 }
 .code .back-marqueblanche {
 	display:block;
+}
+
+.front-marqueblanche {
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 
@@ -261,11 +304,15 @@ input {
 	}
 
 	/* Affichage du contenu selon usagers O/N */
-	#user-budget-OUI .user-service-non {
+	#user-opendata-OUI .user-service-non {
 		display:none;
 	}
 
-	#user-budget-NON .user-service-oui {
+	#user-opendata-NON .user-service-oui {
+		display:none;
+	}
+
+	#user-budget-NON {
 		display:none;
 	}
 
@@ -416,6 +463,11 @@ input {
 <script>
 var showMarqueBlanche = function() {
 	document.getElementById("mqb-container").classList.toggle("code");
+
+}
+
+var flipCard = function() {
+	document.querySelector(".flip-card-OUI").classList.toggle('hover');
 
 }
 </script>

@@ -93,8 +93,8 @@
 										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
 								</div>
 								<div class="s-service-block-info">
-									<span class="s-service-title">Publication opendata</span>
-									<span class="s-service-subtitle s-sub-{{opendata_publie}}">data.gouv.fr</span>
+									<span class="s-service-title">Publication en opendata</span>
+									<span class="s-service-subtitle s-sub-{{opendata_publie}}">sur data.gouv.fr</span>
 								</div>
 							</div>
 
