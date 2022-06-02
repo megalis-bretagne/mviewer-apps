@@ -14,7 +14,7 @@ Définition des propriétés de style CSS - Usages des services numériques de M
     --mycolor:#161a30;
     --myfont:'Inter', sans-serif;
   }
-  
+
 
 /* --- Paramètres globaux --- */
 .modal-content {
@@ -161,7 +161,7 @@ a.geoportail.list-group-item:hover {
     /* display: none; */
     content: url(https://geobretagne.fr/apps/megalis-services/img/house.svg);
     width: 18px;
-} 
+}
 
 
 #iconhelp {
@@ -182,7 +182,7 @@ a.geoportail.list-group-item:hover {
     transform: scale(1.08);
 }
 
-/** PANEL DE RECHERCHE **/ 
+/** PANEL DE RECHERCHE **/
 #parameterspanel .modal-content {
     padding: 20px 15px;
     border-radius: 10px!important;
@@ -211,7 +211,7 @@ a.geoportail.list-group-item:hover {
     opacity:0.9!important;
 }
 
-/** PANEL DE PARTAGE **/ 
+/** PANEL DE PARTAGE **/
 #sharepanel .modal-content {
     padding: 20px 15px;
     border-radius: 10px!important;
@@ -327,7 +327,7 @@ ul.nav-pills.nav-stacked {
     margin-left: 0px!important;
     font-family: var(--myfont);
     color: #777;
-    padding: 20px;  
+    padding: 20px;
 }
 
 /* Header */
@@ -587,7 +587,7 @@ span.fa.mv-time-player {
     padding-top: 2px;
 }
 
-/* Panel métadonnées */ 
+/* Panel métadonnées */
 
 .popover, .arrow{
     border:none!important;
@@ -596,7 +596,6 @@ span.fa.mv-time-player {
 .popover-content {
     font-family: var(--myfont);
     font-size: 12px;
-    padding:20px 15px!important;
 }
 
 .popover-content p {
@@ -719,10 +718,11 @@ span.fa.mv-time-player {
 }
 
 /* NAV */
-.mv-tooltip {
+.mv-tooltip.popover-content {
     font-size: 11px;
     opacity: 0.9;
     font-family: var(--myfont);
+    color: #fff;
 }
 
 #right-panel-selector .nav .active a {
@@ -776,7 +776,7 @@ span.badge.counter-slide {
     background-color: var(--mycolor)!important;
 }
 
-/** MESSAGES ALERTES **/ 
+/** MESSAGES ALERTES **/
 
 #alerts-zone .alert {
     margin: 20px;
