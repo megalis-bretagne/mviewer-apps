@@ -18,12 +18,12 @@
 							<div class="service-block-actes">
 								<div class="col1">
 									<div class="icon-block">
-										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+										<img class="icon" src="/apps/megalis-services/img/opendata.svg">
 									</div>
 								</div>
 								<div class="service-block-info">
 									<p class="service-title">Publication opendata</p>
-									<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Service utilisé par la collectivité</p>
+									<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  taux de publication : <span id="opendata-stats"></span></p>
 								</div>
 							</div>
 
@@ -39,16 +39,16 @@
 								</div>
 								<div class="col-sm-4">
 									<div class="block-grey block-number center">
-										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/procedure.svg" style="width: 40px;">
+										<img class="icon" src="/apps/megalis-services/img/decp.svg" style="width: 40px;">
 										<p class="number-feature-marches">{{nb_decp_publie}}</p>
-										<p class="title-number-feature-marches">donnée(s) essentielles(s) de la commande publique</p>
+										<p class="title-number-feature-marches">commande(s) publique(s)</p>
 										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
 									</div>
 								</div>
 								<div id="user-budget-{{budget_publie}}" class="col-sm-4">
 									<div class="block-grey block-number center">
-										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/procedure.svg" style="width: 40px;">
-										<p class="title-number-feature-marches">budget</p>
+										<img class="icon" src="/apps/megalis-services/img/budget.svg" style="width: 40px;">
+										<p class="title-number-feature-marches">le budget</p>
 										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
 									</div>
 								</div>
@@ -116,7 +116,7 @@
 
 	.flip-card {
   background-color: transparent;
-  width: 480px;
+  width: fit-content;
   height: 100%;
   perspective: 1000px;
 }
@@ -130,11 +130,23 @@
   /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
 }
 
+.service-block-number .col-sm-4 {
+	padding-bottom: 15px;
+}
+
 .flip-card.flip-card-OUI.hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
 .flip-card-OUI.hover .user-service-oui {
+	display: none;
+}
+
+.flip-card.flip-card-OUI.hover .flip-card-front {
+	display: none;
+}
+
+.flip-card.flip-card-OUI:not(.hover) .flip-card-back {
 	display: none;
 }
 
@@ -144,7 +156,7 @@
 
 
 .flip-card-front, .flip-card-back {
-  position: absolute;
+  /*position: absolute;*/
   width: 100%;
   height: 100%;
   -webkit-backface-visibility: hidden;
@@ -456,8 +468,14 @@ input {
 		transition: background-color 0.5s ease-out;
 	}
 
-</style>
+	span#opendata-stats {
+		font-size: x-large;
+	}
 
+</style>
+<script>
+	_ODStats = mviewer.customControls.services_organisme.getStats("{{siren}}");
+</script>
 
 {{/features}}
 <script>
@@ -470,4 +488,13 @@ var flipCard = function() {
 	document.querySelector(".flip-card-OUI").classList.toggle('hover');
 
 }
+
+var getStats = function() {
+	if (_ODStats && _ODStats.taux_non_publie) {
+		document.getElementById("opendata-stats").textContent = `${ parseInt(100 - parseFloat(_ODStats.taux_non_publie))} %` ;
+	}
+
+}
+
+getStats();
 </script>

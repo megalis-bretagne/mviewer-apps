@@ -610,6 +610,9 @@ span.fa.mv-time-player {
     border-radius:15px;
     font-style: normal!important;
 }
+.popover .popover-content {
+    width:fit-content;
+}
 
 .popover-content a:hover {
     color:white!important;
