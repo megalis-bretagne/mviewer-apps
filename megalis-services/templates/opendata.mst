@@ -23,7 +23,7 @@
 								</div>
 								<div class="service-block-info">
 									<p class="service-title">Publication opendata</p>
-									<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  taux de publication : <span id="opendata-stats"></span></p>
+									<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> la collectivité publie des document en open data</p>
 								</div>
 							</div>
 
@@ -35,6 +35,11 @@
 										<p class="number-feature-marches">{{nb_delib_publie}}</p>
 										<p class="title-number-feature-marches">délibération(s)</p>
 										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
+										<p class="number-feature-marches"><span id="opendata-stats"></span></p>
+										<p class="subtitle-number-feature">Taux de pulication toutes années confondues</p>
+										<div class="btn-link-user center">
+											<a type="btn" style="cursor: pointer;" onclick="flipCard();">Réutiliser</a>
+										</div>
 									</div>
 								</div>
 								<div class="col-sm-4">
@@ -54,9 +59,7 @@
 								</div>
 
 							</div>
-							<div class="btn-link-user center">
-								<a type="btn" style="cursor: pointer;" onclick="flipCard();">Réutiliser</a>
-							</div>
+
 						</div>
 
 						<!-- L'entité n'utilise pas le service -->
@@ -78,7 +81,7 @@
 					<span class="btn-link-user"><a type="btn" style="cursor: pointer;" onclick="flipCard();">Retour</a></span>
 					<div id="mqb-container">
 						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-						<span class="service-title center">la marque blanche</span>
+						<span class="service-title center">la marque blanche intégrable dans votre propre site web</span>
 						<span id="code_mqb" onclick="showMarqueBlanche();"><code>&lt;code/&gt;</code></span>
 						<div class="card">
 							<div class="front-marqueblanche">
@@ -280,7 +283,7 @@ input {
 	}
 
 	.block-number{
-		padding: 50px 10px;
+		padding: 20px 10px;
 	}
 
 	.block-graph{
