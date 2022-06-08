@@ -36,7 +36,7 @@
 										<p class="title-number-feature-marches">délibération(s)</p>
 										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
 										<p class="number-feature-marches"><span id="opendata-stats"></span></p>
-										<p class="subtitle-number-feature">Taux de pulication toutes années confondues</p>
+										<p class="subtitle-number-feature">Taux de pulication des délibérations transmises au contrôle de légalité</p>
 										<div class="btn-link-user center">
 											<a type="btn" style="cursor: pointer;" onclick="flipCard();">Réutiliser</a>
 										</div>
