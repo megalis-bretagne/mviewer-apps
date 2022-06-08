@@ -37,7 +37,7 @@
 										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
 										<p class="number-feature-marches"><span id="opendata-stats"></span></p>
 										<p class="subtitle-number-feature">Taux de pulication des délibérations transmises au contrôle de légalité</p>
-										<div class="btn-link-user center">
+										<div class="reuse btn-link-user center">
 											<a type="btn" style="cursor: pointer;" onclick="flipCard();">Réutiliser</a>
 										</div>
 									</div>
@@ -449,8 +449,17 @@ input {
 		color: var(--mycolortheme3);
 	}
 
+	.modal-content .block-grey {
+		height: 300px;
+	}
+
 	.btn-link-user {
 		margin:40px 0px;
+	}
+
+	.reuse.btn-link-user {
+		margin:0px 0px;
+		padding-top: 20px;
 	}
 
 	.btn-link-user a{
