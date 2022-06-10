@@ -241,7 +241,7 @@
                 styletitle="Publication opendata"
                 tiled="true"
                 visible="false"
-                customcontrol="true"
+                customcontrol="false"
                 customcontrolpath="/apps/megalis-services/customcontrols"
                 legendurl="/apps/megalis-services/img/lgd_opendata.png"
                 expanded="false"
