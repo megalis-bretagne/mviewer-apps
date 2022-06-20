@@ -231,13 +231,6 @@ span code {
 	padding-right: 50px;
 }
 
-
-
-
-input {
-    display: none;
-}
-
 :checked + .card {
     transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
