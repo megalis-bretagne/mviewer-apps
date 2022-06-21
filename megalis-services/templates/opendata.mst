@@ -85,14 +85,14 @@
 						<span id="code_mqb" onclick="showMarqueBlanche();"><code>&lt;code/&gt;</code></span>
 						<div class="card">
 							<div class="front-marqueblanche">
-								<iframe style="border:none;" src="{{url_opendata}}" title="Marque blanche open data"
+								<iframe referrerpolicy="strict-origin-when-cross-origin" style="border:none;" src="{{url_opendata}}" title="Marque blanche open data"
 									width="100%" height="600">
 								</iframe>
 							</div>
 							<div class="back-marqueblanche">
 								<p>Pour intégrer la marque blanche dans votre propre site web, copier le code suivant et coller le dans une page de votre site web</p>
 								<div class="code-container">
-									<code>&lt;iframe style="border: 0;" src="{{url_opendata}}" title="Marque blanche open data" width="100%" height="600"&gt;&lt;/iframe&gt;</code>
+									<code>&lt;iframe referrerpolicy="strict-origin-when-cross-origin" style="border: 0;" src="{{url_opendata}}" title="Marque blanche open data" width="100%" height="600"&gt;&lt;/iframe&gt;</code>
 								</div>
 								<div class="btn-link-user">
 									<a type="btn" style="cursor: pointer;" onclick="showMarqueBlanche();">Afficher le résultat</a>
