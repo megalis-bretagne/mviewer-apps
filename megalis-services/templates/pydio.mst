@@ -39,7 +39,7 @@
 				<h2 class="user-title-feature-pydio">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service d'échanges sécurisés des fichiers (Pydio) cette année.</p>
 				<div class="btn-link-user">
-					<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5544/echanges-securises-de-fichiers-sesf" target="_blank">En savoir plus</a>
+					<a href="https://services.megalis.bretagne.bzh/service/echanges-securises-de-fichiers/" target="_blank">En savoir plus</a>
 				</div>
 
 			</div>
