@@ -6,7 +6,7 @@
     <application id="filter" title="Usages des services numériques de Mégalis Bretagne"
         stats="true"
     statsurl="https://geobretagne.fr/mviewer/stats"
-    mouseposition="false" logo="https://geobretagne.fr/apps/megalis-services/img/logombzh.svg" showhelp="false" help="https://geobretagne.fr/apps/megalis-services/home/index.html" iconhelp="home" measuretools="true" exportpng="true" style="https://geobretagne.fr/apps/megalis-services/css/megalisbzh.css" favicon="https://geobretagne.fr/apps/megalis-services/img/favicon_mbzh.ico" togglealllayersfromtheme="true" home="https://megalis.bretagne.bzh/jcms/j_6/accueil"/>
+    mouseposition="false" logo="https://geobretagne.fr/apps/megalis-services/img/logombzh.svg" showhelp="false" help="https://geobretagne.fr/apps/megalis-services/home/index.html" iconhelp="home" measuretools="true" exportpng="true" style="https://geobretagne.fr/apps/megalis-services/css/megalisbzh.css" favicon="https://geobretagne.fr/apps/megalis-services/img/favicon_mbzh.ico" togglealllayersfromtheme="true" home="https://www.megalis.bretagne.bzh/"/>
     <mapoptions maxzoom="19" projection="EPSG:3857" center="-220750.13768758904,6144925.57790189" zoom="8" projextent="-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244" />
 
     <baselayers style="gallery"><!-- style="default"||gallery" -->

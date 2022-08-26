@@ -36,7 +36,7 @@
 				<div class="acces-service-ged" style="">
 					<div class="btn-link-user">
                         <!-- MODIFIER : src >> lien vers la page éditoriale du service numérique de Mégalis Bretagne -->
-						<a href="https://www.megalis.bretagne.bzh/jcms/mw_25693/gestion-electronique-de-documents-ged" target="_blank">En savoir plus</a>
+						<a href="https://services.megalis.bretagne.bzh/service/la-gestion-electronique-de-documents-ou-ged/" target="_blank">En savoir plus</a>
 					</div>
 				</div>
 			</div>
@@ -54,7 +54,7 @@
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore activé la gestion électronique de documents (GED).</p>
 				<div class="btn-link-user">
                     <!-- MODIFIER : src >> lien vers la page éditoriale du service numérique de Mégalis Bretagne -->
-					<a href="https://www.megalis.bretagne.bzh/jcms/mw_25693/gestion-electronique-de-documents-ged" target="_blank">En savoir plus</a>
+					<a href="https://services.megalis.bretagne.bzh/service/la-gestion-electronique-de-documents-ou-ged/" target="_blank">En savoir plus</a>
 				</div>
 
 			</div>

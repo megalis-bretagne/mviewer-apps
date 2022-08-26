@@ -57,7 +57,7 @@
 				</div>
 				<div class="acces-service-actes" style="">
 					<div class="btn-link-user">
-						<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5541/teletransmission-actes" target="_blank">En savoir plus</a>
+						<a href="https://services.megalis.bretagne.bzh/service/teletransmission-des-actes-en-prefecture/" target="_blank">En savoir plus</a>
 					</div>
 				</div>
 			</div>
@@ -70,7 +70,7 @@
 				<h2 class="user-title-feature-actes">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service de télétransmission des actes cette année.</p>
 				<div class="btn-link-user">
-					<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5541/teletransmission-actes" target="_blank">En savoir plus</a>
+					<a href="https://services.megalis.bretagne.bzh/service/teletransmission-des-actes-en-prefecture/" target="_blank">En savoir plus</a>
 				</div>
 
 			</div>

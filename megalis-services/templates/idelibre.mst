@@ -39,7 +39,7 @@
 				<h2 class="user-title-feature-idelibre">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service de convocation électronique des élus (I-delibRe) cette année.</p>
 				<div class="btn-link-user">
-					<a href="https://www.megalis.bretagne.bzh/jcms/mw_25665/convocation-electronique-des-elus" target="_blank">En savoir plus</a>
+					<a href="https://services.megalis.bretagne.bzh/service/outil-de-convocation-electronique-des-elus/" target="_blank">En savoir plus</a>
 				</div>
 
 			</div>

@@ -70,7 +70,7 @@
 							<h2 class="user-title-feature-actes">Oops !</h2>
 							<p class="text-feature">Il semble que cette collectivité n'a pas encore publié de données en opendata en {{annee}}.</p>
 							<div class="btn-link-user">
-								<a href="https://www.megalis.bretagne.bzh/jcms/mw_27576/le-nouveau-module-de-publication-opendata-est-en-ligne?hlText=opendata" target="_blank">En savoir plus</a>
+								<a href="https://services.megalis.bretagne.bzh/service/opendata-2/" target="_blank">En savoir plus</a>
 							</div>
 						</div>
 					</div>
