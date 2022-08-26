@@ -26,7 +26,7 @@
 				</div>
 				<div class="acces-service-visio" style="">
 					<div class="btn-link-user">
-						<a href="https://www.megalis.bretagne.bzh/jcms/mw_7366/visioconference" target="_blank">En savoir plus</a>
+						<a href="https://services.megalis.bretagne.bzh/service/visioconference/" target="_blank">En savoir plus</a>
 					</div>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 				<h2 class="user-title-feature-visio">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service de visioconférence cette année.</p>
 				<div class="btn-link-user">
-					<a href="https://www.megalis.bretagne.bzh/jcms/mw_7366/visioconference" target="_blank">En savoir plus</a>
+					<a href="https://services.megalis.bretagne.bzh/service/visioconference/" target="_blank">En savoir plus</a>
 				</div>
 
 			</div>
