@@ -50,7 +50,7 @@
 				<!-- Btn en savoir plus -->
 				<div class="acces-service-pes row" style="">
 					<div class="btn-link-user">
-						<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5542/teletransmission-flux-comptables-pes" target="_blank">En savoir plus</a>
+						<a href="https://services.megalis.bretagne.bzh/service/teletransmission-des-flux-comptables-pes/" target="_blank">En savoir plus</a>
 					</div>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 				<h2 class="user-title-feature-pes">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service de télétransmission des flux comptables PES cette année.</p>
 				<div class="btn-link-user">
-					<a href="https://www.megalis.bretagne.bzh/jcms/dmw_5542/teletransmission-flux-comptables-pes" target="_blank">En savoir plus</a>
+					<a href="https://services.megalis.bretagne.bzh/service/teletransmission-des-flux-comptables-pes/" target="_blank">En savoir plus</a>
 				</div>
 
 			</div>
