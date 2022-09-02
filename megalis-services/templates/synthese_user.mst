@@ -90,7 +90,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="opendata-{{opendata_publie}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="/apps/megalis-services/img/opendata.svg">
+										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/opendata.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Publication en opendata</span>

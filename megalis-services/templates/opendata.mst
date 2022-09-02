@@ -18,7 +18,7 @@
 							<div class="service-block-actes">
 								<div class="col1">
 									<div class="icon-block">
-										<img class="icon" src="/apps/megalis-services/img/opendata.svg">
+										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/opendata.svg">
 									</div>
 								</div>
 								<div class="service-block-info">
@@ -44,7 +44,7 @@
 								</div>
 								<div class="col-sm-4">
 									<div class="block-grey block-number center">
-										<img class="icon" src="/apps/megalis-services/img/decp.svg" style="width: 40px;">
+										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/decp.svg" style="width: 40px;">
 										<p class="number-feature-marches">{{nb_decp_publie}}</p>
 										<p class="title-number-feature-marches">commande(s) publique(s)</p>
 										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
@@ -52,7 +52,7 @@
 								</div>
 								<div id="user-budget-{{budget_publie}}" class="col-sm-4">
 									<div class="block-grey block-number center">
-										<img class="icon" src="/apps/megalis-services/img/budget.svg" style="width: 40px;">
+										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/budget.svg" style="width: 40px;">
 										<p class="title-number-feature-marches">le budget</p>
 										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
 									</div>
