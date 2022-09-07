@@ -237,7 +237,7 @@
             </layer>
             <layer id="services_organisme" name="Opendata" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
-                featurecount="1"
+                featurecount="20"
                 styletitle="Publication opendata"
                 tiled="true"
                 visible="false"
