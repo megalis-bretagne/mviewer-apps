@@ -3,7 +3,7 @@
 xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sld="http://www.opengis.net/sld"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.0.0/StyledLayerDescriptor.xsd">
   <sld:NamedLayer>
-    <sld:Name>megalis:services_organisme</sld:Name>
+    <sld:Name>services_organisme</sld:Name>
     <sld:UserStyle>
       <sld:Title>nombre_procedure</sld:Title>
       <sld:FeatureTypeStyle>

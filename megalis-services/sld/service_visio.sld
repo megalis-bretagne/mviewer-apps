@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sld:StyledLayerDescriptor xmlns:sld="http://www.opengis.net/sld" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ogc="http://www.opengis.net/ogc" xmlns:gml="http://www.opengis.net/gml" version="1.0.0" xsi:schemaLocation="http://www.opengis.net/sld http://schemas.opengis.net/sld/1.0.0/StyledLayerDescriptor.xsd">
   <sld:NamedLayer>
-    <sld:Name>megalis:services_organisme</sld:Name>
+    <sld:Name>services_organisme</sld:Name>
     <sld:UserStyle>
       <sld:FeatureTypeStyle>
         <sld:Rule>
