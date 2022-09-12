@@ -5,7 +5,7 @@ megalis-services/customlayers/*.js
 "
 
 for f in $FILES; do
-  sed -i -- 's/\/apps\/megalis-services\//https:\/\/geobretagne.fr\/apps\/megalis-services\//g' $f
+  sed -i -- 's/https:\/\/delib.csm.ovh\/apps\/megalis-services\//https:\/\/geobretagne.fr\/apps\/megalis-services\//g' $f
 done
 
 
