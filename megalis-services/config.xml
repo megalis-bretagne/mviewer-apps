@@ -207,7 +207,7 @@
                 infopanel="right-panel">
                 <template url="https://geobretagne.fr/apps/megalis-services/templates/opendata.mst"></template>
             </layer>
-            <layer id="services_organisme" name="Collectivités ayant eu la chance de rencontrer Yves" type="wms"
+            <layer id="services_organisme" name="Accompagnement cybersécurité" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
