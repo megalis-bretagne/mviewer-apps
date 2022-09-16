@@ -1,5 +1,5 @@
 {{#features}}
-	<li class="item" id ="templateRight" style="">
+	<li class="item" id="{{feature_ol_uid}}" style="">
 		<div class="flip-card flip-card-{{opendata_publie}}">
   			<div class="flip-card-inner">
     			<div class="flip-card-front">
@@ -29,32 +29,33 @@
 
 							<!-- Chiffres clés + graphique -->
 							<div class="service-block-number row">
-								<div class="col-sm-4">
-									<div class="block-grey block-number center">
+								<div class="col-sm-12">
+									<div class="block-grey block-number">
 										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/procedure.svg" style="width: 40px;">
-										<p class="number-feature-marches">{{nb_delib_publie}}</p>
-										<p class="title-number-feature-marches">délibération(s)</p>
-										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
-										<!--<p class="number-feature-marches"><span id="opendata-stats"></span></p>
-										<p class="subtitle-number-feature">Taux de pulication des délibérations transmises au contrôle de légalité</p>-->
+										<span class="number-feature-marches">{{nb_delib_publie}}</span>
+										<span class="title-number-feature-marches">délibération(s)</span>
+										<div class="subtitle-number-feature">pour l'entité et l'année sélectionnées</div>
 										<div class="reuse btn-link-user center">
-											<a type="btn" style="cursor: pointer;" onclick="flipCard();">Réutiliser</a>
+											<a type="btn" style="cursor: pointer;" onclick="flipCard(this);">Réutiliser</a>
 										</div>
 									</div>
 								</div>
-								<div class="col-sm-4">
-									<div class="block-grey block-number center">
+								<div class="col-sm-12">
+									<div class="block-grey block-number">
 										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/decp.svg" style="width: 40px;">
-										<p class="number-feature-marches">{{nb_decp_publie}}</p>
-										<p class="title-number-feature-marches">commande(s) publique(s)</p>
-										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
+										<span class="number-feature-marches">{{nb_decp_publie}}</span>
+										<span class="title-number-feature-marches">commande(s) publique(s)</span>
+										<div class="subtitle-number-feature">pour l'entité et l'année sélectionnées</div>
+										<div class="reuse btn-link-user center">
+											<a type="btn" style="cursor: pointer;" href="{{url_marches}}" target="_blank">Réutiliser</a>
+										</div>
 									</div>
 								</div>
-								<div id="user-budget-{{budget_publie}}" class="col-sm-4">
-									<div class="block-grey block-number center">
+								<div id="user-budget-{{budget_publie}}" class="col-sm-12">
+									<div class="block-grey block-number">
 										<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/budget.svg" style="width: 40px;">
-										<p class="title-number-feature-marches">le budget</p>
-										<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
+										<span class="title-number-feature-marches">le budget</span>
+										<div class="subtitle-number-feature">pour l'entité et l'année sélectionnées</div>
 									</div>
 								</div>
 
@@ -78,11 +79,14 @@
 
 				<div class="flip-card-back">
 					<span class="title-feature">Comment réutiliser les données opendata ?</span>
-					<span class="btn-link-user"><a type="btn" style="cursor: pointer;" onclick="flipCard();">Retour</a></span>
-					<div id="mqb-container">
+					<div class="mqb-container">
 						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
 						<span class="service-title center">la marque blanche intégrable dans votre propre site web</span>
-						<span id="code_mqb" onclick="showMarqueBlanche();"><code>&lt;code/&gt;</code></span>
+						<div class="center">
+							<span id="code_mqb" onclick="showMarqueBlanche(this);"><code>&lt;code/&gt;</code></span>
+							<span class="btn-link-user"><a type="btn" style="cursor: pointer;" onclick="flipCard(this);">Retour</a></span>
+						</div>
+
 						<div class="card">
 							<div class="front-marqueblanche">
 								<iframe referrerpolicy="strict-origin-when-cross-origin" style="border:none;" src="{{url_actes}}" title="Marque blanche open data"
@@ -95,7 +99,7 @@
 									<code>&lt;iframe referrerpolicy="strict-origin-when-cross-origin" style="border: 0;" src="{{url_actes}}" title="Marque blanche open data" width="100%" height="600"&gt;&lt;/iframe&gt;</code>
 								</div>
 								<div class="btn-link-user">
-									<a type="btn" style="cursor: pointer;" onclick="showMarqueBlanche();">Afficher le résultat</a>
+									<a type="btn" style="cursor: pointer;" onclick="showMarqueBlanche(this);">Afficher le résultat</a>
 								</div>
 							</div>
 
@@ -122,6 +126,7 @@
   width: fit-content;
   height: 100%;
   perspective: 1000px;
+  width:100%;
 }
 
 .flip-card-inner {
@@ -153,7 +158,7 @@
 	display: none;
 }
 
-#mqb-container.code span code {
+.mqb-container.code span code {
 	display: none;
 }
 
@@ -206,7 +211,7 @@ span code {
 	position: relative;
 }
 
-#mqb-container, .card {
+.mqb-container, .card {
 	padding-top: 15px;
 }
 
@@ -272,7 +277,8 @@ span code {
 	.block-grey {
     	border-radius: 20px;
     	background-color: #e2e2e28f;
-    	height: 250px;
+    	//height: 250px;
+		margin-bottom: 20px;
 	}
 
 	.block-number{
@@ -404,6 +410,12 @@ span code {
 	.subtitle-number-feature {
 		font-size: 10px;
 		font-style: italic;
+		padding-left: 94px;
+    	margin-top: -14px;
+	}
+
+	.block-number img.icon {
+    	margin-left: 50px;
 	}
 
 	/* Chart */
@@ -477,6 +489,10 @@ span code {
 		font-size: x-large;
 	}
 
+	.mqb-container>.center {
+		padding-top: 20px;
+	}
+
 </style>
 <script>
 	//_ODStats = mviewer.customControls.services_organisme.getStats("{{siren}}");
@@ -484,13 +500,12 @@ span code {
 
 {{/features}}
 <script>
-var showMarqueBlanche = function() {
-	document.getElementById("mqb-container").classList.toggle("code");
-
+var showMarqueBlanche = function(element) {
+	element.closest(".mqb-container").classList.toggle("code");
 }
 
-var flipCard = function() {
-	document.querySelector(".flip-card-OUI").classList.toggle('hover');
+var flipCard = function(element) {
+	element.closest(".item").querySelector(".flip-card-OUI").classList.toggle('hover');
 
 }
 
