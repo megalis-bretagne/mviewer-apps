@@ -57,7 +57,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <!--<template url="https://geobretagne.fr/apps/megalis-services/templates/synthese_user.mst"></template>-->
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/synthese_user.mst"></template>
             </layer>
             <layer id="services_organisme" name="Collectivités utilisatrices" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
