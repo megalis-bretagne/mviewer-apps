@@ -90,13 +90,13 @@
 						<div class="card">
 							<div class="front-marqueblanche">
 								<iframe referrerpolicy="strict-origin-when-cross-origin" style="border:none;" src="{{url_actes}}" title="Marque blanche open data"
-									width="100%" height="960">
+									width="100%" height="600">
 								</iframe>
 							</div>
 							<div class="back-marqueblanche">
 								<p>Pour intégrer la marque blanche dans votre propre site web, copier le code suivant et coller le dans une page de votre site web</p>
 								<div class="code-container">
-									<code>&lt;iframe referrerpolicy="strict-origin-when-cross-origin" style="border: 0;" src="{{url_actes}}" title="Marque blanche open data" width="100%" height="960"&gt;&lt;/iframe&gt;</code>
+									<code>&lt;iframe referrerpolicy="strict-origin-when-cross-origin" style="border: 0;" src="{{url_actes}}" title="Marque blanche open data" width="100%" height="600"&gt;&lt;/iframe&gt;</code>
 								</div>
 								<div class="btn-link-user">
 									<a type="btn" style="cursor: pointer;" onclick="showMarqueBlanche(this);">Afficher le résultat</a>
