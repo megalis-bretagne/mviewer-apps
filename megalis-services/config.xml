@@ -243,7 +243,7 @@
                 infopanel="right-panel">
                 <template url="https://geobretagne.fr/apps/megalis-services/templates/ged.mst"></template>
             </layer>
-            <layer id="services_organisme" name="Visioconférence" type="wms"
+            <!-- <layer id="services_organisme" name="Visioconférence" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
@@ -274,7 +274,7 @@
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=909fa98e-8347-428c-aa29-fa5d981e83e5"
                 infopanel="right-panel">
                 <template url="https://geobretagne.fr/apps/megalis-services/templates/salles_visio.mst"></template>
-            </layer>
+            </layer> -->
             <layer id="epci"
                 name="Intercommunalités"
                 visible="false"
