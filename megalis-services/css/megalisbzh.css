@@ -13,6 +13,8 @@ Définition des propriétés de style CSS - Usages des services numériques de M
 :root {
     --mycolor:#161a30;
     --myfont:'Inter', sans-serif;
+    --home:url()
+    --domain: 'http://geobretagne.fr'
   }
 
 
@@ -159,7 +161,7 @@ a.geoportail.list-group-item:hover {
 
 #iconhelp span {
     /* display: none; */
-    content: url(https://geobretagne.fr/apps/megalis-services/img/house.svg);
+    content: url(/apps/megalis-services/img/house.svg);
     width: 18px;
 }
 
@@ -543,7 +545,7 @@ a.mv-layer-remove {
 
 .mv-layer-options .form-control {
     line-height: 1;
-    background: url(https://geobretagne.fr/apps/megalis-services/img/chevron.png) no-repeat right #ddd0;
+    background: url(/apps/megalis-services/img/chevron.png) no-repeat right #ddd0;
     background-size: 10px;
     -webkit-appearance: none;
     background-position-x: 94%;

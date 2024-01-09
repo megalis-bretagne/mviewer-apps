@@ -38,7 +38,6 @@
             <polygon fillcolor="22,26,48" opacity="0.5" strokecolor="22,26,48" strokewidth="5" />
         </subselectionstyle>
     </styles>
-    <!-- <proxy url='../proxy/?url='/> -->
     <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban"/>
     <searchparameters bbox="false" localities="true" features="false" />
 
