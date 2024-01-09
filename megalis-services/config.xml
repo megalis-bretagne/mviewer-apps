@@ -243,38 +243,6 @@
                 infopanel="right-panel">
                 <template url="{{fqdn}}/apps/megalis-services/templates/ged.mst"></template>
             </layer>
-            <!-- <layer id="services_organisme" name="Visioconférence" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
-                tiled="false"
-                visible="false"
-                expanded="false"
-                infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_visio.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_visio.sld"
-                style="" opacity=""
-                stylesalias=""
-                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2021,2022,2023"
-                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/visioconference.mst"></template>
-            </layer>
-            <layer id="salles_visio" name="Localisation des salles de visioconférence (Bêta)" type="customlayer"
-                url="{{fqdn}}/apps/megalis-services/customlayers/salles_visio.js"
-                visible="false"
-                expanded="false"
-                vectorlegend="true"
-                tooltip="true" fields="nom_de_la_salle" tooltipenabled="true"
-                infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_locvisio.png"
-                attribution="Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=909fa98e-8347-428c-aa29-fa5d981e83e5"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=909fa98e-8347-428c-aa29-fa5d981e83e5"
-                infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/salles_visio.mst"></template>
-            </layer> -->
             <layer id="epci"
                 name="Intercommunalités"
                 visible="false"
