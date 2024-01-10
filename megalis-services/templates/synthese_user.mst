@@ -29,7 +29,7 @@
 						<div class="col-sm-8" id="service-list">
 							<div class="s-block-grey s-service-block" id="sdm-{{service_sdm}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/marches.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/marches.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Salles des marchés publics</span>
@@ -38,7 +38,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="idelibre-{{service_idelibre}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/idelibre.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/idelibre.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Convocation électronique des élus (I-delibRe)</span>
@@ -46,7 +46,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="actes-{{service_actes}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_actes.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/flux_actes.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Télétransmission des actes</span>
@@ -56,7 +56,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="pes-{{service_pes}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_pes.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/flux_pes.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Télétransmission des flux PES</span>
@@ -65,7 +65,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="parapheur-{{service_parapheur}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/parapheur.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/parapheur.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Parapheur électronique</span>
@@ -74,7 +74,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="ged-{{service_ged}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/ged.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/ged.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Gestion électronique de documents (GED)</span>
@@ -82,7 +82,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="pydio-{{service_pydio}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/pydio.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/pydio.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Service d'échanges sécurisés des fichiers (SESF)</span>
@@ -90,7 +90,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="cyber-{{service_cyber}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/cyber.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/cyber.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Accompagnement cybersécurité</span>
@@ -98,7 +98,7 @@
 							</div>
 							<div class="s-block-grey s-service-block" id="opendata-{{opendata_publie}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/opendata.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/opendata.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Publication en opendata</span>
@@ -108,7 +108,7 @@
 
 							<div class="s-block-grey s-service-block" id="visio-{{service_visio}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/visio.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/visio.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Visioconférence</span>
@@ -123,13 +123,13 @@
 								<span class="s-service-subtitlenumber">pour l'entité sélectionnée</span>
 							</div>
 							<div class="s-block-grey s-service-block-num center" id="comptes">
-								<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/s-user.svg" style="width: 45px;">
+								<img class="icon" src="/apps/megalis-services/img/s-user.svg" style="width: 45px;">
 								<span class="s-service-number">{{nb_agent_megalis}}</span>
 								<span class="s-service-titlenumber">Nombre de comptes actifs</span>
 								<span class="s-service-subtitlenumber">pour l'entité électionnée</span>
 							</div>
 							<div class="s-block-grey s-service-block-num center" id="nb_service">
-							    <img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/user_service.svg" style="width: 45px;">
+							    <img class="icon" src="/apps/megalis-services/img/user_service.svg" style="width: 45px;">
 								<span class="s-service-number" id="nb_serv_num_{{siren}}"></span>
 								<span class="s-service-titlenumber">Services numériques utilisés</span>
 								<span class="s-service-subtitlenumber">pour l'entité sélectionnée</span>
@@ -142,7 +142,7 @@
 						<h4 class="s-title-feature">Chiffres clés du territoire</h4>
 						<div class="s-block-numberkey" id="numberpop">
 								<div class="s-icon-numberkey">
-										<img class="s-numberkey" src="https://geobretagne.fr/apps/megalis-services/img/pop.svg" >
+										<img class="s-numberkey" src="/apps/megalis-services/img/pop.svg" >
 								</div>
 								<div class="s-numberkey-block-info">
 									<p class="s-numberkey-number" ><span id="nb_pop_commune_{{siren}}"></span> habitants</p>
@@ -173,7 +173,7 @@
 						<h4 class="s-title-feature">Chiffres clés du territoire</h4>
 						<div class="s-block-numberkey" id="numberpop">
 								<div class="s-icon-numberkey">
-										<img class="s-numberkey" src="https://geobretagne.fr/apps/megalis-services/img/pop.svg" >
+										<img class="s-numberkey" src="/apps/megalis-services/img/pop.svg" >
 								</div>
 								<div class="s-numberkey-block-info">
 									<p class="s-numberkey-number" ><span id="nb_pop_epci_{{siren}}"></span> habitants</p>
@@ -207,7 +207,7 @@
 			<!-- L'entité n'utilise pas le service -->
 			<div class="s-user-service-non">
 				<div class="s-icon-block">
-					<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/user.svg">
+					<img class="s-icon" src="/apps/megalis-services/img/user.svg">
 				</div>
 				<h2 class="s-user-title-feature">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé les services numériques proposés par Mégalis Bretagne cette année.</p>

@@ -2,7 +2,7 @@
 
 let legend = { items: [] };
 const id = "structures";
-const url = 'https://geobretagne.fr/apps/megalis-services/data/structures.json';
+const url = CONFIG_FQDN+'/apps/megalis-services/data/structures.json';
 let type = {};
 let formJur = [];
 let attributeToStyle = 'form_jur';

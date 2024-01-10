@@ -13,8 +13,6 @@ Définition des propriétés de style CSS - Usages des services numériques de M
 :root {
     --mycolor:#161a30;
     --myfont:'Inter', sans-serif;
-    --home:url()
-    --domain: 'http://geobretagne.fr'
   }
 
 

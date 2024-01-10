@@ -23,7 +23,7 @@
 					<div class="col1">
 						<div class="icon-block">
                             <!-- MODIFIER : src >> lien vers l'icône du service -->
-							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/cyber.svg">
+							<img class="icon" src="/apps/megalis-services/img/cyber.svg">
 						</div>
 					</div>
 					<div class="service-block-info">
@@ -46,7 +46,7 @@
                 <!-- MODIFIER : class >> icon-clock-nomduservice -->
 				<div class="icon-block-cyber">
                     <!-- MODIFIER : src >> lien vers l'icône du service -->
-					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/cyber.svg">
+					<img class="icon" src="/apps/megalis-services/img/cyber.svg">
 				</div>
                 <!-- MODIFIER : class >> user-title-feature-nomduservice -->
 				<h2 class="user-title-feature-cyber">Oops !</h2>
