@@ -168,25 +168,25 @@
     <div id="home" class="">
         <div id="btn-contact">
             <div class="btn-block mail">
-                <A HREF="mailto:accompagnement@megalis.bretagne.bzh"><img  src="https://geobretagne.fr/apps/megalis-services/home/mail.svg" style="width: 25px;margin: 5px;"></A>
+                <A HREF="mailto:accompagnement@megalis.bretagne.bzh"><img class="img_apps" src="/apps/megalis-services/home/mail.svg" style="width: 25px;margin: 5px;"></A>
             </div>
         </div>
         <div id="btn-infos">
             <div class="btn-block info">
-                <A HREF="https://services.megalis.bretagne.bzh/" target="_blank"><img  src="https://geobretagne.fr/apps/megalis-services/home/info.svg" style="width: 25px;margin: 5px;"></A>
+                <A HREF="https://services.megalis.bretagne.bzh/" target="_blank"><img class="img_apps" src="/apps/megalis-services/home/info.svg" style="width: 25px;margin: 5px;"></A>
             </div>
         </div>
         
         <div class="close-home"><button type="button" class="close" data-dismiss="modal">×</button></div>
         <div class="logo-home">
-            <A HREF="https://services.megalis.bretagne.bzh/" target="_blank"><img  src="https://geobretagne.fr/apps/megalis-services/home/logo_megalis.svg" style="width: 100px;"></A>
+            <A HREF="https://services.megalis.bretagne.bzh/" target="_blank"><img class="img_apps" src="/apps/megalis-services/home/logo_megalis.svg" style="width: 100px;"></A>
         </div>
      
         <div class="container-home row">
                 
                 
                 <div class="col-sm-6 block-text-home">
-                    <img  src="https://geobretagne.fr/apps/megalis-services/home/titlehome.svg" style="width: 400px;margin: 20px 0px;">
+                    <img class="img_apps" src="/apps/megalis-services/home/titlehome.svg" style="width: 400px;margin: 20px 0px;">
                     <p class="texte-home">Préparer l'administration de demain en proposant  aux entités publiques bretonnes des services numériques mutualisés au niveau régional, telle est l'ambition portée par Mégalis depuis plusieurs années déjà.</p>
                     <p class="texte-home">
                         Dans le cadre de son plan de programme 2020-2024, Mégalis contribue à faire du "100% démat" une réalité au quotidien et propose un bouquet de services numériques qui permet ainsi à ses adhérents d'avoir accès :
@@ -217,7 +217,7 @@
                 </div>
                 
                 <div class="col-sm-6 illustration">
-                    <img  src="https://geobretagne.fr/apps/megalis-services/home/dataviz_home.svg" style="width:90%;">
+                    <img class="img_apps" src="/apps/megalis-services/home/dataviz_home.svg" style="width:90%;">
                 </div>
                 
                 
@@ -230,5 +230,8 @@
 
 <script type="text/javascript">
 
+    $(document).ready(function(){
+        replace_fqdn("img.img_apps");
+    });
 </script>
 </html>

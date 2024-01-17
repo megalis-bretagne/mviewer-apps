@@ -77,8 +77,7 @@
   
   mviewer.customLayers.synthese_user.layer = new ol.layer.Vector({
           source: new ol.source.Vector({
-            // Patch monté de version OpenLayers. 3 entités avec coordonnées vide
-            url :"https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GETFEATURE&TYPENAME=services_organisme&CQL_FILTER=annee=%272023%27%20AND%20siren%20NOT%20IN%20(200082485,295600274,214400699)&outputFormat=application/json&srsName=EPSG:4326",
+            url :"https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GETFEATURE&TYPENAME=services_organisme&CQL_FILTER=annee=%272023%27%20&outputFormat=application/json&srsName=EPSG:4326",
             format: new ol.format.GeoJSON()
           }),
           style: function(feature) {

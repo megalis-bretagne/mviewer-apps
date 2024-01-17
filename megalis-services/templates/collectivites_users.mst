@@ -43,7 +43,7 @@
 			<!-- L'entité n'utilise pas le service -->
 			<div class="user-service-non">
 				<div class="icon-block-user">
-					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/user.svg">
+					<img class="icon" src="/apps/megalis-services/img/user.svg">
 				</div>
 				<h2 class="user-title-feature-user">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé les services numériques proposés par Mégalis Bretagne cette année.</p>
@@ -189,7 +189,7 @@
 	}
 
 	.backicon {
-		background-image: url(https://geobretagne.fr/apps/megalis-services/img/compte.svg);
+		background-image: url(/apps/megalis-services/img/compte.svg);
 		background-repeat: no-repeat;
 		background-size: contain;
 		border-radius: 20px;
