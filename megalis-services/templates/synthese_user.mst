@@ -106,15 +106,7 @@
 								</div>
 							</div>
 
-							<div class="s-block-grey s-service-block" id="visio-{{service_visio}}">
-								<div class="s-icon-block">
-										<img class="s-icon" src="/apps/megalis-services/img/visio.svg">
-								</div>
-								<div class="s-service-block-info">
-									<span class="s-service-title">Visioconférence</span>
-									<span class="s-service-subtitle" style="opacity:0;"> Blank</span>
-								</div>
-							</div>
+							
 						</div>
 						<div class="col-sm-4" id="collectivite-number">
 							<div class="s-block-grey s-service-block-num center" id="date">
@@ -162,7 +154,6 @@
 									<th class="service_label">Cyber</th>
 									<th class="service_label">SESF</th>
 									<th class="service_label">GED</th>
-									<th class="service_label">Visio</th>
 								</thead>
 								<tbody></tbody>
 							</table>
@@ -192,8 +183,7 @@
 									<th class="service_label">Parapheur</th>
 									<th class="service_label">Cyber</th>
 									<th class="service_label">GED</th>
-									<th class="service_label">SESF</th>
-									<th class="service_label">Visio</th>
+									<th class="service_label">SESF</th>									
 								</thead>
 								<tbody></tbody>
 							</table>
@@ -235,7 +225,6 @@
 		--mycolorsged:#add255;
 		--mycoloropendata:#e67f7b;
 		--mycolorcyber:#4C4C4C;
-		--mycolorvisio:#A1425B;
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
@@ -438,15 +427,7 @@
 		background-color: var(--mycolorpydio);
 	}
 
-	/* Visio */
-	#visio-OUI .s-service-title {
-		color: var(--mycolorvisio);
-	}
-	#visio-OUI .s-icon-block {
-		background-color: var(--mycolorvisio);
-	}
-
-	/*** Service number ***/
+		/*** Service number ***/
 	.s-service-block-num span {
 		display: block;
 		font-family: var(--myfont);
@@ -741,7 +722,7 @@
 	//// COMMUNES
 	// Calcul du nombre de service utilisés par une entité
 
-    var services_{{siren}} = "{{service_idelibre}} {{service_sdm}} {{service_actes}} {{service_pes}} {{service_ged}} {{service_visio}} {{service_parapheur}} {{opendata_publie}} {{service_cyber}} {{service_pydio}}";
+    var services_{{siren}} = "{{service_idelibre}} {{service_sdm}} {{service_actes}} {{service_pes}} {{service_ged}} {{service_parapheur}} {{opendata_publie}} {{service_cyber}} {{service_pydio}}";
     var nb_service_{{siren}} = services_{{siren}}.split("OUI").length - 1;
     document.getElementById("nb_serv_num_{{siren}}").innerHTML=nb_service_{{siren}};
 
@@ -774,7 +755,7 @@
 
 	// Tables des services pour le level Autres
 
-	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_ged,service_visio,service_parapheur,service_cyber,service_pydio&CQL_FILTER=code_insee={{code_insee}}%20AND%20annee=2024%20AND%20level=%27Autres%27", function(result) {
+	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_ged,service_parapheur,service_cyber,service_pydio&CQL_FILTER=code_insee={{code_insee}}%20AND%20annee=2024%20AND%20level=%27Autres%27", function(result) {
 
         var datajson_{{siren}} = result;
 
@@ -816,8 +797,7 @@
 					"<td class='service"+data.service_parapheur+"'><a data-tooltip='Parapheur électronique : " + data.service_parapheur+"'> ● </td>"+
 					"<td class='service"+data.service_cyber+"'><a data-tooltip='Accompagnement cybersécurité : " + data.service_cyber+"'> ● </td>"+
 					"<td class='service"+data.service_ged+"'><a data-tooltip='GED : " + data.service_ged+"'> ● </td>"+
-					"<td class='service"+data.service_pydio+"'><a data-tooltip='SESF : " + data.service_pydio+"'> ● </td>"+
-					"<td class='service"+data.service_visio+"'><a data-tooltip='Visioconférence : " + data.service_visio+"'> ● </td>"+
+					"<td class='service"+data.service_pydio+"'><a data-tooltip='SESF : " + data.service_pydio+"'> ● </td>"+					
 				"</tr>";
 		$(r).appendTo("#serviceTableCom_{{siren}}");
 		});
@@ -858,7 +838,7 @@
 
 	// Tables des services pour le level Communes
 
-	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_ged,service_visio,service_parapheur,service_cyber,service_pydio&CQL_FILTER=siren_epci={{siren}}%20AND%20annee=2024%20AND%20level=%27Commune%27", function(result) {
+	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_ged,service_parapheur,service_cyber,service_pydio&CQL_FILTER=siren_epci={{siren}}%20AND%20annee=2024%20AND%20level=%27Commune%27", function(result) {
 
         var datajson_{{siren}} = result;
 
@@ -883,8 +863,7 @@
                  "<td class='service"+data.service_parapheur+"'><a data-tooltip='Parapheur électronique : " + data.service_parapheur+"'> ● </td>"+
 				 "<td class='service"+data.service_cyber+"'><a data-tooltip='Accompagnement cybersécurité : " + data.service_cyber+"'> ● </td>"+
                  "<td class='service"+data.service_ged+"'><a data-tooltip='GED : " + data.service_ged+"'> ● </td>"+
-				 "<td class='service"+data.service_pydio+"'><a data-tooltip='SESF : " + data.service_pydio+"'> ● </td>"+
-                 "<td class='service"+data.service_visio+"'><a data-tooltip='Visioconférence : " + data.service_visio+"'> ● </td>"+
+				 "<td class='service"+data.service_pydio+"'><a data-tooltip='SESF : " + data.service_pydio+"'> ● </td>"+                
                "</tr>";
        $(r).appendTo("#serviceTableEPCI_{{siren}}");
      });
