@@ -1,0 +1,349 @@
+/* CUSTOM STYLE  */
+
+/* Imports des fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* Définition des variables */
+
+:root {
+    --mycolor: #161a30;
+    --myfont: 'Inter', sans-serif;
+    --blueBackground: #358093;
+    --dirty-blue: #368093;
+    --brownish-grey: #777777;
+    --darkish-green: #228543;
+    --warm-purple: #ad2075;
+    --black: #121212;
+}
+
+#help .modal-content {
+    border-radius: 50px;
+}
+
+li.mv-nav-item[data-layerid="epci"] {
+    display: none;
+}
+
+li.list-group-item[data-layerid="epci"] {
+    display: none;
+}
+
+/* HOME */
+
+#help .modal-header {
+    display: none;
+}
+
+#help .modal-dialog {
+    width: 80% !important;
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+}
+
+
+#home-header {
+    margin-top: 30px;
+}
+
+img.logo-labaccess {
+    width: 164px;
+    height: 119px;
+    object-fit: contain;
+}
+
+img.logo-piliers {
+    max-width: 100%;
+    height: auto;
+    margin: 48px 25.4px 7px 55px;
+}
+
+
+h1.home-header-h1 {
+    margin: 49px 0 4px 70px;
+    font-family: Arial sans-serif;
+    font-size: 30.8px;
+    font-weight: bold;
+    color: var(--dirty-blue);
+}
+
+h2.home-header-h2 {
+    margin: 4px 0 0 70px;
+    font-family: Arial sans-serif;
+    font-size: 29px;
+    font-weight: normal;
+    color: #04adee;
+}
+
+div.content>h3 {
+    margin: 0px 0px 31px 3px;
+    font-family: Arial sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    color: #04adee;
+}
+
+p.calcul {
+    font-size: 16px;
+}
+
+.close-home {
+    position: absolute;
+    right: 60px;
+    top: 60px;
+    font-weight: 300;
+    z-index: 5000;
+}
+
+.close-home>.close {
+    font-size: 30px;
+}
+
+p.summary,
+div.content {
+    margin: 0px 0 15.9px 3px;
+    font-family: Arial sans-serif;
+    font-size: 22px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: var(--dirty-blue);
+}
+
+div.content {
+    display: none;
+}
+
+
+
+.summary-link>a {
+    width: 422px;
+    height: 20px;
+    margin: 32px 30px 23px 3px;
+    object-fit: contain;
+    text-decoration: underline;
+    font-family: Arial sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--dirty-blue);
+}
+
+button.btn-navigate,
+button.btn-navigate:hover {
+    margin-top: 20px;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.03px;
+    color: #ffffff;
+    height: 40px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+    background-color: var(--darkish-green);
+}
+
+
+
+p.summary-footer {
+    margin: 7px 0 0 30px;
+    font-family: Arial sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    color: #305467;
+}
+
+
+/* NAV-BAR */
+#mv-navbar {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-family: var(--myfont);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 10%), 0 2px 10px 0 rgb(0 0 0 / 8%);
+}
+
+#mv-navbar>div>a.mv-title {
+    color: #fff;
+    font-family: var(--myfont);
+}
+
+.sidebar-nav {
+    margin-top: 50px !important;
+}
+
+
+/* Menu */
+
+#menu>li>a>.toggle-theme-layers,
+#menu>li>a>span {
+    display: none !important;
+}
+
+#menu>li>a {
+    text-align: center;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--blueBackground);
+    display: block !important;
+    width: 100%;
+}
+
+ul.nav-pills.nav-stacked {
+    padding: 0px;
+}
+
+/** BOÎTE LEGENDE **/
+
+#layers-container-box {
+    max-width: 350px !important;
+    margin-top: 60px !important;
+    margin-left: 0px !important;
+    font-family: var(--myfont);
+    color: #777;
+    padding: 20px;
+}
+
+/* Header */
+#layers-container-box-header {
+    background-color: #25252500;
+    border: none;
+    border-radius: 15px;
+}
+
+#layers-container-box-header a {
+    font-size: 11px;
+    background-color: var(--mycolor);
+    padding: 10px 0px;
+    border-radius: 10px;
+    margin-right: 5px;
+}
+
+a#btn-remove-layers {
+    padding: 10px 1px;
+}
+
+#layers-container-box-header a:hover {
+    opacity: 0.7;
+}
+
+/** PANEL RIGHT **/
+
+#right-panel.active {
+    width: 550px !important;
+}
+
+#right-panel .carousel-inner {
+    width: auto !important;
+    padding: 0px !important;
+}
+
+#right-panel .mv-header h5 {
+    background-color: #68b381;
+    color: #ffffff;
+    font-family: Arial sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0px;
+}
+
+span.glyphicon-chevron-left,
+span.glyphicon-chevron-right {
+    top: 80px !important;
+    left: 30px !important;
+    color: var(--darkish-green);
+}
+
+span.glyphicon-chevron-left:before {
+    content: "\e091" !important;
+}
+
+span.glyphicon-chevron-right:before {
+    content: "\e092" !important;
+}
+
+a.carousel-control {
+    height: 100px !important;
+}
+
+.mv-header {
+    padding-left: 0px !important;
+}
+
+.popup-content .nav-tabs {
+    float: right !important;
+}
+
+.popup-content .tab-pane {
+    margin-left: 0px !important;
+}
+
+
+/** LOADER **/
+#loading-indicator {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+#loading-indicator .loader,
+#loading-indicator .loader:after {
+    right: unset !important;
+    width: 30em !important;
+    height: 30em !important;
+}
+
+.loader {
+    top: 50% !important;
+    left: 50% !important;
+    border-top: 3em solid rgba(255, 255, 255, 1) !important;
+    border-right: 3em solid rgba(255, 255, 255, 1) !important;
+    border-bottom: 3em solid rgba(255, 255, 255, 1) !important;
+    border-left: 3em solid #000 !important;
+}
+
+
+/* toogle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+div.current-page {
+    min-height: 600px;
+}
+
+
+#wrapper ul.nav-pills.nav-stacked {
+    display: block !important;
+}
+
+#wrapper.toggled-2 ul.nav-pills.nav-stacked.sidebar-nav {
+    display: block !important;
+}
+
+#wrapper.toggled-2 ul.nav-pills.nav-stacked {
+    display: none !important;
+}
+
+#error-geobretagne .modal-header {
+    background-color: #F44336;
+    color: white;
+}
