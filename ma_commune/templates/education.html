@@ -1,0 +1,126 @@
+<script>
+	function displayAdresse(voie, cp, commune, complement1, complement2) {
+		var div = "<div>"+voie+" - "+ cp + " "+commune;
+
+		if (complement1) {
+			div += "<p>"+complement1+"</p>";
+		}
+		if (complement2) {
+			div += "<p>"+complement2+"</p>";
+		}
+		div += "</div>"
+		return div;
+	}
+
+	function displayOuverture(jour_debut, jour_fin, h_debut1, h_fin1, h_debut2, h_fin2, commentaire ) {
+		var div = "<div>";
+
+		if (jour_debut === jour_fin) {
+			div += jour_debut+" de "; 
+		} else {
+			div += "Du "+jour_debut+" au "+jour_fin+ " de "; 
+		}
+		let split_heure_debut = h_debut1.split(':');
+		let split_heure_fin = h_fin1.split(':');
+
+		div += split_heure_debut[0]+"H"+split_heure_debut[1]+ " Ã  "+split_heure_fin[0]+"H"+split_heure_fin[1];
+
+		if (h_debut2) {
+			let split_heure_debut2 = h_debut2.split(':');
+			let split_heure_fin2 = h_fin2.split(':');
+
+			div += " et de "+split_heure_debut2[0]+"H"+split_heure_debut2[1]+ " Ã  "+split_heure_fin2[0]+"H"+split_heure_fin2[1];
+		}
+
+		if (commentaire) {
+			div += "&nbsp;<span> "+commentaire+" </span>";
+		} 
+		div += "</div>";
+		
+		return div;
+	}
+
+</script>
+
+
+{{#features}}
+<li class="item" id="templateRight" data-ressource="{{id}}">
+	<div class="name">
+		<h5 class="col-md-offset-2">{{name}}</h5>
+	</div>
+
+</li>
+
+{{/features}}
+
+
+
+<style>
+	div.title {
+		font-size: 12px;
+		font-weight: bold;
+		color: var(--brownish-grey);
+	}
+
+	i.fas {
+		margin-right: 10px;
+	}
+
+	/** suppression du nav-tabs entre les couche **/
+	ul.nav-tabs {
+		display: none;
+	}
+
+	div.header-type {
+		margin-top: 8px;
+	}
+
+	div.commune-ressource-info-wrapper {
+		margin-bottom: 15px;
+	}
+
+	div.commune-ressource-info-wrapper a {
+		font-family: Arial;
+		font-size: 14px;
+		font-weight: normal;
+		text-decoration: underline;
+	}
+
+	div.line {
+		margin-bottom: 10px;
+	}
+
+	div.commune-ressource-info-wrapper p {
+		font-family: Arial;
+		font-size: 14px;
+		font-weight: normal;
+		color: var(--black);
+		margin-bottom: 10px;
+	}
+
+	div.commune-ressource-info-wrapper p.title {
+		font-family: Arial;
+		font-size: 20px;
+		font-weight: bold;
+		color: var(--dirty-blue);
+		margin: 0px;
+	}
+
+	li.item>div.name {
+		background-color: #f5f5f5;
+		margin: 0;
+		padding: 8px;
+	}
+
+
+	.commune-ressource-time-wrp {
+		text-align: end;
+		font-style: italic;
+		line-height: 8px;
+	}
+
+	.commune-ressource-source {
+		text-align: end;
+		font-style: italic;
+	}
+</style>

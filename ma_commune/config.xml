@@ -50,57 +50,13 @@
                 >
                     <template url="{{fqdn}}/apps/ma_commune/templates/administration.html"></template>
                 </layer>
+                <layer id="education" name="Etablissements scolaires" visible="true" tiled="false"
+                    searchable="false" queryable="true" type="customlayer" vectorlegend="true"
+                    url="{{fqdn}}/apps/ma_commune/customlayers/education.js">
+                    <template url="{{fqdn}}/apps/ma_commune/templates/education.html" />
+                </layer>
             </group>
-            <!-- <group name="Education et jeunesse" id="grp1">
-                <layer id="poi_etablissement_scolaire" name="Établissements scolaires"
-                    visible="false" tiled="false" searchable="false" queryable="true"
-                    fields="appellatio" aliases="appellatio" attributefilter="true"
-                    attributefield="classe"
-                    attributevalues="Ecole maternelle,Ecole élémentaire,Collège,Lycée,EREA"
-                    attributelabel="Filtre" attributestylesync="false"
-                    attributefilterenabled="false" infoformat="application/vnd.ogc.gml"
-                    featurecount="20" style="etablissement_scolaire_nature" stylesalias=""
-                    url="https://ows.region-bretagne.fr/geoserver/interne/wms"
-                    attribution="Source: Data.gouv"
-            metadata="https://www.data.gouv.fr/fr/datasets/adresse-et-geolocalisation-des-etablissements-denseignement-du-premier-et-second-degres/"
-                    metadata-csw="">
-                    <template
-            url="https://kartenn.region-bretagne.fr/kartoviz/apps/region/transport/templates/transport.poi.etab_scolaire.mst"
-            />
-                </layer>
-                <layer id="lycee" name="Lycées" visible="false" tiled="false" searchable="false"
-                    queryable="true" fields="axe" aliases="axe" attributefilter="true"
-                    attributefield="secteur_li"
-                    attributevalues="Public,Privé sous contrat avec l'éducation nationale"
-                    attributelabel="Filtre" attributestylesync="false"
-                    attributefilterenabled="false" infoformat="application/vnd.ogc.gml"
-                    featurecount="20"
-                    sld="https://kartenn.region-bretagne.fr/styles/lycee_secteur.sld"
-                    url="https://ows.region-bretagne.fr/geoserver/rb/wms"
-                    attribution="Source: Région Bretagne">
-                    <template
-                        url="https://kartenn.region-bretagne.fr/kartoviz/apps/region/global/templates/global.lycee.mst" />
-                </layer>
-            </group> -->
-            <!-- <group name="Santé" id="grp2">
-                <layer id="base_equipement" name="Offre de santé" type="wms"
-                    url="https://geobretagne.fr/geoserver/insee/wms" tiled="true" visible="false"
-                    infoformat="application/vnd.ogc.gml" fields="" aliases="" style=""
-                    stylesalias=""
-            metadata="https://geobretagne.fr/geonetwork/srv/eng/catalog.search?node=srv#/metadata/6bf21905-9385-45e9-846c-ff761abebe46"
-            metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;ELEMENTSETNAME=full&amp;ID&amp;ID=6bf21905-9385-45e9-846c-ff761abebe46"
-                    attribution="" queryable="true" searchable="false" fusesearchkeys=""
-                    fusesearchresult="" secure="public" useproxy="false" filter="" sld=""
-                    legendurl="" featurecount="" infopanel="right-panel" opacity="1" index=""
-                    styletitle="" dynamiclegend="false" toplayer="false" exclusive="false"
-                    showintoc="true" attributefilter="true" attributefield="equipement"
-                    attributevalues="Médecin généraliste,Chirurgien dentiste,Pharmacie"
-                    attributelabel="equipement">
-                    <template
-            url="https://geobretagne.fr/mviewer/apps/store/region_bretagne/3822d67fb00e/ma_commune/templates/base_equipement.mst"
-            />
-                </layer>
-            </group> -->
+
         </theme>
     </themes>
 </config>

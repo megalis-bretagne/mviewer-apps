@@ -1,15 +1,14 @@
 const code_insee = API.commune ?? undefined;
 
-const select_clause = "select=json_format(plage_ouverture)%20as%20plage_ouverture%2Cjson_format(adresse)%20as%20adresse%2C%20json_format(site_internet)%20as%20site_internet%2Cdate_modification%2C%20json_format(telephone)%20as%20telephone%2Curl_service_public%20%2Csiret%2Cnom%2Cadresse_courriel%2Ccode_insee_commune%2Cinformation_complementaire";
 
+mviewer.customLayers.education = (function () {
 
-mviewer.customLayers.administration = (function () {
 
     var _stylePoint = new ol.style.Style({
         image: new ol.style.Circle({
             radius: 7,
             fill: new ol.style.Fill({
-                color: 'rgba(196, 41, 121, 1)',
+                color: 'rgba(210, 125, 40, 1)',
             }),
             stroke: new ol.style.Stroke({
                 color: '#000',
@@ -25,19 +24,19 @@ mviewer.customLayers.administration = (function () {
             if (code_insee) {
 
                 $.ajax({
-                    url: URL_API_ADMINISTRATION + "?" + select_clause + "&where=code_insee_commune%3D" + code_insee + "&limit=-1",
+                    url: URL_API_EDUCATION + "?" + "where=code_commune%3D" + code_insee + "&limit=-1",
                     dataType: "json",
                     success: function (data) {
                         if (data.total_count > 0) {
-                            data.results.forEach(element => {
+                            data.records.forEach(element => {
                                 var coord = ol.proj.transform(
-                                    [parseFloat(element.adresse[0].longitude), parseFloat(element.adresse[0].latitude)],
+                                    [parseFloat(element.record.fields.longitude), parseFloat(element.record.fields.latitude)],
                                     PROJECTION_API_COORD,
                                     mviewer.getMap().getView().getProjection()
                                 );
                                 var point = new ol.Feature({
                                     geometry: new ol.geom.Point(coord),
-                                    name: element.nom
+                                    name: element.record.fields.nom_etablissement
                                 });
                                 point.setProperties(element);
                                 point.setStyle(_stylePoint);
@@ -60,15 +59,15 @@ mviewer.customLayers.administration = (function () {
     };
 
 
-    // source EPCI Brocéliance
+    // source EPCI BrocÃ©liance
     var _vectorSource = new ol.source.Vector({
         loader: _loaderData,
     });
 
 
-    // Layer principale contenant les délimitations des communes/EPCI avec les datas
+    // Layer principale contenant les dÃ©limitations des communes/EPCI avec les datas
     var _layer = new ol.layer.Vector({
-        id: "administration",
+        id: "education",
         source: _vectorSource
     });
 
@@ -77,7 +76,7 @@ mviewer.customLayers.administration = (function () {
         items: [
             {
                 styles: [_stylePoint],
-                label: "Administration",
+                label: "Education",
                 geometry: "Point",
             },
         ]
@@ -90,4 +89,3 @@ mviewer.customLayers.administration = (function () {
     };
 
 }());
-
