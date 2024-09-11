@@ -1,0 +1,229 @@
+<!-- EXEMPLE DE TEMPLATE D'UN SERVICE NUMERIQUE PAR DEFAUT -->
+<!-- Veuillez adapter les informations indiquées par les commentairtes MODIFIER: XXXX  -->
+<!-- Modifications à réaliser dans le HTML et dans le CSS  -->
+
+
+{{#features}}
+	<li class="item" id ="templateRight" style="">
+		<h3 class="title-feature">{{organisme}}</h3>
+		<div id="select-features-list">
+			<span class="select-features">{{level}}</span>
+			<span class="select-features">{{annee}}</span>
+			<span class="select-features">SIREN : {{siren}}</span>
+			<!-- Alerte: Chiffres de l'année en cours -->
+			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
+		</div>
+
+        <!-- MODIFIER : {{service_cyber}} >> champs usage du nouveau service OUI/NON -->
+		<div id="user-{{service_cyber}}">
+
+		    <!-- L'entité utilise le service -->
+			<div class="user-service-oui">
+				<div class="service-block-cyber">
+					<div class="col1">
+						<div class="icon-block">
+                            <!-- MODIFIER : src >> lien vers l'icône du service -->
+							<img class="icon" src="/apps/megalis-services/img/cyber.svg">
+						</div>
+					</div>
+					<div class="service-block-info">
+                        <!-- MODIFIER : nom du service numérique -->
+						<p class="service-title">Accompagnement cybersécurité</p>
+						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Service utilisé par la collectivité</p>
+					</div>
+				</div>
+                <!-- MODIFIER : class >> acces-nomduservice -->
+				<div class="acces-service-cyber" style="">
+					<div class="btn-link-user">
+                        <!-- MODIFIER : src >> lien vers la page éditoriale du service numérique de Mégalis Bretagne -->
+						<a href="https://services.megalis.bretagne.bzh/service/cybersecurite/" target="_blank">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- L'entité n'utilise pas le service -->
+			<div class="user-service-non">
+                <!-- MODIFIER : class >> icon-clock-nomduservice -->
+				<div class="icon-block-cyber">
+                    <!-- MODIFIER : src >> lien vers l'icône du service -->
+					<img class="icon" src="/apps/megalis-services/img/cyber.svg">
+				</div>
+                <!-- MODIFIER : class >> user-title-feature-nomduservice -->
+				<h2 class="user-title-feature-cyber">Oops !</h2>
+                <!-- MODIFIER : nom du service numérique -->
+				<p class="text-feature">Il semble que cette collectivité n'a pas encore bénéficié d'un accompagnement cybersécurité.</p>
+				<div class="btn-link-user">
+                    <!-- MODIFIER : src >> lien vers la page éditoriale du service numérique de Mégalis Bretagne -->
+					<a href="https://services.megalis.bretagne.bzh/service/cybersecurite/" target="_blank">En savoir plus</a>
+				</div>
+
+			</div>
+		</div>
+
+	</li>
+{{/features}}
+
+<style>
+
+	/* Définition des propriétés de style pour le service */
+	:root {
+		--mycolor:#161A30;
+        /* MODIFIER : code couleur #XXXXXX associé au service numérique */
+		--mycolorthemeservice:#4C4C4C;
+		--myfont:'Inter', sans-serif;
+	}
+	/* */
+
+	#templateRight {
+		padding: 10px;
+	}
+
+	.title-feature {
+		color: var(--mycolor);
+	    font-family: var(--myfont);
+	    font-size: 19px;
+	    line-height: 1.2;
+		font-weight: 700;
+	}
+
+	.subtitle-feature {
+		color: var(--mycolor);
+		font-family:var(--myfont);
+		font-size:18px;
+		margin-top:7%;
+		line-height:1;
+	}
+
+	.text-feature, p {
+		font-family:var(--myfont);
+		color:#555;
+		font-size:13px;
+	}
+
+	/* Critères de selection des entités */
+
+	span.select-features {
+		background-color: var(--mycolor);
+		padding: 5px 10px;
+		color: white;
+		font-size: 11px;
+		font-family: var(--myfont);
+		border-radius: 12px;
+	}
+
+	/* Message d'alerte sur la validité des informations */
+
+	p.warning {
+		font-size: 11px!important;
+		font-style: italic!important;
+		font-weight: 500!important;
+		margin: 10px 0px;
+	}
+
+	.warning-info2019, .warning-info2020 {
+		display:none;
+	}
+
+	.warning-info2021{
+		display:block;
+	}
+
+	/* Affichage du contenu selon usagers O/N */
+	#user-OUI .user-service-non {
+		display:none;
+	}
+
+	#user-NON .user-service-oui {
+		display:none;
+	}
+
+	/* Mise en fome USER-OUI */
+
+	.user-service-oui {
+		padding: 20px 0px;
+	}
+
+    /* MODIFIER : class >> .service-block-nomduservice */
+	.service-block-cyber {
+		background-color: var(--mycolorthemeservice);
+		padding: 5%;;
+    	border-radius: 20px;
+	}
+
+	.service-block-info {
+		padding: 0px 0px 0px 90px;
+	}
+
+	.user-service-oui .icon-block {
+		width: 60px;
+		padding: 12px;
+		background-color: #ffffff33;
+		border-radius: 15px;
+		position: absolute;
+	}
+
+	.service-block-info p {
+		color: white;
+	}
+
+	p.service-title {
+		font-size: 14px;
+		font-weight: 600;
+		padding: 10px 0px 0px;
+		margin: 0;
+	}
+
+    /* MODIFIER : class >> .acces-service-nomduservice */
+	.acces-service-cyber {
+		text-align:center;
+		position: absolute;
+		left: 33%;
+		bottom: 15%;
+	}
+
+	/* Mise en fome USER-NON */
+
+	.user-service-non {
+		text-align:center;
+		padding: 50px;
+	}
+
+    /* MODIFIER : class >> .icon-block-nomduservice */
+	.user-service-non .icon-block-cyber {
+		background-color: var(--mycolorthemeservice);
+		opacity: 0.8;
+		width: 60px;
+		border-radius: 15px;
+		padding: 12px;
+		margin: 0 auto;
+	}
+
+    /* MODIFIER : class >> .user-title-feature-nomduservice */
+	h2.user-title-feature-cyber {
+		font-weight: 600!important;
+		color: var(--mycolorthemeservice);
+	}
+
+	.btn-link-user {
+		margin:40px 0px;
+	}
+
+	.btn-link-user a{
+		font-family: var(--myfont);
+		border: solid 1px #161A30;
+		color: #161A30;
+		padding: 8px 12px;
+		border-radius: 8px;
+		margin: 40px 0px;
+	}
+
+	.btn-link-user a:hover {
+		background-color: #161A30;
+		color: white!important;
+		-webkit-transition: background-color 0.5s ease-out;
+		-moz-transition: background-color 0.5s ease-out;
+		-o-transition: background-color 0.5s ease-out;
+		transition: background-color 0.5s ease-out;
+	}
+
+</style>

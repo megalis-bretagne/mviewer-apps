@@ -1,0 +1,442 @@
+{{#features}}
+	<li class="item" id ="templateRight" style="">
+
+	    <!-- Infos sur l'entité -->
+		<h3 class="title-feature">{{organisme}}</h3>
+		<div id="select-features-list">
+			<span class="select-features">{{level}}</span>
+			<span class="select-features">{{annee}}</span>
+			<span class="select-features">SIREN : {{siren}}</span>
+			<!-- Alerte: Chiffres de l'année en cours -->
+			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
+		</div>
+
+		<div id="user-{{service_pes}}">
+
+		    <!-- L'entité utilise le service -->
+			<div class="user-service-oui">
+				<div class="service-block-pes">
+					<div class="col1">
+						<div class="icon-block">
+							<img class="icon" src="/apps/megalis-services/img/flux_pes.svg">
+						</div>
+					</div>
+					<div class="service-block-info">
+						<p class="service-title">Télétransmission des flux comptables PES</p>
+						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Service utilisé par la collectivité</p>
+					</div>
+				</div>
+				<!-- Chiffres clés + graphique -->
+				<div class="service-block-number row">
+					<div class="col-sm-4">
+						<div class="block-grey block-number center">
+							<img class="icon" src="/apps/megalis-services/img/fluxpes.svg" style="width: 40px;">
+							<p class="number-feature-pes">{{nb_pes}}</p>
+							<p class="title-number-feature-pes">flux PES transmis</p>
+							<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<div class="block-grey block-graph center">
+							<div id="idChart">
+								<canvas class="chart" id="ChartPES_{{siren}}" style="height:170px;width: content-box;"></canvas>
+							</div>
+							<p class="title-chart-feature">Évolution du nombre de flux PES transmis</p>
+								<p class="subtitle-number-feature">pour l'entité sélectionnée</p>
+						</div>
+
+					</div>
+				</div>
+				<!-- Btn en savoir plus -->
+				<div class="acces-service-pes row" style="">
+					<div class="btn-link-user">
+						<a href="https://services.megalis.bretagne.bzh/service/teletransmission-des-flux-comptables-pes/" target="_blank">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- L'entité n'utilise pas le service -->
+			<div class="user-service-non">
+				<div class="icon-block-pes">
+					<img class="icon" src="/apps/megalis-services/img/flux_pes.svg">
+				</div>
+				<h2 class="user-title-feature-pes">Oops !</h2>
+				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service de télétransmission des flux comptables PES cette année.</p>
+				<div class="btn-link-user">
+					<a href="https://services.megalis.bretagne.bzh/service/teletransmission-des-flux-comptables-pes/" target="_blank">En savoir plus</a>
+				</div>
+
+			</div>
+
+		</div>
+
+	</li>
+
+
+<style>
+
+	/* Définition des propriétés de style pour le service */
+	:root {
+		--mycolor:#161A30;
+		--mycolortheme4:#5BB1D8;
+		--myfont:'Inter', sans-serif;
+	}
+	/* */
+
+	#templateRight {
+		padding: 10px;
+	}
+
+	.title-feature {
+		color: var(--mycolor);
+	    font-family: var(--myfont);
+	    font-size: 19px;
+	    line-height: 1.2;
+		font-weight: 700;
+	}
+
+	.subtitle-feature {
+		color: var(--mycolor);
+		font-family:var(--myfont);
+		font-size:18px;
+		margin-top:7%;
+		line-height:1;
+	}
+
+	.text-feature, p {
+		font-family:var(--myfont);
+		color:#555;
+		font-size:13px;
+	}
+
+	.center{
+		text-align:center;
+	}
+
+	.block-grey {
+    	border-radius: 20px;
+    	background-color: #e2e2e28f;
+    	height: 250px;
+	}
+
+	.block-number{
+		padding: 50px 10px;
+	}
+
+	.block-graph{
+		padding: 25px 15px;
+	}
+
+	/* Critères de selection des entités */
+
+	span.select-features {
+		background-color: var(--mycolor);
+		padding: 5px 10px;
+		color: white;
+		font-size: 11px;
+		font-family: var(--myfont);
+		border-radius: 12px;
+	}
+
+	/* Message d'alerte sur la validité des informations */
+
+	p.warning {
+		font-size: 11px!important;
+		font-style: italic!important;
+		font-weight: 500!important;
+		margin: 10px 0px;
+	}
+
+	.warning-info2019, .warning-info2020 {
+		display:none;
+	}
+
+	.warning-info2021{
+		display:block;
+	}
+
+	/* Affichage du contenu selon usagers O/N */
+	#user-OUI .user-service-non {
+		display:none;
+	}
+
+	#user-NON .user-service-oui {
+		display:none;
+	}
+
+	/* --- Mise en fome USER-OUI --- */
+
+	.user-service-oui {
+		padding: 20px 0px;
+	}
+
+	.service-block-pes {
+		background-color: var(--mycolortheme4);
+		padding: 5%;;
+    	border-radius: 20px;
+	}
+
+	.service-block-info {
+		padding: 0px 0px 0px 90px;
+		/* color: white!important; */
+	}
+
+	.user-service-oui .icon-block {
+		width: 60px;
+		padding: 12px;
+		background-color: #ffffff33;
+		border-radius: 15px;
+		position: absolute;
+	}
+
+	.service-block-info p {
+		color: white;
+	}
+
+	p.service-title {
+		font-size: 14px;
+		font-weight: 600;
+		padding: 10px 0px 0px;
+		margin: 0;
+	}
+
+	/* Numbers */
+
+	.service-block-number {
+		margin-top: 20px;
+	}
+
+	.number-feature-pes {
+		font-size: 24px;
+		font-weight: 600;
+		color: var(--mycolortheme4);
+		margin: 10px 0px 0px;
+	}
+
+	.title-number-feature-pes {
+		font-weight: 600;
+		color: var(--mycolortheme4);
+		margin:0;
+	}
+
+	.subtitle-number-feature {
+		font-size: 10px;
+		font-style: italic;
+	}
+
+	.acces-service-pes {
+		text-align: center;
+   		margin: 0 auto;
+	}
+
+	/* Chart */
+
+	p.title-chart-feature {
+		font-size: 12px;
+		font-weight: 600;
+		margin: 0;
+	}
+
+
+	/* --- Mise en fome USER-NON --- */
+
+	.user-service-non {
+		text-align:center;
+		padding: 50px;
+	}
+
+	.user-service-non .icon-block-pes {
+		background-color: var(--mycolortheme4);
+		opacity: 0.8;
+		width: 60px;
+		border-radius: 15px;
+		padding: 12px;
+		margin: 0 auto;
+	}
+
+	h2.user-title-feature-pes {
+		font-weight: 600!important;
+		color: var(--mycolortheme4);
+	}
+
+	.btn-link-user {
+		margin:40px 0px;
+	}
+
+	.btn-link-user a{
+		font-family: var(--myfont);
+		border: solid 1px #161A30;
+		color: #161A30;
+		padding: 8px 12px;
+		border-radius: 8px;
+		margin: 40px 0px;
+	}
+
+	.btn-link-user a:hover {
+		background-color: #161A30;
+		color: white!important;
+		-webkit-transition: background-color 0.5s ease-out;
+		-moz-transition: background-color 0.5s ease-out;
+		-o-transition: background-color 0.5s ease-out;
+		transition: background-color 0.5s ease-out;
+	}
+
+</style>
+
+<script language="javascript">
+
+  // Récupération du code_geo de l'entité selectionnée
+  var c_geo = [];
+            c_geo.push('{{siren}}');
+
+
+  // Définition d'une fonction get_wfsdata
+  function get_wfsdata(url, args, callback) {
+        var qs = {
+            "service" : "WFS",
+            "version" : "2.0.0",
+            "request" : "GetFeature",
+            "outputFormat" : "application/json"
+        };
+        $.getJSON(url + $.param($.extend(qs, args)), callback);
+    }
+
+
+  // CHART 1 - Création d'un graphique de l'évolution des flux PES
+
+  get_wfsdata("https://geobretagne.fr/geoserver/megalis/wfs?",
+        {
+            "typeNames" : "services_organisme",
+            "propertyName" : "annee,nb_pes",
+            "CQL_FILTER" : "siren="+ c_geo +""
+        },
+        function (data) {
+
+          /* Fonction pour ranger les données dans l'ordre croissant selon les années */
+          function sortByKey(array, key) {
+            return array.sort(function(a, b) {
+                var x = a[key]; var y = b[key];
+                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            });
+            }
+
+          /* Transformation de la donnée JSON */
+
+          var dataPES = data;
+
+
+          var features = [];
+          features = dataPES.features;
+
+          var jproperties = dataPES.features.map(function (el) {
+            return el.properties;
+          });
+
+          // Tri croissant des données selon l'année
+          var dataOrderbyYear = [];
+          dataOrderbyYear = sortByKey(jproperties,'annee');
+          console.log(dataOrderbyYear);
+
+          // Définition des variables pour le graphique
+          var labels = jproperties.map(function(obj) {
+            return obj.annee;
+          });
+          var dataNpes = jproperties.map(function(obj) {
+            return obj.nb_pes;
+          });;
+
+          // CRéation du graphique
+          var graph_evo_pes = {};
+
+          graph_evo_pes.getData = function () {
+            var data = {chart_pes: {labels:labels, data: {datasets:[dataNpes]}}};
+            console.log(data);
+            graph_evo_pes.drawChart(data);
+          };
+
+          graph_evo_pes.drawChart = function (data) {
+          var ctx = document.getElementById("ChartPES_{{siren}}");
+          var ChartPES_{{siren}} = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                      labels: data.chart_pes.labels,
+                      datasets: [{
+                          label: "Nombre de flux PES",
+                          backgroundColor: "rgba(91,177,216,0.9)",
+                          borderColor: "rgba(91,177,216,0.9)",
+                          borderWidth: 0,
+						  borderRadius: 20,
+						  borderSkipped: false,
+						  barThickness: 10,
+      					  maxBarThickness: 20,
+                          hoverBackgroundColor: "rgba(91,177,216,1)",
+                          hoverBorderColor: "rgba(91,177,216,1)",
+                          data: data.chart_pes.data.datasets[0]
+                      }]
+                  },
+                  options: {
+                    maintainAspectRatio: false,
+    				responsive:true,
+					scales: {
+						x: {
+							ticks: {
+								font: {
+									family: 'Inter',
+									size: 12,
+									lineHeight: 2,
+								}
+							},
+							grid: {
+								display:false
+							}
+						},
+						y: {
+							ticks: {
+								font: {
+									family: 'Inter',
+									size: 12
+								}
+							}
+						}
+					},
+					plugins: {
+						legend: {
+							labels: {
+								font: {
+									family: 'Inter',
+									size: 11
+								}
+							}
+						},
+						tooltip: {
+							titleFont: {
+									family: 'Inter'
+							},
+							bodyFont: {
+									family: 'Inter',
+									size: 11
+							},
+							callbacks: {
+							}
+						}
+					}
+                  }
+              });
+            };
+            if  (typeof Chart === 'function') {
+              graph_evo_pes.getData();
+          } else {
+              $.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js', function() {
+                graph_evo_pes.getData();
+
+              });
+          }
+        }
+    );
+
+
+
+
+</script>
+
+{{/features}}

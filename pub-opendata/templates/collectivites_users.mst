@@ -1,0 +1,440 @@
+{{#features}}
+	<li class="item" id ="templateRight" style="">
+		<h3 class="title-feature">{{organisme}}</h3>
+		<div id="select-features-list">
+			<span class="select-features">{{level}}</span>
+			<span class="select-features">{{annee}}</span>
+			<span class="select-features">SIREN : {{siren}}</span>
+			<!-- Alerte: Chiffres de l'année en cours -->
+			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
+		</div>
+
+		<div id="user-{{adherent}}">
+
+		    <!-- L'entité utilise le service -->
+			<div class="user-service-oui">
+				<p >Collectivité utilisatrice depuis le : {{date_adhesion}}</p>
+				<div class="service-block-user ">
+					<div class="backicon">
+						<div class="service-block-info-user">
+							<p class="number-user">{{nb_agent_megalis}}</p>
+							<p class="service-title"> Nombre de comptes actifs</p>
+							<p class="text-feature">pour l'entité et l'année sélectionnées</p>
+						</div>
+					</div>
+				</div>
+				<!-- Chiffres clés + graphique -->
+				<div class="service-block-number row">
+						<div class="block-grey block-graph center">
+							<div id="idChart">
+								<canvas class="chart" id="ChartUsers_{{siren}}" style="height:170px;width: content-box;"></canvas>
+							</div>
+							<p class="title-chart-feature">Évolution du nombre de comptes actifs</p>
+								<p class="subtitle-number-feature">pour l'entité sélectionnée</p>
+						</div>
+				</div>
+				<div class="acces-service" style="">
+					<div class="btn-link-user">
+						<a href="https://services.megalis.bretagne.bzh/tutoriel/bao-bouquet-de-services-2020-2024-premiers-pas/" target="_blank">En savoir plus</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- L'entité n'utilise pas le service -->
+			<div class="user-service-non">
+				<div class="icon-block-user">
+					<img class="icon" src="/apps/megalis-services/img/user.svg">
+				</div>
+				<h2 class="user-title-feature-user">Oops !</h2>
+				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé les services numériques proposés par Mégalis Bretagne cette année.</p>
+				<div class="btn-link-user">
+					<a href="https://www.megalis.bretagne.bzh/services-numeriques/presentation-du-bouquet-de-services/" target="_blank">En savoir plus</a>
+				</div>
+
+			</div>
+
+		</div>
+
+	</li>
+
+<style>
+
+	/* Définition des propriétés de style pour le service */
+	:root {
+		--mycolor:#161A30;
+		--mycolortheme1:#5FC0C3;
+		--myfont:'Inter', sans-serif;
+	}
+	/* */
+
+	#templateRight {
+		padding: 10px;
+	}
+
+	.title-feature {
+		color: var(--mycolor);
+	    font-family: var(--myfont);
+	    font-size: 19px;
+	    line-height: 1.2;
+		font-weight: 700;
+	}
+
+	.subtitle-feature {
+		color: var(--mycolor);
+		font-family:var(--myfont);
+		font-size:18px;
+		margin-top:7%;
+		line-height:1;
+	}
+
+	.text-feature, p {
+		font-family:var(--myfont);
+		color:#555;
+		font-size:13px;
+	}
+
+	.center{
+		text-align:center;
+	}
+
+	.block-grey {
+    	border-radius: 20px;
+    	background-color: #e2e2e28f;
+    	height: 250px;
+	}
+
+	.block-number{
+		padding: 50px 10px;
+	}
+
+	.block-graph{
+		padding: 25px;
+	}
+
+	/* Critères de selection des entités */
+
+	span.select-features {
+		background-color: var(--mycolor);
+		padding: 5px 10px;
+		color: white;
+		font-size: 11px;
+		font-family: var(--myfont);
+		border-radius: 12px;
+	}
+
+	/* Message d'alerte sur la validité des informations */
+
+	p.warning {
+		font-size: 11px!important;
+		font-style: italic!important;
+		font-weight: 500!important;
+		margin: 10px 0px;
+	}
+
+	.warning-info2019, .warning-info2020 {
+		display:none;
+	}
+
+	.warning-info2021{
+		display:block;
+	}
+
+	/* Affichage du contenu selon usagers O/N */
+	#user-OUI .user-service-non {
+		display:none;
+	}
+
+	#user-NON .user-service-oui {
+		display:none;
+	}
+
+	/* --- Mise en fome USER-OUI --- */
+
+	.user-service-oui {
+		padding: 20px 0px;
+	}
+
+	.service-block-user {
+		background-color: var(--mycolortheme1);
+    	border-radius: 20px;
+	}
+
+	.service-block-info-user {
+		padding: 0px 0px 0px 140px;
+		/* color: white!important; */
+	}
+
+	.user-service-oui .icon-block {
+		width: 60px;
+		padding: 12px;
+		background-color: #ffffff33;
+		border-radius: 15px;
+		position: absolute;
+	}
+
+	.service-block-info-user p {
+		color: white;
+	}
+
+	p.service-title {
+		font-size: 14px;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	p.number-user {
+		margin: 0;
+		font-size: 25px;
+		font-weight: 600;
+	}
+
+	.backicon {
+		background-image: url(/apps/megalis-services/img/compte.svg);
+		background-repeat: no-repeat;
+		background-size: contain;
+		border-radius: 20px;
+		padding: 15px;
+	}
+
+	/* Numbers */
+
+	.service-block-number {
+		margin-top: 20px;
+		margin: 20px 0px;
+	}
+
+	.number-feature {
+		font-size: 24px;
+		font-weight: 600;
+		color: var(--mycolortheme1);
+		margin: 10px 0px 0px;
+	}
+
+	.title-number-feature {
+		font-weight: 600;
+		color: var(--mycolortheme1);
+		margin:0;
+	}
+
+	.subtitle-number-feature {
+		font-size: 10px;
+		font-style: italic;
+	}
+
+	/* Chart */
+
+	p.title-chart-feature {
+		font-size: 12px;
+		font-weight: 600;
+		margin: 0;
+	}
+
+	/* Bouton en savoir plus */
+
+	.acces-service {
+		text-align: center;
+   		margin: 0 auto;
+	}
+
+	/* --- Mise en fome USER-NON --- */
+
+	.user-service-non {
+		text-align:center;
+		padding: 50px;
+	}
+
+	.user-service-non .icon-block-user {
+		background-color: var(--mycolortheme1);
+		opacity: 0.8;
+		width: 60px;
+		border-radius: 15px;
+		padding: 12px;
+		margin: 0 auto;
+	}
+
+	h2.user-title-feature-user {
+		font-weight: 600!important;
+		color: var(--mycolortheme1);
+	}
+
+	.btn-link-user {
+		margin:40px 0px;
+	}
+
+	.btn-link-user a{
+		font-family: var(--myfont);
+		border: solid 1px #252525;
+		color: #252525;
+		padding: 8px 12px;
+		border-radius: 8px;
+		margin: 40px 0px;
+	}
+
+	.btn-link-user a:hover {
+		background-color: #252525;
+		color: white!important;
+		-webkit-transition: background-color 0.5s ease-out;
+		-moz-transition: background-color 0.5s ease-out;
+		-o-transition: background-color 0.5s ease-out;
+		transition: background-color 0.5s ease-out;
+	}
+
+</style>
+
+<script language="javascript">
+
+  // Récupération du code_geo de l'entité selectionnée
+  var c_geo = [];
+            c_geo.push('{{siren}}');
+
+
+  // Définition d'une fonction get_wfsdata
+  function get_wfsdata(url, args, callback) {
+        var qs = {
+            "service" : "WFS",
+            "version" : "2.0.0",
+            "request" : "GetFeature",
+            "outputFormat" : "application/json"
+        };
+        $.getJSON(url + $.param($.extend(qs, args)), callback);
+    }
+
+
+  // CHART 1 - Création d'un graphique de l'évolution des flux PES
+
+  get_wfsdata("https://geobretagne.fr/geoserver/megalis/wfs?",
+        {
+            "typeNames" : "services_organisme",
+            "propertyName" : "annee,nb_agent_megalis",
+            "CQL_FILTER" : "siren="+ c_geo +""
+        },
+        function (data) {
+
+          /* Fonction pour ranger les données dans l'ordre croissant selon les années */
+          function sortByKey(array, key) {
+            return array.sort(function(a, b) {
+                var x = a[key]; var y = b[key];
+                return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+            });
+            }
+
+          /* Transformation de la donnée JSON */
+
+          var dataUsers = data;
+
+
+          var features = [];
+          features = dataUsers.features;
+
+          var jproperties = dataUsers.features.map(function (el) {
+            return el.properties;
+          });
+
+          // Tri croissant des données selon l'année
+          var dataOrderbyYear = [];
+          dataOrderbyYear = sortByKey(jproperties,'annee');
+          console.log(dataOrderbyYear);
+
+          // Définition des variables pour le graphique
+          var labels = jproperties.map(function(obj) {
+            return obj.annee;
+          });
+          var dataNagents = jproperties.map(function(obj) {
+            return obj.nb_agent_megalis;
+          });;
+
+          // CRéation du graphique
+          var graph_evo_agents = {};
+
+          graph_evo_agents.getData = function () {
+            var data = {chart_agents: {labels:labels, data: {datasets:[dataNagents]}}};
+            console.log(data);
+            graph_evo_agents.drawChart(data);
+          };
+
+          graph_evo_agents.drawChart = function (data) {
+          var ctx = document.getElementById("ChartUsers_{{siren}}");
+          var ChartUsers_{{siren}} = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                      labels: data.chart_agents.labels,
+                      datasets: [{
+                          label: "Compte(s) actif(s)",
+                          backgroundColor: "rgba(95,192,195,0.9)",
+                          borderColor: "rgba(95,192,195,0.9)",
+                          borderWidth: 0,
+						  borderRadius: 20,
+						  borderSkipped: false,
+						  barThickness: 10,
+      					  maxBarThickness: 20,
+                          hoverBackgroundColor: "rgba(95,192,195,1)",
+                          hoverBorderColor: "rgba(95,192,195,1)",
+                          data: data.chart_agents.data.datasets[0]
+                      }]
+                  },
+                  options: {
+                    maintainAspectRatio: false,
+    				responsive:true,
+					scales: {
+						x: {
+							ticks: {
+								font: {
+									family: 'Inter',
+									size: 12,
+									lineHeight: 2,
+								}
+							},
+							grid: {
+								display:false
+							}
+						},
+						y: {
+							ticks: {
+								font: {
+									family: 'Inter',
+									size: 12
+								}
+							}
+						}
+					},
+					plugins: {
+						legend: {
+							labels: {
+								font: {
+									family: 'Inter',
+									size: 11
+								}
+							}
+						},
+						tooltip: {
+							titleFont: {
+									family: 'Inter'
+							},
+							bodyFont: {
+									family: 'Inter',
+									size: 11
+							},
+							callbacks: {
+							}
+						}
+					}
+                  }
+              });
+            };
+            if  (typeof Chart === 'function') {
+              graph_evo_agents.getData();
+          } else {
+              $.get('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.2/chart.min.js', function() {
+                graph_evo_agents.getData();
+
+              });
+          }
+        }
+    );
+
+
+
+
+</script>
+
+{{/features}}
