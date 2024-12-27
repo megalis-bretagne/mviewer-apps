@@ -82,7 +82,7 @@
 	/* Définition des propriétés de style pour le service */
 	:root {
 		--mycolor:#161A30;
-		--mycolortheme5:#514367;
+		--mycolortheme5:#41426a;
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
