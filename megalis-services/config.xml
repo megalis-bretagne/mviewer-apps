@@ -169,7 +169,7 @@
                 infopanel="right-panel">
                 <template url="{{fqdn}}/apps/megalis-services/templates/parapheur.mst"></template>
             </layer>
-            <layer id="services_organisme" name="Service d'échanges sécurisés des fichiers (SESF)" type="wms"
+            <layer id="services_organisme" name="Service de partage et collaboration" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
