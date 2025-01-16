@@ -9,37 +9,37 @@
 			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
 		</div>
 
-		<div id="user-{{service_pydio}}">
+		<div id="user-{{service_partage}}">
 
 		    <!-- L'entité utilise le service -->
 			<div class="user-service-oui">
-				<div class="service-block-pydio">
+				<div class="service-block-partage">
 					<div class="col1">
 						<div class="icon-block">
-							<img class="icon" src="/apps/megalis-services/img/pydio.svg">
+							<img class="icon" src="/apps/megalis-services/img/partage.svg">
 						</div>
 					</div>
 					<div class="service-block-info">
-						<p class="service-title">Service d'échanges sécurisés <br> des fichiers (SESF)</p>
+						<p class="service-title">Service de partage et collaboration</p>
 						<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>  Service utilisé par la collectivité</p>
 					</div>
 				</div>
-				<div class="acces-service-pydio" style="">
+				<div class="acces-service-partage" style="">
 					<div class="btn-link-user">
-						<a href="https://sesf.megalis.bretagne.bzh/login" target="_blank">Accéder au service</a>
+						<a href="https://partage.megalis.bretagne.bzh/" target="_blank">Accéder au service</a>
 					</div>
 				</div>
 			</div>
 
 			<!-- L'entité n'utilise pas le service -->
 			<div class="user-service-non">
-				<div class="icon-block-pydio">
-					<img class="icon" src="/apps/megalis-services/img/pydio.svg">
+				<div class="icon-block-partage">
+					<img class="icon" src="/apps/megalis-services/img/partage.svg">
 				</div>
-				<h2 class="user-title-feature-pydio">Oops !</h2>
-				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service d'échanges sécurisés des fichiers (Pydio) cette année.</p>
+				<h2 class="user-title-feature-partage">Oops !</h2>
+				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service de partage et collaboration.</p>
 				<div class="btn-link-user">
-					<a href="https://services.megalis.bretagne.bzh/service/echanges-securises-de-fichiers/" target="_blank">En savoir plus</a>
+					<a href="https://services.megalis.bretagne.bzh/service/partage-et-collaboration/" target="_blank">En savoir plus</a>
 				</div>
 
 			</div>
@@ -53,7 +53,7 @@
 	/* Définition des propriétés de style pour le service */
 	:root {
 		--mycolor:#161A30;
-		--mycolortheme7:#F28E67;
+		--mycolortheme7:#afdde9;
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
@@ -127,7 +127,7 @@
 		padding: 20px 0px;
 	}
 
-	.service-block-pydio {
+	.service-block-partage {
 		background-color: var(--mycolortheme7);
 		padding: 5%;;
     	border-radius: 20px;
@@ -157,7 +157,7 @@
 		margin: 0;
 	}
 
-	.acces-service-pydio {
+	.acces-service-partage {
 		text-align:center;
 		position: absolute;
 		left: 33%;
@@ -171,7 +171,7 @@
 		padding: 50px;
 	}
 
-	.user-service-non .icon-block-pydio {
+	.user-service-non .icon-block-partage {
 		background-color: var(--mycolortheme7);
 		opacity: 0.8;
 		width: 60px;
@@ -180,7 +180,7 @@
 		margin: 0 auto;
 	}
 
-	h2.user-title-feature-pydio {
+	h2.user-title-feature-partage {
 		font-weight: 600!important;
 		color: var(--mycolortheme7);
 	}

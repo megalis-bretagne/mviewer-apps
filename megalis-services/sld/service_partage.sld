@@ -14,7 +14,7 @@
                 <ogc:Literal>Autres</ogc:Literal>
               </ogc:PropertyIsNotEqualTo>
               <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>service_pydio</ogc:PropertyName>
+                <ogc:PropertyName>service_partage</ogc:PropertyName>
                 <ogc:Literal>NON</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </ogc:And>
@@ -41,14 +41,14 @@
                 <ogc:Literal>Autres</ogc:Literal>
               </ogc:PropertyIsNotEqualTo>
               <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>service_pydio</ogc:PropertyName>
+                <ogc:PropertyName>service_partage</ogc:PropertyName>
                 <ogc:Literal>OUI</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </ogc:And>
           </ogc:Filter>
           <sld:PolygonSymbolizer>
             <sld:Fill>
-              <sld:CssParameter name="fill">#F28E67</sld:CssParameter>
+              <sld:CssParameter name="fill">#afdde9</sld:CssParameter>
               <sld:CssParameter name="fill-opacity">0.9</sld:CssParameter>
             </sld:Fill>
             <sld:Stroke>
@@ -77,7 +77,7 @@
                 <ogc:Literal>Autres</ogc:Literal>
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>service_pydio</ogc:PropertyName>
+                <ogc:PropertyName>service_partage</ogc:PropertyName>
                 <ogc:Literal>OUI</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </ogc:And>
@@ -87,7 +87,7 @@
               <sld:Mark>
               <sld:WellKnownName>circle</sld:WellKnownName>
               <sld:Fill>
-                <sld:CssParameter name="fill">#F28E67</sld:CssParameter>
+                <sld:CssParameter name="fill">#afdde9</sld:CssParameter>
               </sld:Fill>
               <sld:Stroke>
                 <sld:CssParameter name="stroke">#FFFFFF</sld:CssParameter>
@@ -108,7 +108,7 @@
                 <ogc:Literal>Autres</ogc:Literal>
               </ogc:PropertyIsEqualTo>
               <ogc:PropertyIsEqualTo>
-                <ogc:PropertyName>service_pydio</ogc:PropertyName>
+                <ogc:PropertyName>service_partage</ogc:PropertyName>
                 <ogc:Literal>NON</ogc:Literal>
               </ogc:PropertyIsEqualTo>
             </ogc:And>

@@ -72,12 +72,12 @@
 									<span class="s-service-subtitle s-sub-{{service_parapheur}}">Type : {{offre_parapheur}}</span>
 								</div>
 							</div>
-							<div class="s-block-grey s-service-block" id="pydio-{{service_pydio}}">
+							<div class="s-block-grey s-service-block" id="partage-{{service_partage}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="/apps/megalis-services/img/pydio.svg">
+										<img class="s-icon" src="/apps/megalis-services/img/partage.svg">
 								</div>
 								<div class="s-service-block-info">
-									<span class="s-service-title">Service d'échanges sécurisés des fichiers (SESF)</span>
+									<span class="s-service-title">Service de Partage et collaboration</span>
 								</div>
 							</div>
 							<div class="s-block-grey s-service-block" id="cyber-{{service_cyber}}">
@@ -144,7 +144,7 @@
 									<th class="service_label">PES</th>
 									<th class="service_label">Parapheur</th>
 									<th class="service_label">Cyber</th>
-									<th class="service_label">SESF</th>
+									<th class="service_label">Partage</th>
 								</thead>
 								<tbody></tbody>
 							</table>
@@ -173,7 +173,7 @@
 									<th class="service_label">PES</th>
 									<th class="service_label">Parapheur</th>
 									<th class="service_label">Cyber</th>
-									<th class="service_label">SESF</th>									
+									<th class="service_label">Partage</th>									
 								</thead>
 								<tbody></tbody>
 							</table>
@@ -211,7 +211,7 @@
 		--mycoloractes:#4D79B8;
 		--mycolorpes:#146cb1;
 		--mycolorparapheur:#F7C750;
-		--mycolorpydio:#F28E67;
+		--mycolorpartage:#F28E67;
 		--mycoloropendata:#e6807c;
 		--mycolorcyber:#4C4C4C;
 		--myfont:'Inter', sans-serif;
@@ -401,12 +401,12 @@
 		background-color: var(--mycolorcyber);
 	}
 
-	/* Pydio*/
-	#pydio-OUI .s-service-title {
-		color: var(--mycolorpydio);
+	/* Partage et collaboration*/
+	#partage-OUI .s-service-title {
+		color: var(--mycolorpartage);
 	}
-	#pydio-OUI .s-icon-block {
-		background-color: var(--mycolorpydio);
+	#partage-OUI .s-icon-block {
+		background-color: var(--mycolorpartage);
 	}
 
 		/*** Service number ***/
@@ -704,7 +704,7 @@
 	//// COMMUNES
 	// Calcul du nombre de service utilisés par une entité
 
-    var services_{{siren}} = "{{service_idelibre}} {{service_sdm}} {{service_actes}} {{service_pes}} {{service_parapheur}} {{opendata_publie}} {{service_cyber}} {{service_pydio}}";
+    var services_{{siren}} = "{{service_idelibre}} {{service_sdm}} {{service_actes}} {{service_pes}} {{service_parapheur}} {{opendata_publie}} {{service_cyber}} {{service_partage}}";
     var nb_service_{{siren}} = services_{{siren}}.split("OUI").length - 1;
     document.getElementById("nb_serv_num_{{siren}}").innerHTML=nb_service_{{siren}};
 
@@ -737,7 +737,7 @@
 
 	// Tables des services pour le level Autres
 
-	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_pydio&CQL_FILTER=code_insee={{code_insee}}%20AND%20annee=2024%20AND%20level=%27Autres%27", function(result) {
+	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage&CQL_FILTER=code_insee={{code_insee}}%20AND%20annee=2024%20AND%20level=%27Autres%27", function(result) {
 
         var datajson_{{siren}} = result;
 
@@ -778,7 +778,7 @@
 					"<td class='service"+data.service_pes+"'><a data-tooltip='Télétransmission des PES : " + data.service_pes+"'> ● </td>"+
 					"<td class='service"+data.service_parapheur+"'><a data-tooltip='Parapheur électronique : " + data.service_parapheur+"'> ● </td>"+
 					"<td class='service"+data.service_cyber+"'><a data-tooltip='Accompagnement cybersécurité : " + data.service_cyber+"'> ● </td>"+
-					"<td class='service"+data.service_pydio+"'><a data-tooltip='SESF : " + data.service_pydio+"'> ● </td>"+					
+					"<td class='service"+data.service_partage+"'><a data-tooltip='Partge et collaboration : " + data.service_partage+"'> ● </td>"+					
 				"</tr>";
 		$(r).appendTo("#serviceTableCom_{{siren}}");
 		});
@@ -819,7 +819,7 @@
 
 	// Tables des services pour le level Communes
 
-	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_pydio&CQL_FILTER=siren_epci={{siren}}%20AND%20annee=2024%20AND%20level=%27Commune%27", function(result) {
+	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage&CQL_FILTER=siren_epci={{siren}}%20AND%20annee=2024%20AND%20level=%27Commune%27", function(result) {
 
         var datajson_{{siren}} = result;
 
@@ -843,7 +843,7 @@
                  "<td class='service"+data.service_pes+"'><a data-tooltip='Télétransmission des PES : " + data.service_pes+"'> ● </td>"+
                  "<td class='service"+data.service_parapheur+"'><a data-tooltip='Parapheur électronique : " + data.service_parapheur+"'> ● </td>"+
 				 "<td class='service"+data.service_cyber+"'><a data-tooltip='Accompagnement cybersécurité : " + data.service_cyber+"'> ● </td>"+
-                 "<td class='service"+data.service_pydio+"'><a data-tooltip='SESF : " + data.service_pydio+"'> ● </td>"+                
+                 "<td class='service"+data.service_partage+"'><a data-tooltip='Partage et collaboration : " + data.service_partage+"'> ● </td>"+                
                "</tr>";
        $(r).appendTo("#serviceTableEPCI_{{siren}}");
      });
