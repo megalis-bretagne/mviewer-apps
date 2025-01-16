@@ -48,7 +48,7 @@
           </ogc:Filter>
           <sld:PolygonSymbolizer>
             <sld:Fill>
-              <sld:CssParameter name="fill">#5BB1D8</sld:CssParameter>
+              <sld:CssParameter name="fill">#146cb1</sld:CssParameter>
               <sld:CssParameter name="fill-opacity">0.9</sld:CssParameter>
             </sld:Fill>
             <sld:Stroke>
@@ -87,7 +87,7 @@
               <sld:Mark>
               <sld:WellKnownName>circle</sld:WellKnownName>
               <sld:Fill>
-                <sld:CssParameter name="fill">#5BB1D8</sld:CssParameter>
+                <sld:CssParameter name="fill">#146cb1</sld:CssParameter>
               </sld:Fill>
               <sld:Stroke>
                 <sld:CssParameter name="stroke">#FFFFFF</sld:CssParameter>
