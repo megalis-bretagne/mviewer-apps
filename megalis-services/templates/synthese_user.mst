@@ -88,6 +88,22 @@
 									<span class="s-service-title">Accompagnement cybersécurité</span>
 								</div>
 							</div>
+							<div class="s-block-grey s-service-block" id="sobriete-{{service_sobriete}}">
+								<div class="s-icon-block">
+										<img class="s-icon" src="/apps/megalis-services/img/sobriete.svg">
+								</div>
+								<div class="s-service-block-info">
+									<span class="s-service-title">Accompagnement sobriété numérique</span>
+								</div>
+							</div>
+								<div class="s-block-grey s-service-block" id="accessibilite-{{service_accessibilite}}">
+								<div class="s-icon-block">
+										<img class="s-icon" src="/apps/megalis-services/img/accessibilite.svg">
+								</div>
+								<div class="s-service-block-info">
+									<span class="s-service-title">Accompagnement accessibilité numérique</span>
+								</div>
+							</div>
 							<div class="s-block-grey s-service-block" id="opendata-{{opendata_publie}}">
 								<div class="s-icon-block">
 										<img class="s-icon" src="/apps/megalis-services/img/opendata.svg">
@@ -145,6 +161,8 @@
 									<th class="service_label">Parapheur</th>
 									<th class="service_label">Cyber</th>
 									<th class="service_label">Partage</th>
+									<th class="service_label">Sobriété</th>
+									<th class="service_label">Accessibilité</th>
 								</thead>
 								<tbody></tbody>
 							</table>
@@ -173,7 +191,9 @@
 									<th class="service_label">PES</th>
 									<th class="service_label">Parapheur</th>
 									<th class="service_label">Cyber</th>
-									<th class="service_label">Partage</th>									
+									<th class="service_label">Partage</th>
+									<th class="service_label">Sobriété</th>
+									<th class="service_label">Accessibilité</th>								
 								</thead>
 								<tbody></tbody>
 							</table>
@@ -192,7 +212,7 @@
 				<h2 class="s-user-title-feature">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé les services numériques proposés par Mégalis Bretagne cette année.</p>
 				<div class="btn-link-user">
-					<a href="https://services.megalis.bretagne.bzh/tutoriel/bao-bouquet-de-services-2020-2024-premiers-pas/" target="_blank">En savoir plus</a>
+					<a href="https://services.megalis.bretagne.bzh/conventions-et-charte/" target="_blank">En savoir plus</a>
 				</div>
 			<!-- /.NON-->
 			</div>
@@ -214,6 +234,8 @@
 		--mycolorpartage:#F28E67;
 		--mycoloropendata:#e6807c;
 		--mycolorcyber:#4d4d4d;
+		--mycolorsobriete:#348379;
+		--mycoloraccessibilite:#ff9955;
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
@@ -399,6 +421,22 @@
 	}
 	#cyber-OUI .s-icon-block {
 		background-color: var(--mycolorcyber);
+	}
+
+		/* Sobriété*/
+	#sobriete-OUI .s-service-title {
+		color: var(--mycolorsobriete);
+	}
+	#sobriete-OUI .s-icon-block {
+		background-color: var(--mycolorsobriete);
+	}
+
+			/* Accessibilité*/
+	#accessibilite-OUI .s-service-title {
+		color: var(--mycoloraccessibilite);
+	}
+	#accessibilite-OUI .s-icon-block {
+		background-color: var(--mycoloraccessibilite);
 	}
 
 	/* Partage et collaboration*/
@@ -704,7 +742,7 @@
 	//// COMMUNES
 	// Calcul du nombre de service utilisés par une entité
 
-    var services_{{siren}} = "{{service_idelibre}} {{service_sdm}} {{service_actes}} {{service_pes}} {{service_parapheur}} {{opendata_publie}} {{service_cyber}} {{service_partage}}";
+    var services_{{siren}} = "{{service_idelibre}} {{service_sdm}} {{service_actes}} {{service_pes}} {{service_parapheur}} {{opendata_publie}} {{service_cyber}} {{service_sobriete}} {{service_accessibilite}} {{service_partage}}";
     var nb_service_{{siren}} = services_{{siren}}.split("OUI").length - 1;
     document.getElementById("nb_serv_num_{{siren}}").innerHTML=nb_service_{{siren}};
 
@@ -737,7 +775,7 @@
 
 	// Tables des services pour le level Autres
 
-	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage&CQL_FILTER=code_insee={{code_insee}}%20AND%20annee=2024%20AND%20level=%27Autres%27", function(result) {
+	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage,service_sobriete,service_accessibilite&CQL_FILTER=code_insee={{code_insee}}%20AND%20annee=2024%20AND%20level=%27Autres%27", function(result) {
 
         var datajson_{{siren}} = result;
 
@@ -778,7 +816,9 @@
 					"<td class='service"+data.service_pes+"'><a data-tooltip='Télétransmission des PES : " + data.service_pes+"'> ● </td>"+
 					"<td class='service"+data.service_parapheur+"'><a data-tooltip='Parapheur électronique : " + data.service_parapheur+"'> ● </td>"+
 					"<td class='service"+data.service_cyber+"'><a data-tooltip='Accompagnement cybersécurité : " + data.service_cyber+"'> ● </td>"+
-					"<td class='service"+data.service_partage+"'><a data-tooltip='Partge et collaboration : " + data.service_partage+"'> ● </td>"+					
+					"<td class='service"+data.service_partage+"'><a data-tooltip='Partage et collaboration : " + data.service_partage+"'> ● </td>"+	
+					"<td class='service"+data.service_sobriete+"'><a data-tooltip='Accompagnement sobriété numérique : " + data.service_sobriete+"'> ● </td>"+	
+					"<td class='service"+data.service_accessibilite+"'><a data-tooltip='Accompagnement accessibilité numérique : " + data.service_accessibilite+"'> ● </td>"+					
 				"</tr>";
 		$(r).appendTo("#serviceTableCom_{{siren}}");
 		});
@@ -819,7 +859,7 @@
 
 	// Tables des services pour le level Communes
 
-	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage&CQL_FILTER=siren_epci={{siren}}%20AND%20annee=2024%20AND%20level=%27Commune%27", function(result) {
+	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage,service_sobriete,service_accessibilite&CQL_FILTER=siren_epci={{siren}}%20AND%20annee=2024%20AND%20level=%27Commune%27", function(result) {
 
         var datajson_{{siren}} = result;
 
@@ -843,7 +883,9 @@
                  "<td class='service"+data.service_pes+"'><a data-tooltip='Télétransmission des PES : " + data.service_pes+"'> ● </td>"+
                  "<td class='service"+data.service_parapheur+"'><a data-tooltip='Parapheur électronique : " + data.service_parapheur+"'> ● </td>"+
 				 "<td class='service"+data.service_cyber+"'><a data-tooltip='Accompagnement cybersécurité : " + data.service_cyber+"'> ● </td>"+
-                 "<td class='service"+data.service_partage+"'><a data-tooltip='Partage et collaboration : " + data.service_partage+"'> ● </td>"+                
+                 "<td class='service"+data.service_partage+"'><a data-tooltip='Partage et collaboration : " + data.service_partage+"'> ● </td>"+ 
+				 "<td class='service"+data.service_sobriete+"'><a data-tooltip='Accompagnement sobriété numérique : " + data.service_sobriete+"'> ● </td>"+ 
+				 "<td class='service"+data.service_accessibilite+"'><a data-tooltip='Accompagnement accessibilité numérique : " + data.service_accessibilite+"'> ● </td>"+                
                "</tr>";
        $(r).appendTo("#serviceTableEPCI_{{siren}}");
      });

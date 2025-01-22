@@ -227,23 +227,41 @@
                 infopanel="right-panel">
                 <template url="{{fqdn}}/apps/megalis-services/templates/cyber.mst"></template>
             </layer>
-            <!-- <layer id="services_organisme" name="Gestion électronique de documents (GED)" type="wms"
+            <layer id="services_organisme" name="Accompagnement sobriété numérique" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_ged.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_ged.sld"
+                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_sobriete.png"
+                sld="{{fqdn}}/apps/megalis-services/sld/service_sobriete.sld"
                 style="" opacity=""
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2022,2023,2024"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2023,2024,2025"
                 attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/ged.mst"></template>
+                <template url="{{fqdn}}/apps/megalis-services/templates/sobriete.mst"></template>
+            </layer> -->
+               <layer id="services_organisme" name="Accompagnement accessibilite numérique" type="wms"
+                url="https://geobretagne.fr/geoserver/megalis/wms"
+                tiled="false"
+                visible="false"
+                expanded="false"
+                infoformat="application/vnd.ogc.gml"
+                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_accessibilite.png"
+                sld="{{fqdn}}/apps/megalis-services/sld/service_accessibilite.sld"
+                style="" opacity=""
+                stylesalias=""
+                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2023,2024,2025"
+                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
+                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url="{{fqdn}}/apps/megalis-services/templates/accessibilite.mst"></template>
             </layer> -->
             <layer id="epci"
                 name="Intercommunalités"
