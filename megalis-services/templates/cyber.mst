@@ -69,7 +69,7 @@
 	:root {
 		--mycolor:#161A30;
         /* MODIFIER : code couleur #XXXXXX associé au service numérique */
-		--mycolorthemeservice:#4C4C4C;
+		--mycolorthemeservice:#4d4d4d;
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
