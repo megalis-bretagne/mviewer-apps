@@ -53,7 +53,7 @@
 	/* Définition des propriétés de style pour le service */
 	:root {
 		--mycolor:#161A30;
-		--mycolortheme6:#F7C750;
+		--mycolortheme6:#62bdff;
 		--myfont:'Inter', sans-serif;
 	}
 	/* */
