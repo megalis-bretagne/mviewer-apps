@@ -207,7 +207,7 @@
 	:root {
 		--mycolor:#161A30;
 		--mycolorsdm:#41426a;
-		--mycoloridelibre:#5E5296;
+		--mycoloridelibre:#4657a3;
 		--mycoloractes:#4D79B8;
 		--mycolorpes:#146cb1;
 		--mycolorparapheur:#62bdff;
