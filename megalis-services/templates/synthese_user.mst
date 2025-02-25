@@ -7,7 +7,9 @@
 			<span class="select-features">SIREN : {{siren}}</span>
 			<!-- Alerte: Chiffres de l'année en cours -->
 			<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
+			<span class="select-features">Adhésion nouveau bouquet :  {{ADHESIONS-2025-2029-SUIVI_RETOUR-2025-2029}}</span>
 		</div>
+		
 
 		<!-- Localisation géo n+1 -->
 		<div id="loc-geo-org-{{level}}">
