@@ -777,7 +777,7 @@
 
 	// Tables des services pour le level Autres
 
-	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage,service_sobriete,service_accessibilite&CQL_FILTER=code_insee={{code_insee}}%20AND%20annee=2024%20AND%20level=%27Autres%27", function(result) {
+	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage,service_sobriete,service_accessibilite&CQL_FILTER=code_insee={{code_insee}}%20AND%20annee=2025%20AND%20level=%27Autres%27", function(result) {
 
         var datajson_{{siren}} = result;
 
@@ -861,7 +861,7 @@
 
 	// Tables des services pour le level Communes
 
-	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage,service_sobriete,service_accessibilite&CQL_FILTER=siren_epci={{siren}}%20AND%20annee=2024%20AND%20level=%27Commune%27", function(result) {
+	 $.getJSON("https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GetFeature&typeName=services_organisme&OUTPUTFORMAT=application/json&PROPERTYNAME=organisme,adherent,service_idelibre,service_sdm,service_actes,service_pes,service_parapheur,service_cyber,service_partage,service_sobriete,service_accessibilite&CQL_FILTER=siren_epci={{siren}}%20AND%20annee=2025%20AND%20level=%27Commune%27", function(result) {
 
         var datajson_{{siren}} = result;
 
