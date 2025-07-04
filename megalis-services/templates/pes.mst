@@ -18,7 +18,7 @@
 				<div class="service-block-pes">
 					<div class="col1">
 						<div class="icon-block">
-							<img class="icon" src="/apps/megalis-services/img/flux_pes.svg">
+							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_pes.svg">
 						</div>
 					</div>
 					<div class="service-block-info">
@@ -30,7 +30,7 @@
 				<div class="service-block-number row">
 					<div class="col-sm-4">
 						<div class="block-grey block-number center">
-							<img class="icon" src="/apps/megalis-services/img/fluxpes.svg" style="width: 40px;">
+							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/fluxpes.svg" style="width: 40px;">
 							<p class="number-feature-pes">{{nb_pes}}</p>
 							<p class="title-number-feature-pes">flux PES transmis</p>
 							<p class="subtitle-number-feature">pour l'entité et l'année sélectionnées</p>
@@ -58,7 +58,7 @@
 			<!-- L'entité n'utilise pas le service -->
 			<div class="user-service-non">
 				<div class="icon-block-pes">
-					<img class="icon" src="/apps/megalis-services/img/flux_pes.svg">
+					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/flux_pes.svg">
 				</div>
 				<h2 class="user-title-feature-pes">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service de télétransmission des flux comptables PES cette année.</p>
