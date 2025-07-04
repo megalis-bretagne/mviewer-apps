@@ -31,7 +31,7 @@
 						<div class="col-sm-8" id="service-list">
 							<div class="s-block-grey s-service-block" id="sdm-{{service_sdm}}">
 								<div class="s-icon-block">
-										<img class="s-icon" src="/apps/megalis-services/img/marches.svg">
+										<img class="s-icon" src="https://geobretagne.fr/apps/megalis-services/img/marches.svg">
 								</div>
 								<div class="s-service-block-info">
 									<span class="s-service-title">Salles des marchés publics</span>
