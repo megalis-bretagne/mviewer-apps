@@ -16,7 +16,7 @@
 				<div class="service-block-partage">
 					<div class="col1">
 						<div class="icon-block">
-							<img class="icon" src="/apps/megalis-services/img/partage.svg">
+							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/partage.svg">
 						</div>
 					</div>
 					<div class="service-block-info">
@@ -34,7 +34,7 @@
 			<!-- L'entité n'utilise pas le service -->
 			<div class="user-service-non">
 				<div class="icon-block-partage">
-					<img class="icon" src="/apps/megalis-services/img/partage.svg">
+					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/partage.svg">
 				</div>
 				<h2 class="user-title-feature-partage">Oops !</h2>
 				<p class="text-feature">Il semble que cette collectivité n'a pas encore utilisé le service de partage et collaboration.</p>
