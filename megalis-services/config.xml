@@ -17,9 +17,9 @@
         layers="satellite" format="image/png" visible="false"
         attribution="&lt;a href='https://applications.region-bretagne.fr/geonetwork/?uuid=3a0ac2e3-7af1-4dec-9f36-dae6b5a8c731' target='_blank' &gt;partenaires GéoBretagne - IGN RGE BD ORTHO - PlanetObserver&lt;/a&gt;"
         style="_null" matrixset="EPSG:3857" fromcapacity="false" />
-        <baselayer  type="OSM" id="positron" label="Positron" title="CartoDb" thumbgallery="img/basemap/positron.png"
-            url="https://{a-c}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png" maxzoom="20"
-            visible="true" attribution="Map tiles by  &lt;a href='https://cartodb.com/attributions'>CartoDb &lt;/a>, under  &lt;a href='https://creativecommons.org/licenses/by/3.0/'>CC BY 3.0 &lt;/a>" />
+        <baselayer  type="WMS" id="osm" label="OpenStreetMap" title="Plan OSM Géobretagne" thumbgallery="img/basemap/osmGGE.png"
+            url="https://tile.geobretagne.fr/osm/service" layers="osm:grey" format="image/png" visible="true" opacity="0.8"
+            attribution="GéoBretagne. Données : les contributeurs d'&lt;a href='https://www.openstreetmap.org/' target='_blank'>OpenStreetMap &lt;/a>,  &lt;a href='https://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a>" />
         <baselayer  type="OSM" id="osm1" label="OpenStreetMap" title="OpenStreetMap" thumbgallery="img/basemap/osm.png"
             url="https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="© MapQuest. Données : les contributeurs d'&lt;a href='https://www.openstreetmap.org/' target='_blank'>OpenStreetMap &lt;/a>,  &lt;a href='https://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a>" visible="false"/>
@@ -48,8 +48,8 @@
             <layer id="synthese_user"
                 name="Synthèse des usages"
                 visible="true"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_user.png"
-                url="{{fqdn}}/apps/megalis-services/customlayers/synthese_user.js"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_user.png"
+                url="https://geobretagne.fr/apps/megalis-services/customlayers/synthese_user.js"
                 tooltip="true" fields="organisme" tooltipenabled="true"
                 queryable="true" featurecount="10"
                 type="customlayer"
@@ -59,7 +59,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/synthese_user.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/synthese_user.mst"></template>
             </layer>
             <layer id="services_organisme" name="Collectivités utilisatrices" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -67,8 +67,8 @@
                 visible="false"
                 expanded="true"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_user.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/collectivites_adhesion.sld,{{fqdn}}/apps/megalis-services/sld/nb_comptes.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_user.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/collectivites_adhesion.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_comptes.sld"
                 style="" opacity=""
                 stylesalias="Adhérent aux services, Nombre de compte(s) actif(s)"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -77,7 +77,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/collectivites_users.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/collectivites_users.mst"></template>
             </layer>
             <layer id="services_organisme" name="Salle des marchés publics" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -85,8 +85,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_sdm.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_marches.sld,{{fqdn}}/apps/megalis-services/sld/nb_procedures.sld,{{fqdn}}/apps/megalis-services/sld/nb_reponses.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_sdm.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_marches.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_procedures.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_reponses.sld"
                 style="" opacity=""
                 stylesalias="Utilisation du service, Nombre de procédures lancées, Nombre de réponses reçues"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -95,7 +95,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/marches.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/marches.mst"></template>
             </layer>
             <layer id="services_organisme" name="Convocation électronique des élus (I-delibRe)" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -103,8 +103,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_idelibre.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_idelibre.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_idelibre.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_idelibre.sld"
                 style="" opacity=""
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -113,7 +113,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/idelibre.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/idelibre.mst"></template>
             </layer>
             <layer id="services_organisme" name="Télétransmission des actes" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -121,8 +121,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_actes.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_actes.sld,{{fqdn}}/apps/megalis-services/sld/nb_actes.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_actes.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_actes.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_actes.sld"
                 style="" opacity=""
                 stylesalias="Utilisation du service, Nombre d'actes transmis"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -131,7 +131,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/actes.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/actes.mst"></template>
             </layer>
             <layer id="services_organisme" name="Télétransmission des flux PES" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -139,8 +139,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_pes.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_pes.sld,{{fqdn}}/apps/megalis-services/sld/nb_pes.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_pes.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_pes.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_pes.sld"
                 style="" opacity=""
                 stylesalias="Utilisation du service, Nombre de PES transmis"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -149,7 +149,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/pes.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/pes.mst"></template>
             </layer>
             <layer id="services_organisme" name="Parapheur électronique" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -157,8 +157,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_parapheur.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_parapheur.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_parapheur.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_parapheur.sld"
                 style="" opacity=""
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -167,7 +167,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/parapheur.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/parapheur.mst"></template>
             </layer>
             <layer id="services_organisme" name="Service de partage et collaboration" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -175,8 +175,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_partage.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_partage.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_partage.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_partage.sld"
                 style="" opacity=""
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -185,7 +185,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/partage.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/partage.mst"></template>
             </layer>
              <layer id="services_organisme" name="Opendata" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -194,11 +194,11 @@
                 tiled="true"
                 visible="false"
                 customcontrol="false"
-                customcontrolpath="{{fqdn}}/apps/megalis-services/customcontrols"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_opendata.png"
+                customcontrolpath="https://geobretagne.fr/apps/megalis-services/customcontrols"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_opendata.png"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                sld="{{fqdn}}/apps/megalis-services/sld/opendata.sld,{{fqdn}}/apps/megalis-services/sld/opendata_budget.sld,{{fqdn}}/apps/megalis-services/sld/opendata_deliberation.sld,{{fqdn}}/apps/megalis-services/sld/opendata_decp.sld"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/opendata.sld,https://geobretagne.fr/apps/megalis-services/sld/opendata_budget.sld,https://geobretagne.fr/apps/megalis-services/sld/opendata_deliberation.sld,https://geobretagne.fr/apps/megalis-services/sld/opendata_decp.sld"
                 style="" opacity=""
                 stylesalias="Synthèse,Budgets,Délibérations,Commande publique"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -207,7 +207,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/opendata.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/opendata.mst"></template>
             </layer>
             <layer id="services_organisme" name="Accompagnement cybersécurité" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -215,8 +215,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_cyber.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_cyber.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_cyber.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_cyber.sld"
                 style="" opacity=""
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -225,7 +225,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/cyber.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/cyber.mst"></template>
             </layer>
             <layer id="services_organisme" name="Accompagnement sobriété numérique" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -233,8 +233,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_sobriete.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_sobriete.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_sobriete.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_sobriete.sld"
                 style="" opacity=""
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -243,7 +243,7 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/sobriete.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/sobriete.mst"></template>
             </layer> -->
                <layer id="services_organisme" name="Accompagnement accessibilite numérique" type="wms"
                 url="https://geobretagne.fr/geoserver/megalis/wms"
@@ -251,8 +251,8 @@
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_accessibilite.png"
-                sld="{{fqdn}}/apps/megalis-services/sld/service_accessibilite.sld"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_accessibilite.png"
+                sld="https://geobretagne.fr/apps/megalis-services/sld/service_accessibilite.sld"
                 style="" opacity=""
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
@@ -261,14 +261,14 @@
                 metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="{{fqdn}}/apps/megalis-services/templates/accessibilite.mst"></template>
+                <template url="https://geobretagne.fr/apps/megalis-services/templates/accessibilite.mst"></template>
             </layer> -->
             <layer id="epci"
                 name="Intercommunalités"
                 visible="false"
-                legendurl="{{fqdn}}/apps/megalis-services/img/lgd_epci.png"
+                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_epci.png"
                 vectorlegend="true"
-                url="{{fqdn}}/apps/megalis-services/customlayers/epci.js"
+                url="https://geobretagne.fr/apps/megalis-services/customlayers/epci.js"
                 tooltip="true" fields="organisme" tooltipenabled="true"
                 queryable="false"
                 type="customlayer"

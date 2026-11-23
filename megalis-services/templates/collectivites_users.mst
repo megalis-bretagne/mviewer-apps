@@ -189,7 +189,7 @@
 	}
 
 	.backicon {
-		background-image: url(/apps/megalis-services/img/compte.svg);
+		background-image: url(https://geobretagne.fr/apps/megalis-services/img/compte.svg);
 		background-repeat: no-repeat;
 		background-size: contain;
 		border-radius: 20px;

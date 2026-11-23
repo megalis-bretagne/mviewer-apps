@@ -1,6 +1,5 @@
 function replace_fqdn(selector) {
     if (CONFIG_FQDN) {
-        console.log("REPLACE URL")
         // Remplacement de l'attribut src
         $(selector).each(function() {
             var src = $(this).attr('src');
