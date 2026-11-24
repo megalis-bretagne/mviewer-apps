@@ -8,7 +8,7 @@
           geometry: "Polygon",
           styles: [new ol.style.Style({
               stroke: new ol.style.Stroke({ color: 'rgba(255,255,255,0.9)', width: 0.8 }),
-              fill: new ol.style.Fill({ color: 'rgba(95,192,195,.8)'})
+              fill: new ol.style.Fill({ color: 'rgba(19,64,110,.8)'})
           })]
       },    
       {
@@ -35,7 +35,7 @@
           image: new ol.style.Circle({
             radius: 5,
             fill: new ol.style.Fill({
-              color: '#5fc0c3',
+              color: '#13406E',
               opacity: 0.7
             }),
             stroke: new ol.style.Stroke({
@@ -77,7 +77,7 @@
   
   mviewer.customLayers.synthese_user.layer = new ol.layer.Vector({
           source: new ol.source.Vector({
-            url :"https://geobretagne.fr/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GETFEATURE&TYPENAME=services_organisme&CQL_FILTER=annee%3D%272026%27%20&outputFormat=application/json&srsName=EPSG:4326",
+            url :`${mviewer.env?.data_server_url}/geoserver/megalis/wfs?SERVICE=WFS&VERSION=2.0.0&REQUEST=GETFEATURE&TYPENAME=services_organisme&CQL_FILTER=annee%3D%272026%27%20&outputFormat=application/json&srsName=EPSG:4326`,
             format: new ol.format.GeoJSON()
           }),
           style: function(feature) {

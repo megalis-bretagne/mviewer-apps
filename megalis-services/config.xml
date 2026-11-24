@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-    <application id="filter" title="Usages des services numériques de Mégalis Bretagne"
-        stats="true"
-    statsurl="https://geobretagne.fr/mviewer/stats"
-    mouseposition="false" logo="/apps/megalis-services/img/logombzh.svg" showhelp="false" 
-    help="/apps/megalis-services/home/index.html" iconhelp="home" measuretools="true" exportpng="true" 
-    style="/apps/megalis-services/css/megalisbzh.css" 
-    favicon="/apps/megalis-services/img/favicon_mbzh.ico" togglealllayersfromtheme="true" home="https://www.megalis.bretagne.bzh/"/>
+
+    <!--stats="true" statsurl="https://geobretagne.fr/mviewer/stats"-->
+    <application 
+    id="mbzh_services" 
+    title="Usages des services numériques de Mégalis Bretagne"
+    htmltitle="Usages des &lt;br&gt; services numériques"
+    mouseposition="false" logo="apps/megalis-services/img/logo-megalis-bretagne.png" showhelp="false" 
+    help="apps/megalis-services/home/index.html" 
+    iconhelp="ri-home-5-line" 
+    measuretools="true" exportpng="true" 
+    style="apps/megalis-services/css/megalisbzh.css" 
+    favicon="apps/megalis-services/img/favicon_mbzh.ico" 
+    langfile="apps/megalis-services/services.i18n.json"
+    togglealllayersfromtheme="true" home="https://www.megalis.bretagne.bzh/"/>
+    
     <mapoptions maxzoom="19" projection="EPSG:3857" center="-220750.13768758904,6144925.57790189" zoom="8" projextent="-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244" />
 
     <baselayers style="gallery"><!-- style="default"||gallery" -->
@@ -25,10 +33,12 @@
             attribution="© MapQuest. Données : les contributeurs d'&lt;a href='https://www.openstreetmap.org/' target='_blank'>OpenStreetMap &lt;/a>,  &lt;a href='https://www.openstreetmap.org/copyright' target='_blank'>ODbL &lt;/a>" visible="false"/>
     </baselayers>
     <extensions>
-        <extension type="javascript" src="/apps/megalis-services/config/configuration.js" />
-        <extension type="javascript" src="/apps/megalis-services/config/utils.js" />
-        <extension type="component" id="logo" path="/apps/megalis-services/addons" />
-        <extension type="component" id="filter" path="/apps/megalis-services/addons"/>
+        <!--<extension type="javascript" src="/apps/megalis-services/config/configuration.js" />
+        <extension type="javascript" src="/apps/megalis-services/config/utils.js" />-->        
+        <extension type="component" id="layerfilter" path="apps/megalis-services/addons" />
+        <extension type="component" id="logo" path="apps/megalis-services/addons" />
+        <extension type="component" id="filter" path="apps/megalis-services/addons"/>
+        <extension type="javascript" src="apps/megalis-services/addons/lib/Chart.min.js"/>
     </extensions>
     <styles>
         <selectionstyle>
@@ -40,246 +50,259 @@
             <polygon fillcolor="22,26,48" opacity="0.5" strokecolor="22,26,48" strokewidth="5" />
         </subselectionstyle>
     </styles>
+    
     <olscompletion url="https://api-adresse.data.gouv.fr/search/" type="ban"/>
-    <searchparameters bbox="false" localities="true" features="false" />
+
+    <searchparameters inputlabel="Recherche une collectivité" marker="true" imgurl="img/map_marker.png" imgwidth="50px" svgcolor="orange" localities="false" features="true" bbox="false" querymaponclick="true" closeafterclick="false"/>
 
     <themes>
-        <theme name="Usages des services numériques"  collapsed="false" id="theme1" icon="fas fa-angle-right">
-            <layer id="synthese_user"
+        <theme name="Synthèse"  collapsed="false" id="theme0" icon="fas fa-angle-right">
+        <layer id="synthese_user"
                 name="Synthèse des usages"
                 visible="true"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_user.png"
-                url="https://geobretagne.fr/apps/megalis-services/customlayers/synthese_user.js"
+                legendurl="apps/megalis-services/img/lgd_user.png"
+                url="apps/megalis-services/customlayers/synthese_user.js"
                 tooltip="true" fields="organisme" tooltipenabled="true"
                 queryable="true" featurecount="10"
                 type="customlayer"
                 opacity="1"
                 expanded="true"
+                searchable="true" searchengine="fuse" fusesearchkeys="level,organisme" fusesearchresult="{{organisme}} ({{level}})"
                 attribution="&lt;button id=&quot;filterbtn&quot; class=&quot;btn btn-default btn-raised btn-filter-legend&quot; onclick=&quot;filter.toggle();&quot; title=&quot;Filtrer les données&quot; accesskey=&quot;f&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-filter&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Filtrer les entités&lt;/button&gt;&lt;/br&gt; Les collectivités &apos;Autres&apos; sont représentées par un point au centre de la commune &lt;/br&gt; Mégalis Bretagne"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/synthese_user.mst"></template>
+                <template url="apps/megalis-services/templates/synthese_user.mst"></template>
             </layer>
             <layer id="services_organisme" name="Collectivités utilisatrices" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
                 expanded="true"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_user.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/collectivites_adhesion.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_comptes.sld"
+                legendurl="apps/megalis-services/img/lgd_user.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/collectivites_adhesion.sld,{{app_server_url}}/apps/megalis-services/sld/nb_comptes.sld"
                 style="" opacity=""
                 stylesalias="Adhérent aux services, Nombre de compte(s) actif(s)"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
                 attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune.&lt;/br&gt;Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/collectivites_users.mst"></template>
+                <template url="apps/megalis-services/templates/collectivites_users.mst"></template>
             </layer>
-            <layer id="services_organisme" name="Salle des marchés publics" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
+            <layer id="epci"
+                name="Intercommunalités"
+                visible="true"
+                toplayer="true"
+                showintoc="false"
+                legendurl="apps/megalis-services/img/lgd_epci.png"
+                vectorlegend="true"
+                url="apps/megalis-services/customlayers/epci.js"
+                tooltip="false"
+                queryable="false"
+                type="customlayer"
+                opacity="1"
+                attribution="Mégalis Bretagne"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url=""></template>
+            </layer>
+        </theme>
+        <theme name="Pour votre administration"  collapsed="true" id="theme1" icon="fas fa-angle-right">            
+            
+            <layer id="services_organisme" name="Convocation des élus" type="wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_sdm.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_marches.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_procedures.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_reponses.sld"
+                legendurl="apps/megalis-services/img/lgd_idelibre.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_idelibre.sld"
+                style="" opacity=""
+                stylesalias=""
+                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
+                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url="apps/megalis-services/templates/idelibre.mst"></template>
+            </layer>
+            <layer id="services_organisme" name="Parapheur électronique" type="wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
+                tiled="false"
+                visible="false"
+                expanded="false"
+                infoformat="application/vnd.ogc.gml"
+                legendurl="apps/megalis-services/img/lgd_parapheur.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_parapheur.sld"
+                style="" opacity=""
+                stylesalias=""
+                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
+                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url="apps/megalis-services/templates/parapheur.mst"></template>
+            </layer>
+            <layer id="services_organisme" name="Partage et collaboration" type="wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
+                tiled="false"
+                visible="false"
+                expanded="false"
+                infoformat="application/vnd.ogc.gml"
+                legendurl="apps/megalis-services/img/lgd_partage.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_partage.sld"
+                style="" opacity=""
+                stylesalias=""
+                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
+                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url="apps/megalis-services/templates/partage.mst"></template>
+            </layer>
+            <layer id="services_organisme" name="Salle des marchés" type="wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
+                tiled="false"
+                visible="true"
+                expanded="false"
+                infoformat="application/vnd.ogc.gml"
+                legendurl="apps/megalis-services/img/lgd_sdm.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_marches.sld,{{app_server_url}}/apps/megalis-services/sld/nb_procedures.sld,{{app_server_url}}/apps/megalis-services/sld/nb_reponses.sld"
                 style="" opacity=""
                 stylesalias="Utilisation du service, Nombre de procédures lancées, Nombre de réponses reçues"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
                 attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/marches.mst"></template>
-            </layer>
-            <layer id="services_organisme" name="Convocation électronique des élus (I-delibRe)" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
-                tiled="false"
-                visible="false"
-                expanded="false"
-                infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_idelibre.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_idelibre.sld"
-                style="" opacity=""
-                stylesalias=""
-                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
-                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/idelibre.mst"></template>
+                <template url="apps/megalis-services/templates/marches.mst"></template>
             </layer>
             <layer id="services_organisme" name="Télétransmission des actes" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_actes.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_actes.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_actes.sld"
+                legendurl="apps/megalis-services/img/lgd_actes.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_actes.sld,{{app_server_url}}/apps/megalis-services/sld/nb_actes.sld"
                 style="" opacity=""
                 stylesalias="Utilisation du service, Nombre d'actes transmis"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
                 attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/actes.mst"></template>
+                <template url="apps/megalis-services/templates/actes.mst"></template>
             </layer>
             <layer id="services_organisme" name="Télétransmission des flux PES" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_pes.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_pes.sld,https://geobretagne.fr/apps/megalis-services/sld/nb_pes.sld"
+                legendurl="apps/megalis-services/img/lgd_pes.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_pes.sld,{{app_server_url}}/apps/megalis-services/sld/nb_pes.sld"
                 style="" opacity=""
                 stylesalias="Utilisation du service, Nombre de PES transmis"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
                 attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
                 metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
                 infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/pes.mst"></template>
-            </layer>
-            <layer id="services_organisme" name="Parapheur électronique" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
-                tiled="false"
-                visible="false"
-                expanded="false"
-                infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_parapheur.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_parapheur.sld"
-                style="" opacity=""
-                stylesalias=""
-                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
-                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/parapheur.mst"></template>
-            </layer>
-            <layer id="services_organisme" name="Service de partage et collaboration" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
-                tiled="false"
-                visible="false"
-                expanded="false"
-                infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_partage.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_partage.sld"
-                style="" opacity=""
-                stylesalias=""
-                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
-                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/partage.mst"></template>
-            </layer>
-             <layer id="services_organisme" name="Opendata" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
-                featurecount="20"
-                styletitle="Publication opendata"
-                tiled="true"
-                visible="false"
-                customcontrol="false"
-                customcontrolpath="https://geobretagne.fr/apps/megalis-services/customcontrols"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_opendata.png"
-                expanded="false"
-                infoformat="application/vnd.ogc.gml"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/opendata.sld,https://geobretagne.fr/apps/megalis-services/sld/opendata_budget.sld,https://geobretagne.fr/apps/megalis-services/sld/opendata_deliberation.sld,https://geobretagne.fr/apps/megalis-services/sld/opendata_decp.sld"
-                style="" opacity=""
-                stylesalias="Synthèse,Budgets,Délibérations,Commande publique"
-                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
-                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/opendata.mst"></template>
-            </layer>
-            <layer id="services_organisme" name="Accompagnement cybersécurité" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
-                tiled="false"
-                visible="false"
-                expanded="false"
-                infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_cyber.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_cyber.sld"
-                style="" opacity=""
-                stylesalias=""
-                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
-                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/cyber.mst"></template>
-            </layer>
-            <layer id="services_organisme" name="Accompagnement sobriété numérique" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
-                tiled="false"
-                visible="false"
-                expanded="false"
-                infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_sobriete.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_sobriete.sld"
-                style="" opacity=""
-                stylesalias=""
-                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
-                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/sobriete.mst"></template>
-            </layer> -->
-               <layer id="services_organisme" name="Accompagnement accessibilite numérique" type="wms"
-                url="https://geobretagne.fr/geoserver/megalis/wms"
-                tiled="false"
-                visible="false"
-                expanded="false"
-                infoformat="application/vnd.ogc.gml"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_accessibilite.png"
-                sld="https://geobretagne.fr/apps/megalis-services/sld/service_accessibilite.sld"
-                style="" opacity=""
-                stylesalias=""
-                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
-                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
-                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url="https://geobretagne.fr/apps/megalis-services/templates/accessibilite.mst"></template>
-            </layer> -->
-            <layer id="epci"
-                name="Intercommunalités"
-                visible="false"
-                legendurl="https://geobretagne.fr/apps/megalis-services/img/lgd_epci.png"
-                vectorlegend="true"
-                url="https://geobretagne.fr/apps/megalis-services/customlayers/epci.js"
-                tooltip="true" fields="organisme" tooltipenabled="true"
-                queryable="false"
-                type="customlayer"
-                opacity="1"
-                expanded="false"
-                attribution="Mégalis Bretagne"
-                metadata="https://geobretagne.fr/geonetwork/apps/georchestra/?uuid=2fedae07-6854-47b1-a370-98153d4edde7"
-                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
-                infopanel="right-panel">
-                <template url=""></template>
-            </layer>
+                <template url="apps/megalis-services/templates/pes.mst"></template>
+            </layer>            
+        </theme>
+        <theme name="Pour vos citoyens"  collapsed="true" id="theme2" icon="fas fa-angle-right">
+            <layer id="services_organisme" name="Opendata" type="wms"
+                    url="{{data_server_url}}/geoserver/megalis/wms"
+                    featurecount="20"
+                    styletitle="Publication opendata"
+                    tiled="true"
+                    visible="false"
+                    customcontrol="false"
+                    customcontrolpath="apps/megalis-services/customcontrols"
+                    legendurl="apps/megalis-services/img/lgd_opendata.png"
+                    expanded="false"
+                    infoformat="application/vnd.ogc.gml"
+                    sld="{{app_server_url}}/apps/megalis-services/sld/opendata.sld,{{app_server_url}}/apps/megalis-services/sld/opendata_budget.sld,{{app_server_url}}/apps/megalis-services/sld/opendata_deliberation.sld,{{app_server_url}}/apps/megalis-services/sld/opendata_decp.sld"
+                    style="" opacity=""
+                    stylesalias="Synthèse,Budgets,Délibérations,Commande publique"
+                    attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                    timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
+                    attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true"
+                    metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
+                    metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                    infopanel="right-panel">
+                    <template url="apps/megalis-services/templates/opendata.mst"></template>
+                </layer>
 		</theme>
+        <theme name="Pour votre cybersécurité"  collapsed="true" id="theme3" icon="fas fa-angle-right">
+            <layer id="services_organisme" name="Parcours cybersécurité" type="wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
+                tiled="false"
+                visible="false"
+                expanded="false"
+                infoformat="application/vnd.ogc.gml"
+                legendurl="apps/megalis-services/img/lgd_cyber.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_cyber.sld"
+                style="" opacity=""
+                stylesalias=""
+                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
+                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url="apps/megalis-services/templates/cyber.mst"></template>
+            </layer>
+        </theme>
+        <theme name="Pour une démarche de sobriété et d’accessibilité"  collapsed="true" id="theme4" icon="fas fa-angle-right">
+            <layer id="services_organisme" name="Accessibilité numérique" type="wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
+                tiled="false"
+                visible="false"
+                expanded="false"
+                infoformat="application/vnd.ogc.gml"
+                legendurl="apps/megalis-services/img/lgd_accessibilite.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_accessibilite.sld"
+                style="" opacity=""
+                stylesalias=""
+                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
+                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url="apps/megalis-services/templates/accessibilite.mst"></template>
+            </layer>
+            <layer id="services_organisme" name="Sobriété numérique" type="wms"
+                url="{{data_server_url}}/geoserver/megalis/wms"
+                tiled="false"
+                visible="false"
+                expanded="false"
+                infoformat="application/vnd.ogc.gml"
+                legendurl="apps/megalis-services/img/lgd_sobriete.png"
+                sld="{{app_server_url}}/apps/megalis-services/sld/service_sobriete.sld"
+                style="" opacity=""
+                stylesalias=""
+                attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
+                timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
+                attribution="Les collectivites 'Autres' sont représentées par un point au centre de la commune &lt;p &lt;/p> Mégalis Bretagne" queryable="true" featurecount="10"
+                metadata="https://geobretagne.fr/datahub/dataset/2fedae07-6854-47b1-a370-98153d4edde7"
+                metadata-csw="https://geobretagne.fr/geonetwork/srv/fre/csw?SERVICE=CSW&amp;VERSION=2.0.2&amp;REQUEST=GetRecordById&amp;elementSetName=full&amp;ID=2fedae07-6854-47b1-a370-98153d4edde7"
+                infopanel="right-panel">
+                <template url="apps/megalis-services/templates/sobriete.mst"></template>
+            </layer>
+        </theme>
     </themes>
 </config>

@@ -23,7 +23,7 @@
 					<div class="col1">
 						<div class="icon-block">
                             <!-- MODIFIER : src >> lien vers l'icône du service -->
-							<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/sobriete.svg">
+							<img class="icon" src="apps/megalis-services/img/sobriete.svg">
 						</div>
 					</div>
 					<div class="service-block-info">
@@ -46,7 +46,7 @@
                 <!-- MODIFIER : class >> icon-clock-nomduservice -->
 				<div class="icon-block-sobriete">
                     <!-- MODIFIER : src >> lien vers l'icône du service -->
-					<img class="icon" src="https://geobretagne.fr/apps/megalis-services/img/sobriete.svg">
+					<img class="icon" src="apps/megalis-services/img/sobriete.svg">
 				</div>
                 <!-- MODIFIER : class >> user-title-feature-nomduservice -->
 				<h2 class="user-title-feature-sobriete">Oops !</h2>
@@ -67,10 +67,9 @@
 
 	/* Définition des propriétés de style pour le service */
 	:root {
-		--mycolor:#161A30;
+		--mycolor:black;
         /* MODIFIER : code couleur #XXXXXX associé au service numérique */
-		--mycolorthemeservice:#348379;
-		--myfont:'Inter', sans-serif;
+		--mycolorthemeservice:#07BBB1;
 	}
 	/* */
 
@@ -80,7 +79,6 @@
 
 	.title-feature {
 		color: var(--mycolor);
-	    font-family: var(--myfont);
 	    font-size: 19px;
 	    line-height: 1.2;
 		font-weight: 700;
@@ -88,14 +86,12 @@
 
 	.subtitle-feature {
 		color: var(--mycolor);
-		font-family:var(--myfont);
 		font-size:18px;
 		margin-top:7%;
 		line-height:1;
 	}
 
 	.text-feature, p {
-		font-family:var(--myfont);
 		color:#555;
 		font-size:13px;
 	}
@@ -209,7 +205,6 @@
 	}
 
 	.btn-link-user a{
-		font-family: var(--myfont);
 		border: solid 1px #161A30;
 		color: #161A30;
 		padding: 8px 12px;

@@ -54,7 +54,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sld="http://www.opengis.net/sld
 			   <sld:Mark>
 				 <sld:WellKnownName>circle</sld:WellKnownName>
 				 <sld:Fill>
-				   <sld:CssParameter name="fill">#5FC0C3</sld:CssParameter>
+				   <sld:CssParameter name="fill">#13406E</sld:CssParameter>
 				   <sld:CssParameter name="fill-opacity">0.9</sld:CssParameter>
 				 </sld:Fill>
 				 <sld:Stroke>
@@ -86,7 +86,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sld="http://www.opengis.net/sld
 			   <sld:Mark>
 				 <sld:WellKnownName>circle</sld:WellKnownName>
 				 <sld:Fill>
-				   <sld:CssParameter name="fill">#5FC0C3</sld:CssParameter>
+				   <sld:CssParameter name="fill">#13406E</sld:CssParameter>
 				   <sld:CssParameter name="fill-opacity">0.9</sld:CssParameter>
 				 </sld:Fill>
 				 <sld:Stroke>
@@ -118,7 +118,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sld="http://www.opengis.net/sld
 			   <sld:Mark>
 				 <sld:WellKnownName>circle</sld:WellKnownName>
 				 <sld:Fill>
-				   <sld:CssParameter name="fill">#5FC0C3</sld:CssParameter>
+				   <sld:CssParameter name="fill">#13406E</sld:CssParameter>
 				   <sld:CssParameter name="fill-opacity">0.9</sld:CssParameter>
 				 </sld:Fill>
 				 <sld:Stroke>
@@ -144,7 +144,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sld="http://www.opengis.net/sld
 			   <sld:Mark>
 				 <sld:WellKnownName>circle</sld:WellKnownName>
 				 <sld:Fill>
-				   <sld:CssParameter name="fill">#5FC0C3</sld:CssParameter>
+				   <sld:CssParameter name="fill">#13406E</sld:CssParameter>
 				   <sld:CssParameter name="fill-opacity">0.9</sld:CssParameter>
 				 </sld:Fill>
 				 <sld:Stroke>

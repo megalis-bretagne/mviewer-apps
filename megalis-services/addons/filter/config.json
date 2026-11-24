@@ -1,28 +1,22 @@
 {
-  "js": ["js/filter.js", "js/jquery.easyDrag.min.js"],
+  "js": ["js/filter.js", "../lib/jquery.easyDrag.min.js"],
   "css": "css/filter.css",
   "html": "filter.html",
   "target": "page-content-wrapper",
   "options": {
-    "mviewer":{
-      "filter":{
-        "tooltipPosition": "bottom-left",
+    "mviewer": {
+      "mbzh_services":{
         "title": "Filtrer les entités",
         "open": true,
         "zoomOnFeatures": true,
         "legendTitle": "Sélectionner une donnée :",
-        "style": {
-          "border": "",
-          "background": "",
-          "text": "",
-          "colorButton": ""
-        },
         "layers": [{
           "layerId": "synthese_user",
           "filter": [{
               "attribut": "level",
               "type": "button",
-              "label": "Type de collectivités"
+              "label": "Type de collectivités",
+              "dataSeparator":","
             },
             {
               "attribut": "organisme",
