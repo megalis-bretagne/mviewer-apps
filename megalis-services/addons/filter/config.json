@@ -7,7 +7,7 @@
     "mviewer": {
       "mbzh_services":{
         "title": "Filtrer les entités",
-        "open": true,
+        "open": false,
         "zoomOnFeatures": true,
         "legendTitle": "Sélectionner une donnée :",
         "layers": [{

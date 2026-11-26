@@ -64,3 +64,275 @@
 .layerdisplay-titleLabel {
     font-weight: bold;
 }
+
+/* Template - style pour les services */
+
+/* VARIABLES COMMUNES                         */
+
+.service-template {
+    --colorcommonservice: #000000;
+    --service-color-light: color-mix(in srgb, var(--service-color) 10%, white);
+    --service-icon-color: color-mix(in srgb, var(--service-color) 70%, white);
+    --service-color-dark: color-mix(in srgb, var(--service-color) 80%, black);
+    --service-border-color: color-mix(in srgb, var(--service-color) 25%, white);
+    --service-radius: 20px;
+    --service-icon-radius: 8px;
+    --service-button-radius: 10px;
+    --service-padding: 20px;
+    --service-gap: 20px;
+}
+
+/* INFORMATIONS SUR LA COLLECTIVITÉ           */
+
+.service-template .title-feature {
+  	color: var(--colorcommonservice);
+    font-size: 19px;
+    font-weight: 600;
+    font-family: var(--mvcustom-fontSignika);
+}
+
+.service-template .select-features-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
+
+.service-template .select-features {
+  background-color: var(--colorcommonservice);
+    padding: 3px 8px;
+    color: white;
+    font-size: 11px;
+    border-radius: 12px;
+}
+
+/* ========================================== */
+/* GESTION DES STATUTS              */
+/* ========================================== */
+
+/* Masquage par défaut des états OUI et NON */
+
+.service-template .user-service-oui,
+.service-template .user-service-non {
+  display: none;
+}
+
+/* Affichage par défaut si statut inconnu */
+
+.service-template .user-service-unknown {
+  display: block;
+}
+
+/* Service utilisé */
+
+.service-template [data-service-status="OUI"] .user-service-oui {
+  display: block;
+}
+
+/* Service non utilisé */
+
+.service-template [data-service-status="NON"] .user-service-non {
+  display: block;
+}
+
+/* Masquage de l'état inconnu si OUI ou NON */
+
+.service-template [data-service-status="OUI"] .user-service-unknown,
+.service-template [data-service-status="NON"] .user-service-unknown {
+  display: none;
+}
+
+/* STRUCTURE COMMUNE DES BLOCS                */
+
+.service-template .service-container {
+  margin-top: 20px;
+}
+
+.service-template .service-block {
+  padding: var(--service-padding);
+  border-radius: var(--service-radius);
+  box-sizing: border-box;
+}
+
+.service-template .service-header {
+  display: flex;
+  align-items: center;
+  gap: var(--service-gap);
+}
+
+/* Icon                                */
+
+.service-template .service-icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  background-color: var(--service-icon-color);
+  background-image: var(--service-icon);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 36px;
+  border-radius: var(--service-icon-radius);
+}
+
+/* INFORMATIONS DU SERVICE                    */
+
+.service-template .service-block-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.service-template .service-title {
+  font-weight: 600;
+  margin: 0;
+}
+
+/* STATUT DU SERVICE                          */
+
+.service-template .service-status {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    font-size: 14px;
+}
+
+/* ========================================== */
+/* SÉPARATEUR ET DESCRIPTION                  */
+/* ========================================== */
+
+.service-template .service-divider {
+  height: 1px;
+  margin: 15px 0;
+}
+
+.service-template .service-description {
+  font-size: 13px;
+  margin: 0px 0 15px;
+}
+
+.service-template .service-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 15px;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: var(--service-button-radius);
+  font-family: var(--myfont);
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.service-template .service-button:hover {
+  text-decoration: none;
+}
+
+.service-template .service-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* ========================================== */
+/* SERVICE UTILISÉ                            */
+/* ========================================== */
+
+.service-template .service-block.user-service-oui {
+    background-color: var(--service-color);
+    color: #ffffff;
+}
+
+.service-template .user-service-oui .service-title,
+.service-template .user-service-oui .service-status,
+.service-template .user-service-oui .service-description {
+  color: #ffffff;
+}
+
+.service-template .user-service-oui .service-subtitle {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.service-template .user-service-oui .service-divider {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.service-template .user-service-oui .service-button {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.service-template .user-service-oui .service-button:hover {
+  background-color: #ffffff;
+  color: var(--service-color);
+  border-color: #ffffff;
+}
+
+/* ========================================== */
+/* SERVICE NON UTILISÉ                        */
+/* ========================================== */
+
+.service-template .service-block.user-service-non {
+  background-color: var(--service-color-light);
+}
+
+.service-template .user-service-non .service-title {
+  color: var(--service-color);
+}
+
+.service-template .user-service-non .service-subtitle,
+.service-template .user-service-non .service-status {
+  color: #626879;
+}
+
+.service-template .user-service-non .service-description {
+  color: #555b70;
+}
+
+.service-template .user-service-non .service-divider {
+  background-color: var(--service-border-color);
+}
+
+.service-template .user-service-non .service-button {
+  color: var(--service-color);
+  border-color: var(--service-color);
+}
+
+.service-template .user-service-non .service-button:hover {
+  background-color: var(--service-color);
+  color: #ffffff;
+}
+
+/* ========================================== */
+/* DONNÉES INDISPONIBLES                       */
+/* ========================================== */
+
+.service-template .service-block.user-service-unknown {
+  background-color: #f1f2f4;
+}
+
+.service-template .user-service-unknown .service-icon {
+  background-color: #9298a5;
+}
+
+.service-template .user-service-unknown .service-title {
+  color: #555b70;
+}
+
+.service-template .user-service-unknown .service-status,
+.service-template .user-service-unknown .service-subtitle,
+.service-template .user-service-unknown .service-description {
+  color: #626879;
+}
+
+.service-template .user-service-unknown .service-divider {
+  background-color: #d9dce2;
+}
+
+.service-template .user-service-unknown .service-description {
+  margin-bottom: 0;
+}
+

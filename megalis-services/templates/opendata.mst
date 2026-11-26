@@ -1,521 +1,577 @@
 {{#features}}
-	<li class="item" id="{{feature_ol_uid}}" style="">
-		<div class="flip-card flip-card-{{opendata_publie}}">
-  			<div class="flip-card-inner">
-    			<div class="flip-card-front">
-					<h3 class="title-feature">{{organisme}}</h3>
-					<div id="select-features-list">
-						<span class="select-features">{{level}}</span>
-						<span class="select-features">{{annee}}</span>
-						<span class="select-features">SIREN : {{siren}}</span>
-						<!-- Alerte: Chiffres de l'année en cours -->
-						<p class="warning warning-info{{annee}}">Les informations affichées représentent l'année en cours</p>
-					</div>
-
-					<div id="user-opendata-{{opendata_publie}}">
-						<!-- L'entité utilise le service -->
-						<div class="user-service-oui">
-							<div class="service-block-actes">
-								<div class="col1">
-									<div class="icon-block">
-										<img class="icon" src="apps/megalis-services/img/opendata.svg">
-									</div>
-								</div>
-								<div class="service-block-info">
-									<p class="service-title">Publication opendata</p>
-									<p class="text-feature"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> la collectivité publie des documents en open data</p>
-								</div>
-							</div>
-
-							<!-- Chiffres clés + graphique -->
-							<div class="service-block-number row">
-								<div class="col-sm-12">
-									<div class="block-grey block-number">
-										<img class="icon" src="apps/megalis-services/img/procedure.svg" style="width: 40px;">
-										<span class="number-feature-marches">{{nb_delib_publie}}</span>
-										<span class="title-number-feature-marches">délibération(s)</span>
-										<div class="subtitle-number-feature">pour l'entité et l'année sélectionnées</div>
-										<div class="reuse btn-link-user center">
-											<a type="btn" style="cursor: pointer;" onclick="flipCard(this);">Réutiliser</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-12">
-									<div class="block-grey block-number">
-										<img class="icon" src="apps/megalis-services/img/decp.svg" style="width: 40px;">
-										<span class="number-feature-marches">{{nb_decp_publie}}</span>
-										<span class="title-number-feature-marches">commande(s) publique(s)</span>
-										<div class="subtitle-number-feature">pour l'entité et l'année sélectionnées</div>
-										<div class="reuse btn-link-user center">
-											<a type="btn" style="cursor: pointer;" href="{{url_marches}}" target="_blank">Réutiliser</a>
-										</div>
-									</div>
-								</div>
-								<div id="user-budget-{{budget_publie}}" class="col-sm-12">
-									<div class="block-grey block-number">
-										<img class="icon" src="apps/megalis-services/img/budget.svg" style="width: 40px;">
-										<span class="title-number-feature-marches">le budget</span>
-										<div class="subtitle-number-feature">pour l'entité et l'année sélectionnées</div>
-									</div>
-								</div>
-
-							</div>
-
-						</div>
-
-						<!-- L'entité n'utilise pas le service -->
-						<div class="user-service-non">
-							<div class="icon-block-actes">
-								<img class="icon" src="apps/megalis-services/img/flux_actes.svg">
-							</div>
-							<h2 class="user-title-feature-actes">Oops !</h2>
-							<p class="text-feature">Il semble que cette collectivité n'a pas encore publié de données en opendata en {{annee}}.</p>
-							<div class="btn-link-user">
-								<a href="https://services.megalis.bretagne.bzh/service/opendata-2/" target="_blank">En savoir plus</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="flip-card-back">
-					<span class="title-feature">Comment réutiliser les données opendata ?</span>
-					<div class="mqb-container">
-						<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-						<span class="service-title center">la marque blanche intégrable dans votre propre site web</span>
-						<div class="center">
-							<span id="code_mqb" onclick="showMarqueBlanche(this);"><code>&lt;code/&gt;</code></span>
-							<span class="btn-link-user"><a type="btn" style="cursor: pointer;" onclick="flipCard(this);">Retour</a></span>
-						</div>
-
-						<div class="card">
-							<div class="front-marqueblanche">
-								<iframe referrerpolicy="strict-origin-when-cross-origin" style="border:none;" src="{{url_actes}}" title="Marque blanche open data"
-									width="100%" height="600">
-								</iframe>
-							</div>
-							<div class="back-marqueblanche">
-								<p>Pour intégrer la marque blanche dans votre propre site web, copier le code suivant et coller le dans une page de votre site web</p>
-								<div class="code-container">
-									<code>&lt;iframe referrerpolicy="strict-origin-when-cross-origin" style="border: 0;" src="{{url_actes}}" title="Marque blanche open data" width="100%" height="600"&gt;&lt;/iframe&gt;</code>
-								</div>
-								<div class="btn-link-user">
-									<a type="btn" style="cursor: pointer;" onclick="showMarqueBlanche(this);">Afficher le résultat</a>
-								</div>
-							</div>
-
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</li>
+    <li class="item service-template service-opendata"
+        id="{{feature_ol_uid}}">
+        <div class="opendata-views">
+            <!-- FICHE DE SYNTHÈSE           -->
+            <div class="opendata-summary">
+                <!-- Informations sur la collectivité -->
+                <h3 class="title-feature">{{organisme}}</h3>
+                <div class="select-features-list">
+                    <span class="select-features">{{level}}</span>
+                    <span class="select-features">{{annee}}</span>
+                    <span class="select-features">SIREN : {{siren}}</span>
+                </div>
+                <!-- Statut du service -->
+                <div class="service-container"
+                    data-service-status="{{opendata_publie}}">
+                    <!-- SERVICE UTILISÉ                    -->
+                    <div class="service-block user-service-oui">
+                        <div class="service-header">
+                            <div class="service-icon"></div>
+                            <div class="service-block-info">
+                                <p class="service-title">
+                                    Publication Open Data
+                                </p>
+                                <div class="service-status">
+                                    <i class="ri-checkbox-circle-line"
+                                    aria-hidden="true"></i>
+                                    Service utilisé
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-divider"></div>
+                        <p class="service-description">
+                            Cette collectivité publie des documents
+                            en Open Data en {{annee}}.
+                        </p>
+                    </div>
+                    <!-- SYNTHÈSE DES PUBLICATIONS          -->
+                    <div class="service-summary mt-4 user-service-oui">
+                        <h4 class="service-section-title">
+                            Publications en {{annee}}
+                        </h4>
+                        <div class="service-grid">
+                            <!-- DÉLIBÉRATIONS -->
+                            <div class="service-stat-block" data-stat-value="{{nb_delib_publie}}">
+                                <div class="service-stat-subblock">
+                                    <div class="service-stat-icon">
+                                        <i class="ri-file-paper-2-line"></i>
+                                    </div>
+                                    <div>
+                                        <div class="service-stat-value">
+                                            {{nb_delib_publie}}
+                                        </div>
+                                        <div class="service-stat-label">
+                                            Délibérations
+                                        </div>
+                                    </div>
+                                </div>
+                                {{#url_actes}}
+                                    <button type="button"
+                                        class="service-stat-button"
+                                        onclick="showOpenDataView(this, true);">
+                                        Réutiliser
+                                        <i class="ri-arrow-right-up-line"></i>
+                                    </button>
+                                {{/url_actes}}
+                            </div>
+                            <!-- COMMANDES PUBLIQUES -->
+                            <div class="service-stat-block" data-stat-value="{{nb_decp_publie}}">
+                                <div class="service-stat-subblock">
+                                    <div class="service-stat-icon">
+                                        <i class="ri-megaphone-line"></i>
+                                    </div>
+                                    <div>
+                                        <div class="service-stat-value">
+                                            {{nb_decp_publie}}
+                                        </div>
+                                        <div class="service-stat-label">
+                                            Commandes publiques
+                                        </div>
+                                    </div>
+                                </div>
+                                {{#url_marches}}
+                                    <a class="service-stat-button"
+                                        href="{{url_marches}}"
+                                        target="_blank"
+                                        rel="noopener noreferrer">
+                                        Réutiliser
+                                        <i class="ri-arrow-right-up-line"></i>
+                                    </a>
+                                {{/url_marches}}
+                            </div>
+                            <!-- BUDGET -->
+                            <div class="service-stat-block service-stat-wide" data-budget-status="{{budget_publie}}">
+                                <div class="service-stat-icon">
+                                    <i class="ri-money-euro-circle-line"></i>
+                                </div>
+                                <div class="service-stat-info">
+                                    <div class="service-stat-label">
+                                        Budget de la collectivité publié
+                                    </div>
+                                    <div class="service-stat-description">
+                                        Informations budgétaires
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- SERVICE NON UTILISÉ                -->
+                    <div class="service-block user-service-non">
+                        <div class="service-header">
+                            <div class="service-icon"></div>
+                            <div class="service-block-info">
+                                <p class="service-title">
+                                    Publication Open Data
+                                </p>
+                                <div class="service-status">
+                                    <i class="ri-close-circle-line"
+                                    aria-hidden="true"></i>
+                                    Service non utilisé
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-divider"></div>
+                        <p class="service-description">
+                            Aucune publication de documents en Open Data
+                            n'est recensée pour cette collectivité en {{annee}}.
+                        </p>
+                        <a class="service-button"
+                            href="https://services.megalis.bretagne.bzh/service/opendata/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            En savoir plus sur le service
+                            <i class="ri-arrow-right-up-line"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- RÉUTILISATION DES DONNÉES  -->
+            <div class="opendata-reuse" hidden>
+                <!-- Bouton de retour -->
+                <button type="button"
+                    class="service-stat-button service-back-button"
+                    onclick="showOpenDataView(this, false);">
+                    <i class="ri-arrow-left-line"></i>
+                    Retour à la fiche
+                </button>
+                <h3 class="title-feature">
+                    Comment réutiliser les données Open Data ?
+                </h3>
+                <div class="mqb-container">
+                    <!-- Présentation de la marque blanche -->
+                    <div class="service-mqb-block">
+                        <div class="service-header">
+                            <div class="service-mqb-icon">
+                                <i class="ri-code-s-slash-line"></i>
+                            </div>
+                            <div class="service-block-info">
+                                <p class="service-title">
+                                    Marque blanche
+                                </p>
+                                <p class="service-description">
+                                    Intégrez les délibérations de cette
+                                    collectivité directement dans votre
+                                    propre site web.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Navigation aperçu / code -->
+                    <div class="service-mqb-tabs">
+                        <button type="button"
+                            class="service-mqb-tab tab-preview"
+                            onclick="showMarqueBlanche(this, false);">
+                            <i class="ri-eye-line"></i>
+                            Aperçu
+                        </button>
+                        <button type="button"
+                            class="service-mqb-tab tab-code"
+                            onclick="showMarqueBlanche(this, true);">
+                            <i class="ri-code-s-slash-line"></i>
+                            Code HTML
+                        </button>
+                    </div>
+                    <!-- Contenu de la marque blanche -->
+                    <div class="card service-mqb-content">
+                        <!-- APERÇU -->
+                        <div class="front-marqueblanche">
+                            {{#url_actes}}
+                                <iframe
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    src="{{url_actes}}"
+                                    title="Marque blanche Open Data"
+                                    width="100%"
+                                    height="600"
+                                    loading="lazy">
+                                </iframe>
+                            {{/url_actes}}
+                        </div>
+                        <!-- CODE HTML -->
+                        <div class="back-marqueblanche">
+                            <p class="service-description">
+                                Pour intégrer la marque blanche dans
+                                votre propre site web, copiez le code
+                                suivant et collez-le dans une page
+                                de votre site web.
+                            </p>
+                            <div class="code-container">
+                                <pre><code>&lt;iframe
+									referrerpolicy="strict-origin-when-cross-origin"
+									style="border: 0;"
+									src="{{url_actes}}"
+									title="Marque blanche Open Data"
+									width="100%"
+									height="600"&gt;
+								&lt;/iframe&gt;</code></pre>
+                            </div>
+                            <button type="button"
+                                class="service-stat-button"
+                                onclick="showMarqueBlanche(this, false);">
+                                <i class="ri-eye-line"></i>
+                                Afficher le résultat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+{{/features}}
 
 <style>
+/* PERSONNALISATION DU SERVICE                */
 
-	/* Définition des propriétés de style pour le service */
-	:root {
-		--mycolor:#161A30;
-		--mycolortheme3:#e6807c;
-		--myfont:'Inter', sans-serif;
-	}
-
-	.flip-card {
-  background-color: transparent;
-  width: fit-content;
-  height: 100%;
-  perspective: 1000px;
-  width:100%;
+.service-opendata {
+    --service-color: #FD4B1E;
+    --service-icon: url("../img/opendata.svg");
 }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);*/
+/*
+ * Le style de ce template est centralisé
+ * dans le fichier de thème css/megalisbzh.css.
+ */
+
+/* Navigation entre la synthèse et la réutilisation */
+.service-opendata .opendata-views,
+.service-opendata .opendata-summary,
+.service-opendata .opendata-reuse {
+    width: 100%;
 }
 
-.service-block-number .col-sm-4 {
-	padding-bottom: 15px;
+.service-opendata .opendata-views [hidden] {
+    display: none !important;
 }
 
-.flip-card.flip-card-OUI.hover .flip-card-inner {
-  transform: rotateY(180deg);
+/* BOUTON RETOUR                              */
+
+.service-template .service-back-button {
+    margin: 0 0 15px;
 }
 
-.flip-card-OUI.hover .user-service-oui {
-	display: none;
+/* PICTOGRAMMES SVG DES INDICATEURS           */
+
+.service-template .service-stat-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
 }
 
-.flip-card.flip-card-OUI.hover .flip-card-front {
-	display: none;
+/* MARQUE BLANCHE - PRÉSENTATION               */
+
+.service-template .mqb-container {
+    margin-top: 20px;
 }
 
-.flip-card.flip-card-OUI:not(.hover) .flip-card-back {
-	display: none;
+.service-template .service-mqb-block {
+    padding: 20px;
+    background-color: var(--service-color-light);
+    border-radius: var(--service-radius);
 }
 
-.mqb-container.code span code {
-	display: none;
+.service-template .service-mqb-block .service-title {
+    color: var(--service-color);
 }
 
-
-.flip-card-front, .flip-card-back {
-  /*position: absolute;*/
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+.service-template .service-mqb-block .service-description {
+    color: #555b70;
+    margin: 0;
 }
 
-.flip-card-front {
-
+.service-template .service-mqb-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    background-color: var(--service-icon-color);
+    border-radius: var(--service-icon-radius);
+    color: white;
+    font-size: 28px;
 }
 
-.flip-card-back {
-  transform: rotateY(180deg);
-  padding-top: 15px;
+/* MARQUE BLANCHE - ONGLETS                    */
+
+.service-template .service-mqb-tabs {
+    display: flex;
+    gap: 5px;
+    padding: 5px;
+    margin: 20px 0 15px;
+    background-color: #f0f0f2;
+    border-radius: 12px;
 }
 
-.code-container {
-	border: solid 1px grey;
+.service-template .service-mqb-tab {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex: 1;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #666;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
-#code-mqb {
-	position: absolute;
-	right:0px;
+.service-template .service-mqb-tab i {
+    font-size: 17px;
 }
 
-.arrow-down {
-    width: 0;
-    height: 0;
+/* Onglet actif : aperçu */
 
-    border-right: 16px solid transparent;
-    border-left: 16px solid transparent;
-
-    border-top: 20px solid var(--mycolortheme3);
-}
-.arrow-wrapper {
-    display: inline-flex;
-    margin: 15px 0 0;
-	padding-bottom: 20px;
+.service-template .mqb-container:not(.code)
+.tab-preview,
+/* Onglet actif : code HTML */
+.service-template .mqb-container.code
+.tab-code {
+    background-color: white;
+    color: var(--service-color);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
-span code {
-    font-size: large;
-	cursor: pointer;
-	color: var(--mycolortheme3);
-	position: relative;
+.service-template .service-mqb-tab:focus-visible {
+    outline: 2px solid var(--service-color-dark);
+    outline-offset: 2px;
 }
 
-.mqb-container, .card {
-	padding-top: 15px;
+/* MARQUE BLANCHE - CONTENU                    */
+
+.service-template .service-mqb-content {
+    border: 1px solid #e2e2e2;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-.back-marqueblanche {
-	display:none;
-}
-.code .front-marqueblanche {
-	display:none;
-}
-.code .back-marqueblanche {
-	display:block;
+/* MARQUE BLANCHE - APERÇU                     */
+
+.service-template .front-marqueblanche {
+    display: block;
 }
 
+.service-template .front-marqueblanche iframe {
+    display: block;
+    width: 100%;
+    height: 600px;
+    border: none;
+}
+
+/* MARQUE BLANCHE - CODE HTML                  */
+
+.service-template .back-marqueblanche {
+    display: none;
+    padding: 20px;
+}
+
+.service-template .back-marqueblanche
+.service-description {
+    color: #555b70;
+}
+
+.service-template .code-container {
+    margin: 15px 0 20px;
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    background-color: #f5f5f7;
+    overflow: hidden;
+}
+
+.service-template .code-container pre {
+    margin: 0;
+    padding: 15px;
+    background-color: transparent;
+    border: none;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.service-template .code-container code {
+    color: var(--colorcommonservice);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* BASCULE APERÇU / CODE                       */
+
+.service-template .mqb-container.code
 .front-marqueblanche {
-	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    display: none;
 }
 
-
+.service-template .mqb-container.code
 .back-marqueblanche {
-	margin-top: 20px;
-	padding-left: 50px;
-	padding-right: 50px;
+    display: block;
 }
 
-:checked + .card {
-    transform: rotateX(180deg);
-    -webkit-transform: rotateX(180deg);
-}*/
+/* VARIABLES DES BLOCS STATISTIQUES           */
 
+.service-template {
+    --service-stat-bg: #f0f0f2;
+    --service-stat-color: black;
+    --service-stat-radius: 20px;
+    --service-stat-gap: 15px;
+}
 
+/* SECTION DE SYNTHÈSE                        */
 
+/* Affichage uniquement si le service est utilisé */
 
-	#templateRight {
-		padding: 10px;
-	}
+.service-template [data-service-status="OUI"] > .service-summary {
+    display: block;
+}
 
-	.title-feature {
-		color: var(--mycolor);
-	    font-family: var(--myfont);
-	    font-size: 19px;
-	    line-height: 1.2;
-		font-weight: 700;
-	}
+.service-template .service-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 15px;
+}
 
-	.subtitle-feature {
-		color: var(--mycolor);
-		font-family:var(--myfont);
-		font-size:18px;
-		margin-top:7%;
-		line-height:1;
-	}
+/* GRILLE DES INDICATEURS                     */
 
-	.text-feature, p {
-		font-family:var(--myfont);
-		color:#555;
-		font-size:13px;
-	}
+.service-template .service-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--service-stat-gap);
+}
 
-	.center{
-		text-align:center;
-	}
+.service-template .service-stat-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+    padding: 15px;
+    background-color: white;
+    border: 1px solid #e2e2e2;
+    border-radius: 15px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
 
-	.block-grey {
-    	border-radius: 20px;
-    	background-color: #e2e2e28f;
-    	//height: 250px;
-		margin-bottom: 20px;
-	}
+.service-template .service-stat-block.service-stat-wide{
+    justify-content: start;
+}
+.service-stat-subblock {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
 
-	.block-number{
-		padding: 20px 10px;
-	}
+/* PICTOGRAMMES                               */
 
-	.block-graph{
-		padding: 25px 15px;
-	}
+.service-template .service-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    color: white;
+    font-size: 28px;
+    background-color: var(--service-color);
+    border-radius: 5px;
+}
 
-	/* Critères de selection des entités */
+/* CHIFFRES CLÉS                              */
 
-	span.select-features {
-		background-color: var(--mycolor);
-		padding: 5px 10px;
-		color: white;
-		font-size: 11px;
-		font-family: var(--myfont);
-		border-radius: 12px;
-	}
+.service-template .service-stat-value {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--service-color);
+}
 
-	/* Message d'alerte sur la validité des informations */
+.service-template .service-stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--service-color);
+}
 
-	p.warning {
-		font-size: 11px!important;
-		font-style: italic!important;
-		font-weight: 500!important;
-		margin: 10px 0px;
-	}
+.service-template .service-stat-description {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #666;
+}
 
-	.warning-info2019, .warning-info2020 {
-		display:none;
-	}
+/* BOUTONS DE RÉUTILISATION                   */
 
-	.warning-info2021{
-		display:block;
-	}
+.service-template .service-stat-button {
+    padding: 8px 14px;
+    background-color: transparent;
+    border: 1px solid ;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--service-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
 
-	/* Affichage du contenu selon usagers O/N */
-	#user-opendata-OUI .user-service-non {
-		display:none;
-	}
+.service-template .service-stat-button:hover {
+    color: white;
+    text-decoration: none;
+    background-color:  var(--service-color);
+}
 
-	#user-opendata-NON .user-service-oui {
-		display:none;
-	}
+.service-template .service-stat-button:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+}
 
-	#user-budget-NON {
-		display:none;
-	}
+/* Masquage si le budget n'est pas publié */
 
-	#user-decp-OUI .user-service-non {
-		display:none;
-	}
+.service-template [data-budget-status="NON"] {
+    display: none;
+}
 
-	#user-decp-NON .user-service-oui {
-		display:none;
-	}
+/* ADAPTATION À LA LARGEUR DU PANNEAU         */
 
-	#user-delib_NON .user-service-non {
-		display:none;
-	}
-
-	#user-delib_OUI .user-service-oui {
-		display:block;
-	}
-
-
-	/* --- Mise en fome USER-OUI --- */
-
-	.user-service-oui {
-		padding: 20px 0px;
-	}
-
-	.service-block-actes {
-		background-color: var(--mycolortheme3);
-		padding: 5%;;
-    	border-radius: 20px;
-	}
-
-	.service-block-info {
-		padding: 0px 0px 0px 90px;
-		/* color: white!important; */
-	}
-
-	.user-service-oui .icon-block {
-		width: 60px;
-		padding: 12px;
-		background-color: #ffffff33;
-		border-radius: 15px;
-		position: absolute;
-	}
-
-	.service-block-info p {
-		color: white;
-	}
-
-	p.service-title {
-		font-size: 14px;
-		font-weight: 600;
-		padding: 10px 0px 0px;
-		margin: 0;
-	}
-
-	span.service-title {
-		font-size: 14px;
-		font-weight: 600;
-	}
-
-	/* Numbers */
-
-	.service-block-number {
-		margin-top: 20px;
-	}
-
-	.number-feature-actes {
-		font-size: 24px;
-		font-weight: 600;
-		color: var(--mycolortheme3);
-		margin: 10px 0px 0px;
-	}
-
-	.title-number-feature-actes {
-		font-weight: 600;
-		color: var(--mycolortheme3);
-		margin:0;
-	}
-
-	.subtitle-number-feature {
-		font-size: 10px;
-		font-style: italic;
-		padding-left: 94px;
-    	margin-top: -14px;
-	}
-
-	.block-number img.icon {
-    	margin-left: 50px;
-	}
-
-	/* Chart */
-
-	p.title-chart-feature {
-		font-size: 12px;
-		font-weight: 600;
-		margin: 0;
-	}
-
-	/* Bouton en savoir plus */
-
-	.acces-service-actes {
-		text-align: center;
-   		margin: 0 auto;
-	}
-
-	/* --- Mise en fome USER-NON --- */
-
-	.user-service-non {
-		text-align:center;
-		padding: 50px;
-	}
-
-	.user-service-non .icon-block-actes {
-		background-color: var(--mycolortheme3);
-		opacity: 0.8;
-		width: 60px;
-		border-radius: 15px;
-		padding: 12px;
-		margin: 0 auto;
-	}
-
-	h2.user-title-feature-actes {
-		font-weight: 600!important;
-		color: var(--mycolortheme3);
-	}
-
-	.modal-content .block-grey {
-		height: 300px;
-	}
-
-	.btn-link-user {
-		margin:40px 0px;
-	}
-
-	.reuse.btn-link-user {
-		margin:0px 0px;
-		padding-top: 20px;
-	}
-
-	.btn-link-user a{
-		font-family: var(--myfont);
-		border: solid 1px #161A30;
-		color: #161A30;
-		padding: 8px 12px;
-		border-radius: 8px;
-		margin: 40px 0px;
-	}
-
-	.btn-link-user a:hover {
-		background-color: #161A30;
-		color: white!important;
-		-webkit-transition: background-color 0.5s ease-out;
-		-moz-transition: background-color 0.5s ease-out;
-		-o-transition: background-color 0.5s ease-out;
-		transition: background-color 0.5s ease-out;
-	}
-
-	span#opendata-stats {
-		font-size: x-large;
-	}
-
-	.mqb-container>.center {
-		
-		padding-top: 20px;
-	}
-
+.service-template .service-summary {
+    container-type: inline-size;
+}
 </style>
+
 <script>
-	//_ODStats = mviewer.customControls.services_organisme.getStats("{{siren}}");
-</script>
+/* Affichage de la vue demandée, pour la collectivité sélectionnée */
+var showOpenDataView = function(element, showReuse) {
+    var views = element.closest(".opendata-views");
+    if (!views) return;
 
-{{/features}}
-<script>
-var showMarqueBlanche = function(element) {
-	element.closest(".mqb-container").classList.toggle("code");
-}
+    views.querySelector(".opendata-summary").hidden = showReuse;
+    views.querySelector(".opendata-reuse").hidden = !showReuse;
 
-var flipCard = function(element) {
-	element.closest(".item").querySelector(".flip-card-OUI").classList.toggle('hover');
+    var item = views.closest(".item");
+    if (item) item.scrollTop = 0;
+};
 
-}
+/* Bascule aperçu / code HTML */
+var showMarqueBlanche = function(element, showCode) {
+    var container = element.closest(".mqb-container");
+    if (!container) return;
 
-var getStats = function() {
-	if (_ODStats && _ODStats.taux_non_publie) {
-		document.getElementById("opendata-stats").textContent = `${ parseInt(100 - parseFloat(_ODStats.taux_non_publie))} %` ;
-	}
-
-}
-
-//getStats();
+    if (typeof showCode === "boolean") {
+        container.classList.toggle("code", showCode);
+    } else {
+        container.classList.toggle("code");
+    }
+};
 </script>

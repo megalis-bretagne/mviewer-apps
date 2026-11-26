@@ -1,252 +1,77 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<application
-    startUpMessage="apps/ma_commune/accueil.html"
-    startUpMessageModalSize="xl"
-    ...>
+<div class="megalis-home">
+    <header class="home-header">
+        <h1>Les services numériques Mégalis en Bretagne</h1>
+        <p>Préparer l'administration de demain et accompagner les agents dans leur transformation numérique grâce à des services mutualisés au niveau régional : telle est l'ambition du bouquet de services 2025-2029.</p>
+    </header>
 
-    <title>Accueil Mégalis - Usages des services numériques</title>
-    <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
-        /* Imports des fonts */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800;900&display=swap');
-
-        /* Définition des variables */
-
-        :root {
-            --mycolor:#161a30;
-            --myfont:'Inter', sans-serif;
-        }
-
-        /* Panel size */
-        #help .modal-dialog {
-            width: 80%!important;
-        }
-
-        #help .modal-header {
-            display: none;
-        }
-
-        #help .modal-body {
-            padding: 0;
-        }
-        #help .modal-content {
-            border-radius: 50px!important;
-            border: none;
-        }
-        #home {
-            padding: 100px 80px;
-            border-radius: 50px;
-        }
-
-
-        /**/
-
-        #home {
-            background-image: linear-gradient(to right, #126cb1, #0080ba, #0093bb, #00a4b6, #28b4ae);
-            color: white;
-            font-family: var(--myfont);
-        }
-
-        .container-home {
-            display: flex;
-            padding: 20px 0px;
-        }
-        
-        h4.title-home {
-            font-size: 25px;
-            font-family: var(--myfont)!important;
-            font-weight: 700;
-        }
-
-        p.texte-home {
-            font-size: 14px;
-            font-family: var(--myfont)!important;
-            font-weight: 300;
-            color: white;
-        }
-
-       .illustration {
-            text-align: center;
-        }
-
-        .block-text-home ul {
-            font-size: 14px;
-            font-family: var(--myfont)!important;
-            font-weight: 300;
-            color: white;
-        }
-
-        
-
-        /* Fermer */
-        #help .close {
-            color: white;
-            opacity: 1;
-            font-weight: 200;
-            font-size: 40px;
-        }
-
-        #help .close:hover {
-            opacity: 0.8;
-        }
-
-        .close-home {
-            font-size: 28px;
-            font-family: var(--myfont);
-            position: absolute;
-            right:60px;
-            top:60px;
-            font-weight: 300;
-            z-index: 5000;
-        }
-
-        #btn-open {
-            margin-top: 30px;
-        }
-
-        a.close-home-btn {
-            font-size: 13px;
-            color: white;
-            font-weight: 500;
-            background-color: var(--mycolor);
-            padding: 10px 15px;
-            border-radius: 13px;
-            box-shadow: 0px 1px 17px -2px rgb(0 0 0 / 41%);
-            -webkit-box-shadow: 0px 1px 17px -2px rgb(0 0 0 / 41%);
-            -moz-box-shadow: 0px 1px 17px -2px rgba(0,0,0,0.41);
-        }
-
-
-        a.close-home-btn:hover {
-            background-color: #252525d9;
-        }
-
-        /* Panel infos supplémentaires */
-        .block-text {
-            padding: 100px 50px;
-        }
-
-        .block-text h6 {
-            font-family: var(--myfont);
-            font-weight:600;
-            font-size:20px;
-            margin:0
-        }
-
-        /* Btn Mail */
-        .mail{
-            bottom: 105px;
-            right: 9%;
-        }
-        .info{
-            bottom: 105px;
-            right: 5%;
-        }
-        .btn-block {
-            background-color: var(--mycolor);
-            width: 50px;
-            height: 50px;
-            padding: 8px;
-            border-radius: 50px;
-            position: fixed;
-            z-index: 100;
-            box-shadow: 0px 1px 17px -2px rgb(0 0 0 / 41%);
-            -webkit-box-shadow: 0px 1px 17px -2px rgb(0 0 0 / 41%);
-            -moz-box-shadow: 0px 1px 17px -2px rgba(0,0,0,0.41);
-        }
-        .btn-block:hover {
-            opacity: 0.9;
-        }
-
-    </style>
-</head>
-<body>
-    <div id="home" class="">
-        <div id="btn-contact">
-            <div class="btn-block mail">
-                <A HREF="https://services.megalis.bretagne.bzh/formulaire-de-contact-collectivites/"><img  src="https://geobretagne.fr/apps/megalis-services/home/mail.svg" style="width: 25px;margin: 5px;"></A>
-            </div>
-        </div>
-        <div id="btn-infos">
-            <div class="btn-block info">
-                <A HREF="https://services.megalis.bretagne.bzh/annuaire-des-services-2/" target="_blank"><img  src="https://geobretagne.fr/apps/megalis-services/home/info.svg" style="width: 25px;margin: 5px;"></A>
-            </div>
-        </div>
-        
-        <div class="close-home"><button type="button" class="close" data-dismiss="modal">×</button></div>
-        <div class="logo-home">
-            <A HREF="https://services.megalis.bretagne.bzh/" target="_blank"><img  src="https://geobretagne.fr/apps/megalis-services/home/logo_megalis.svg" style="width: 100px;"></A>
-        </div>
-     
-        <div class="container-home row">
-                
-                
-                <div class="col-sm-6 block-text-home">
-                    <img  src="https://geobretagne.fr/apps/megalis-services/home/titlehome.svg" style="width: 400px;margin: 20px 0px;">
-                    <p class="texte-home">Préparer l'administration de demain et accompagner les agents dans ces mutations en proposant des services numériques mutualisés au niveau régional, telle est l'ambition renouvelée une fois encore avec le bouquet de services pour la période 2025-2029.</p>
-                    <p class="texte-home">
-                        Mégalis vous propose des services numériques pour votre quotidien :
-                        
-                    </p>
-                    
-         <li class="texte-home"><span style="text-decoration: underline;">pour votre administration</span> : am&eacute;liorer la pratique quotidienne de chaque utilisateur avec des services maintenus et am&eacute;lior&eacute;s et r&eacute;pondre &agrave; l&rsquo;&eacute;volution des besoins en proposant de nouveaux services notamment pour le partage et la collaboration.</li>
-                <ul></ul>
-                   
-                  <li class="texte-home"><span style="text-decoration: underline;">pour vos citoyens</span> : fluidifier les relations directes entre les citoyens et votre administration gr&acirc;ce &agrave; de nouveaux outils :
-                    <ul>
-                        <li class="texte-home">Rendez-vous en ligne,</li>
-                        <li class="texte-home">D&eacute;marches simplifi&eacute;es</li>
-                        <li class="texte-home">Registres d&eacute;mat&eacute;rialis&eacute;s d&rsquo;enqu&ecirc;tes publiques</li>
-                    </ul>
-                    </li>
-                    <li class="texte-home"><span style="text-decoration: underline;">pour votre cybers&eacute;curit&eacute;</span> : l&rsquo;accompagnement men&eacute; sur la cybers&eacute;curit&eacute; continue :
-                    <ul>
-                        <li>Parcours de sensibilisations (jusqu&rsquo;au 30/06/2026)</li>
-                        <li>Coffre-fort de mot de passe</li>
-                        <li>Sauvegarde en ligne</li>
-                        <li>Services propos&eacute;s par Breizh Cyber</li>
-                  
-                        </ul>
-                        <li class="texte-home"><span style="text-decoration: underline;">tout en vous accompagnant sur des sujets transverses comme l'accessibilit&eacute; et la sobri&eacute;t&eacute;</span>
-                            <ul>
-                    <p class="texte-home">Cet outil cartographique vous permet d'accéder aux statistiques d'usages des adhérents aux services proposés par Mégalis.</p>
-                    <p class="texte-home">
-                        Pour en savoir +, n'hésitez pas à consulter les tutoriels vidéos :
-                        
-                    </p>
-                    <ul>
-                            <li><a href="https://youtu.be/2PbOU7scs6U" target="_blank" style="color: #000000">accéder à une information globale sur un service Mégalis</a></li>
-                            <li><a href="https://youtu.be/8In6CX8NTds" target="_blank" style="color: #000000">accéder à la vision synthétique des services utilisés sur un territoire</a></li>
-                            <li><a href="https://youtu.be/Qp7TYubvGb8" target="_blank" style="color: #000000">réutiliser un visualiseur simplifié dans son site internet en local</a></li>
-                            
-                        </ul>
-                      <div id="btn-open">
-                        <a class="close-home-btn" data-dismiss="modal">Découvrir</a>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 illustration">
-                    <img  src="https://geobretagne.fr/apps/megalis-services/home/dataviz_home.svg" style="width:90%;">
-                </div>
-                
-                
-        </div>
-            
+    <div class="home-intro">
+        <h2><i class="ri-map-2-line" aria-hidden="true"></i> Explorer les usages numériques</h2>
+        <p>Cet outil cartographique vous permet d'accéder aux statistiques d'utilisation des services numériques proposés par Mégalis à ses adhérents.</p>
     </div>
 
+    
 
-</body>
+    <section class="home-section">
+        <h2>Prendre en main le visualiseur</h2>
+        <div class="home-tutorials">
+            <a href="https://youtu.be/2PbOU7scs6U" target="_blank" rel="noopener noreferrer"><i class="ri-play-circle-line" aria-hidden="true"></i><span>Explorer les usages d'un service</span><i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+            <a href="https://youtu.be/8In6CX8NTds" target="_blank" rel="noopener noreferrer"><i class="ri-play-circle-line" aria-hidden="true"></i><span>Découvrir les usages sur un territoire</span><i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+            <a href="https://youtu.be/Qp7TYubvGb8" target="_blank" rel="noopener noreferrer"><i class="ri-play-circle-line" aria-hidden="true"></i><span>Intégrer le visualiseur à son site internet</span><i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+        </div>
+    </section>
 
-<script type="text/javascript">
+    <section class="home-card">
+        <h2><i class="ri-database-2-line" aria-hidden="true"></i> À propos des données</h2>
+        <p>Retrouvez les informations relatives à la source, à la définition des indicateurs et à l'actualisation des données dans la fiche de métadonnées.</p>
+        <!-- Remplacer cette adresse par le lien direct vers la fiche de metadonnees. -->
+        <a class="home-link" href="https://geobretagne.fr/" target="_blank" rel="noopener noreferrer">Consulter les métadonnées <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+    </section>
 
-</script>
-</html>
+    <section class="home-card">
+        <h2><i class="ri-mail-line" aria-hidden="true"></i> Nous contacter</h2>
+        <p>Une question sur les services numériques ou les statistiques présentées ? Contactez l'équipe Mégalis Bretagne.</p>
+        <!-- Remplacer cette adresse par le lien de contact souhaite. -->
+        <a class="home-link" href="https://services.megalis.bretagne.bzh/" target="_blank" rel="noopener noreferrer">Contacter Mégalis <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
+    </section>
+</div>
+
+<style>
+    .megalis-home {
+        --home-color: black;
+        --home-accent: #1e68b1;
+        --home-light: color-mix(in srgb, var(--home-accent) 8%, white);
+        display: grid;
+        gap: 20px;
+        padding: 15px;
+        min-width: 0;
+        font-family: 'Open Sans', sans-serif;
+        color: var(--home-color);
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+    .megalis-home h1, .megalis-home h2, .megalis-home h3 { margin: 0 0 8px; color: var(--home-color); font-weight: 700; line-height: 1.35; }
+    .megalis-home h1 {
+        font-size: 30px;
+        font-family: var(--mvcustom-fontSignika);
+    }
+    .megalis-home h2 { font-size: 15px; }
+    .megalis-home h3 { font-size: 13px; margin-bottom: 3px; }
+    .megalis-home p { margin: 0; font-size: 13px; line-height: 1.6; color: #555; }
+    .megalis-home .home-eyebrow { color: var(--home-accent); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; margin-bottom: 8px; }
+    .megalis-home .home-intro { background: #edf4fb; background: var(--home-light); padding: 16px; border-radius: 15px; }
+    .megalis-home .home-intro h2 { color: var(--home-accent); }
+    .megalis-home .home-intro h2, .megalis-home .home-card h2 { display: flex; align-items: center; gap: 10px; }
+    .megalis-home h2 i { font-size: 22px; color: var(--home-accent); }
+    .megalis-home .home-services, .megalis-home .home-tutorials { display: grid; gap: 10px; }
+    .megalis-home .home-service { display: flex; align-items: flex-start; gap: 12px; padding: 6px 0; }
+    .megalis-home .home-service > i { display: flex; align-items: center; justify-content: center; flex-shrink: 0; width: 42px; height: 42px; background: #edf4fb; background: var(--home-light); color: var(--home-accent); font-size: 23px; border-radius: 8px; }
+    .megalis-home .home-service p { font-size: 12px; }
+    .megalis-home .home-tutorials a { display: flex; align-items: center; gap: 10px; padding: 12px; border: 1px solid #e2e2e2; border-radius: 8px; color: var(--home-color); text-decoration: none; font-size: 12px; }
+    .megalis-home .home-tutorials a span { flex: 1; min-width: 0; }
+    .megalis-home .home-tutorials a i { color: var(--home-accent); font-size: 19px; flex-shrink: 0; }
+    .megalis-home .home-card { border: 1px solid #e2e2e2; background: white; border-radius: 15px; padding: 16px; }
+    .megalis-home .home-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; color: var(--home-accent); font-size: 13px; font-weight: 600; text-decoration: none; }
+    .megalis-home .home-tutorials a:hover { background: #edf4fb; background: var(--home-light); border-color: var(--home-accent); }
+    .megalis-home .home-link:hover { text-decoration: underline; }
+    .megalis-home a:focus-visible { outline: 2px solid var(--home-accent); outline-offset: 3px; }
+</style>

@@ -14,7 +14,7 @@
     favicon="apps/megalis-services/img/favicon_mbzh.ico" 
     langfile="apps/megalis-services/services.i18n.json"
     togglealllayersfromtheme="true" home="https://www.megalis.bretagne.bzh/"/>
-    
+
     <mapoptions maxzoom="19" projection="EPSG:3857" center="-220750.13768758904,6144925.57790189" zoom="8" projextent="-20037508.342789244, -20037508.342789244, 20037508.342789244, 20037508.342789244" />
 
     <baselayers style="gallery"><!-- style="default"||gallery" -->
@@ -42,8 +42,8 @@
     </extensions>
     <styles>
         <selectionstyle>
-            <point radius="7" fillcolor="22,26,48" opacity="0.5" strokecolor="22,26,48" strokewidth="2" />
-            <polygon fillcolor="22,26,48" opacity="0" strokecolor="22,26,48" strokewidth="2" />
+            <point radius="7" fillcolor="red" opacity="0.5" strokecolor="red" strokewidth="2" />
+            <polygon fillcolor="22,26,48" opacity="0" strokecolor="red" strokewidth="2" />
         </selectionstyle>
         <subselectionstyle>
             <point radius="7" fillcolor="22,26,48" opacity="0.5" strokecolor="22,26,48" strokewidth="4" />
@@ -59,7 +59,7 @@
         <theme name="Synthèse"  collapsed="false" id="theme0" icon="fas fa-angle-right">
         <layer id="synthese_user"
                 name="Synthèse des usages"
-                visible="true"
+                visible="false"
                 legendurl="apps/megalis-services/img/lgd_user.png"
                 url="apps/megalis-services/customlayers/synthese_user.js"
                 tooltip="true" fields="organisme" tooltipenabled="true"
@@ -78,11 +78,11 @@
                 url="{{data_server_url}}/geoserver/megalis/wms"
                 tiled="false"
                 visible="false"
-                expanded="true"
+                expanded="false"
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_user.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/collectivites_adhesion.sld,{{app_server_url}}/apps/megalis-services/sld/nb_comptes.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias="Adhérent aux services, Nombre de compte(s) actif(s)"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -121,7 +121,7 @@
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_idelibre.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_idelibre.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -139,7 +139,7 @@
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_parapheur.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_parapheur.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -157,7 +157,7 @@
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_partage.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_partage.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -170,12 +170,12 @@
             <layer id="services_organisme" name="Salle des marchés" type="wms"
                 url="{{data_server_url}}/geoserver/megalis/wms"
                 tiled="false"
-                visible="true"
+                visible="false"
                 expanded="false"
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_sdm.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_marches.sld,{{app_server_url}}/apps/megalis-services/sld/nb_procedures.sld,{{app_server_url}}/apps/megalis-services/sld/nb_reponses.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias="Utilisation du service, Nombre de procédures lancées, Nombre de réponses reçues"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -193,7 +193,7 @@
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_actes.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_actes.sld,{{app_server_url}}/apps/megalis-services/sld/nb_actes.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias="Utilisation du service, Nombre d'actes transmis"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -211,7 +211,7 @@
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_pes.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_pes.sld,{{app_server_url}}/apps/megalis-services/sld/nb_pes.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias="Utilisation du service, Nombre de PES transmis"
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -235,7 +235,7 @@
                     expanded="false"
                     infoformat="application/vnd.ogc.gml"
                     sld="{{app_server_url}}/apps/megalis-services/sld/opendata.sld,{{app_server_url}}/apps/megalis-services/sld/opendata_budget.sld,{{app_server_url}}/apps/megalis-services/sld/opendata_deliberation.sld,{{app_server_url}}/apps/megalis-services/sld/opendata_decp.sld"
-                    style="" opacity=""
+                    style="" opacity="0.9"
                     stylesalias="Synthèse,Budgets,Délibérations,Commande publique"
                     attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                     timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -255,7 +255,7 @@
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_cyber.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_cyber.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -275,7 +275,7 @@
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_accessibilite.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_accessibilite.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
@@ -293,7 +293,7 @@
                 infoformat="application/vnd.ogc.gml"
                 legendurl="apps/megalis-services/img/lgd_sobriete.png"
                 sld="{{app_server_url}}/apps/megalis-services/sld/service_sobriete.sld"
-                style="" opacity=""
+                style="" opacity="0.9"
                 stylesalias=""
                 attributefilter="true" attributefilterenabled="true" attributefield="level" attributevalues="Commune,Intercommunalité,Département,Région,Autres"  attributelabel="Type de collectivité"
                 timefilter="true" timeinterval ="year" timecontrol="slider" timevalues="2024,2025,2026"
